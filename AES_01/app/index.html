@@ -12,46 +12,24 @@
 <head>
   <title>My AES App</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
-  <script src="js/temp/html5shiv.js"></script>
-  <script src="js/temp/jquery.min.js"></script>
-  <script src="js/temp/skel.min.js"></script>
-  <script src="js/temp/skel-layers.min.js"></script>
-  <script src="js/temp/init.js"></script>
-  <noscript>
-    <link rel="stylesheet" href="css/skel.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/style-xlarge.css" />
-  </noscript>
+  <link rel="stylesheet" href="css/skel.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style-xlarge.css" />
 </head>
 <body id="top">
 
-<!-- Header -->
-<header id="header" class="skel-layers-fixed">
-  <h1><a href="#">AES</a></h1>
-  <nav id="nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="left-sidebar.html">Left Sidebar</a></li>
-      <li><a href="right-sidebar.html">Right Sidebar</a></li>
-      <li><a href="no-sidebar.html">No Sidebar</a></li>
-      <li><a href="#" class="button special">Sign Up</a></li>
-    </ul>
-  </nav>
-</header>
-
 <!-- Banner -->
-<section id="banner">
-  <div class="inner">
-    <h2>AES Cryptography</h2>
-    <p>Basic number theory applied in Advanced Encryption Standard</p>
-    <ul class="actions">
-      <li><a href="#elements" class="button big alt">About AES</a></li>
-      <li><a href="#content" class="button big special">Demo</a></li>
-    </ul>
-  </div>
-</section>
+  <section id="banner">
+    <div class="inner">
+      <h2>AES Cryptography</h2>
+      <p>Basic number theory applied in Advanced Encryption Standard</p>
+      <ul class="actions">
+        <li><a href="#elements" class="button big alt">About AES</a></li>
+        <li><a href="input.html" class="button big special">Demo</a></li>
+      </ul>
+    </div>
+  </section>
+
 
 <!-- One -->
 <section id="one" class="wrapper style1">
@@ -61,10 +39,8 @@
   </header>
   <header>
     <p>
-      The Advanced Encryption Standard (AES) is formal
-      encryption method adopted by the National Institute of
-      Standards and Technology of the US Government, and
-      is accepted worldwide.
+      The Advanced Encryption Standard (AES) is formal encryption method adopted by the National Institute of
+      Standards and Technology of the US Government, and is accepted worldwide.
     </p>
   </header>
   <style type="text/css">
@@ -86,33 +62,32 @@
 
   <div class="container">
 
+    <div ng-controller="SpicyController">
+      <input ng-model="customSpice">
+      <button ng-click="spicy('chili')">Chili</button>
+      <button ng-click="spicy(customSpice)">Custom spice</button>
+      <p>The food is {{spice}} spicy!</p>
+    </div>
   </div>
 
-  <div class="container">
+
+  <div class="container" ng-controller="NumberController">
     <p>Plain Text</p>
     <marquee class="marquee_vertical" class="arrow_box" direction="down" behavior="scroll" scrollamount="20" >
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
+      {{displaynumber}}
     </marquee>
 
     <p>Cipher Key</p>
     <marquee class="marquee_horizontal" direction="Right" behavior="scroll" scrollamount="15" >
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
+      {{displaynumber}}
     </marquee>
 
     <p>Cipher Text</p>
     <marquee class="marquee_vertical" direction="down" behavior="scroll" scrollamount="20" >
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
-      0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0
+      {{displaynumber}}
     </marquee>
   </div>
+
   <div class="container">
     <div class="row">
       <div class="4u">
@@ -282,5 +257,24 @@
   </div>
 </footer>
 
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="js/temp/html5shiv.js"></script>
+<script src="js/temp/jquery.min.js"></script>
+<script src="js/temp/skel.min.js"></script>
+<script src="js/temp/skel-layers.min.js"></script>
+<script src="js/temp/init.js"></script>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="app.js"></script>
+<script src="view1/view1.js"></script>
+<script src="view2/view2.js"></script>
+<script src="components/version/version.js"></script>
+<script src="components/version/version-directive.js"></script>
+<script src="components/version/interpolate-filter.js"></script>
+
+<script src="Controller/cipherkey.js"></script>
 </body>
 </html>
