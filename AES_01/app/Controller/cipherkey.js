@@ -2,12 +2,7 @@
  * Created by shannon_z on 12/8/16.
  */
 
-var myApp = angular.module('myApp', [
-    'ngRoute',
-    'myApp.view1',
-    'myApp.view2',
-    'myApp.version'
-]);
+var myApp = angular.module('myApp', []);
 
 myApp.controller('NumberController', ['$scope', function($scope) {
     $scope.displaynumber = '0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0';
@@ -35,6 +30,13 @@ myApp.controller('ASCIIController', ['$scope', function($scope){
         }
     };
 }]);
+
+myApp.controller('insuredCtrl', function($scope, $http) {
+    $http.get("Controller/RCON.json").success(function (response) {
+        /*After Successfully fetch the data from JSON file assigning these data to $scope object variable*/
+        $scope.members = response.rcon;
+    });
+});
 
 
 //var key = $scope.transformation();
