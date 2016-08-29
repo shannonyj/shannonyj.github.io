@@ -8,6 +8,16 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
 
+
+.inputdemoErrors .inputErrorsApp {
+	min-height: 48px; }
+
+.inputdemoErrors md-input-container > p {
+	font-size: 0.8em;
+	text-align: left;
+	width: 100%; }
+
+
 /* Basic */
 
 	body {
