@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/style-xlarge.css" />
 </head>
-<body id="top">
+
+<body id="top" ng-app="MyApp">
 
 <!-- Header -->
 <header id="header" class="skel-layers-fixed">
@@ -29,51 +30,47 @@
     </nav>
 </header>
 
-
-
 <!-- Input transform-->
 <section id="one" class="wrapper style1">
-
-
-<div ng-app="MyApp" ng-controller="ASCIIController">
-
-    <button ng-click="transformation(input01)">transform</button>
-    <table>
-        <tr>
-            <td ng-repeat="x in result track by $index" ng-if="$index <4">{{x}}</td>
-        </tr>
-        <tr >
-            <td ng-repeat="x in result track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td>
-        </tr>
-        <tr >
-            <td ng-repeat="x in result track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td>
-        </tr>
-        <tr >
-            <td ng-repeat="x in result track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td>
-        </tr>
-    </table>
-</div>
+    <header class="major">
+        <h2>Commodo accumsan aliquam</h2>
+        <p>Amet nisi nunc lorem accumsan</p>
+    </header>
+    <div class="container" ng-controller="ASCIIController">
+        <div class="row">
+            <div class="6u">
+                <button ng-click="transformation(input01)">transform</button>
+            </div>
+            <div class="6u">
+                <table>
+                    <tr><td ng-repeat="x in result track by $index" ng-if="$index <4">{{x}}</td></tr>
+                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td></tr>
+                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td></tr>
+                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </section>
+
 
 <!-- Key transform-->
 <section id="two" class="wrapper style1">
-<div ng-app="MyApp" ng-controller="ASCIIController">
-    <button ng-click="transformation(input01)">transform</button>
-    <table>
-        <tr>
-            <td ng-repeat="x in result track by $index" ng-if="$index <4">{{x}}</td>
-        </tr>
-        <tr >
-            <td ng-repeat="x in result track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td>
-        </tr>
-        <tr >
-            <td ng-repeat="x in result track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td>
-        </tr>
-        <tr >
-            <td ng-repeat="x in result track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td>
-        </tr>
-    </table>
-</div>
+    <div class="container" ng-controller="ASCIIController">
+        <div class="row">
+            <div class="6u">
+                <button ng-click="transformation(input01)">transform</button>
+            </div>
+            <div class="6u">
+                <table>
+                    <tr><td ng-repeat="x in result track by $index" ng-if="$index <4">{{x}}</td></tr>
+                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td></tr>
+                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td></tr>
+                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!--Submit Button-->
