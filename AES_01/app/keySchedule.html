@@ -34,10 +34,23 @@
 <section id="one" class="wrapper style1">
     <header class="major">
         <h2>Key Schedule</h2>
-        <p>Amet nisi nunc lorem accumsan</p>
+        <p style="font-size: medium">The expanded key can be seen as an array of 32-bit words (columns). <br>
+            The first four columns are filled with the given Cipher Key from input.</p>
     </header>
 
     <!--RCON Table-->
+    <div class="container" align="center" >
+        <p>RCON Table</p>
+        <table ng-controller="insuredCtrl" style="font-size: small">
+            <tr><td ng-repeat="indivisual in members">{{ indivisual.c0}}</td></tr>
+            <tr><td ng-repeat="indivisual in members">{{ indivisual.c1 }}</td></tr>
+            <tr><td ng-repeat="indivisual in members">{{ indivisual.c1 }}</td></tr>
+            <tr><td ng-repeat="indivisual in members">{{ indivisual.c1 }}</td></tr>
+        </table>
+    </div>
+</section>
+
+<section id="two" class ="wrapper style1">
     <div class="container">
         <table ng-controller="insuredCtrl">
             <tr><td ng-repeat="indivisual in members">{{ indivisual.c0}}</td></tr>
@@ -45,31 +58,6 @@
             <tr><td ng-repeat="indivisual in members">{{ indivisual.c1 }}</td></tr>
             <tr><td ng-repeat="indivisual in members">{{ indivisual.c1 }}</td></tr>
         </table>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="6u">
-                <section class="special">
-                    <a href="#" class="image fit"><img src="images/pic01.jpg" alt="" /></a>
-                    <h3>Mollis adipiscing nisl</h3>
-                    <p>Eget mi ac magna cep lobortis faucibus accumsan enim lacinia adipiscing metus urna adipiscing cep commodo id. Ac quis arcu amet. Arcu nascetur lorem adipiscing non faucibus odio nullam arcu lobortis. Aliquet ante feugiat. Turpis aliquet ac posuere volutpat lorem arcu aliquam lorem.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt">Learn More</a></li>
-                    </ul>
-                </section>
-            </div>
-            <div class="6u">
-                <section class="special">
-                    <a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-                    <h3>Neque ornare adipiscing</h3>
-                    <p>Eget mi ac magna cep lobortis faucibus accumsan enim lacinia adipiscing metus urna adipiscing cep commodo id. Ac quis arcu amet. Arcu nascetur lorem adipiscing non faucibus odio nullam arcu lobortis. Aliquet ante feugiat. Turpis aliquet ac posuere volutpat lorem arcu aliquam lorem.</p>
-                    <ul class="actions">
-                        <li><a href="#" class="button alt">Learn More</a></li>
-                    </ul>
-                </section>
-            </div>
-        </div>
     </div>
 </section>
 
