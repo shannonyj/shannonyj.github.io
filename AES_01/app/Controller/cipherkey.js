@@ -33,7 +33,6 @@ myApp.controller('ASCIIController', ['$scope', function($scope){
 
 myApp.controller('insuredCtrl', function($scope, $http) {
     $http.get("Controller/RCON.json").success(function (response) {
-        /*After Successfully fetch the data from JSON file assigning these data to $scope object variable*/
         $scope.members = response.rcon;
     });
 });
