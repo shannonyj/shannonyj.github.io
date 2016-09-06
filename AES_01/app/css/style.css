@@ -713,7 +713,6 @@
 		cursor: pointer;
 		display: inline-block;
 		font-weight: 300;
-		text-transform: uppercase;
 		letter-spacing: 0.125em;
 		font-size: 0.9em;
 		height: 2.85em;
@@ -776,6 +775,7 @@
 			font-size: 1.2em;
 			height: 2.65em;
 			line-height: 2.65em;
+			text-transform: uppercase;
 		}
 
 		input[type="submit"].alt,

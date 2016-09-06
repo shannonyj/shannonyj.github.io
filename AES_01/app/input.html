@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<!--
-	Created by ZHOU YANJUN
-	Final Year Project
-	AES Web Demo
--->
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
-
+<html lang="en" >
 <head>
     <title>My AES App</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/skel.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/style-xlarge.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 </head>
+<body ng-app="inputErrorsApp" ng-cloak>
 
-<body id="top" ng-app="MyApp">
-
-<!-- Header -->
 <header id="header" class="skel-layers-fixed">
     <h1><a href="#">AES Demo</a></h1>
     <nav id="nav">
@@ -29,72 +20,98 @@
     </nav>
 </header>
 
-<!-- Input transform-->
 <section id="one" class="wrapper style1">
     <header class="major">
-        <h2>Commodo accumsan aliquam</h2>
-        <p>Amet nisi nunc lorem accumsan</p>
+        <h2>Plaintext and Key Input</h2>
+        <p>16 bits are allowed for both fields</p>
     </header>
-    <div class="container" ng-controller="ASCIIController">
-        <div class="row">
-            <div class="6u">
-                <button ng-click="transformation(input01)">transform</button>
-            </div>
-            <div class="6u">
-                <table>
-                    <tr><td ng-repeat="x in result track by $index" ng-if="$index <4">{{x}}</td></tr>
-                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td></tr>
-                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td></tr>
-                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td></tr>
-                </table>
-            </div>
-        </div>
+
+    <div ng-controller="AppCtrl" layout="column" ng-cloak class="container">
+
+        <md-content layout-padding>
+            <form name="projectForm">
+
+                <div class="row">
+                    <div class="6u">
+                        <md-input-container class="md-block" flex ="80">
+                            <label>Plain Text</label>
+                            <input md-maxlength="16" required name="description" ng-model="project.description">
+                            <div ng-messages="projectForm.description.$error">
+                                <div ng-message="required">This is required.</div>
+                                <div ng-message="md-maxlength">Each input block must be less than 16 characters long.</div>
+                            </div>
+                        </md-input-container>
+                        <div>
+                            <button class="button alt" ng-click="transformation(project.description,result1)">Transform</button>
+                        </div>
+                    </div>
+                    <div class="6u">
+                        <table>
+                            <tr><td ng-repeat="x in result1 track by $index" ng-if="$index <4">{{x}}</td></tr>
+                            <tr ><td ng-repeat="x in result1 track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td></tr>
+                            <tr ><td ng-repeat="x in result1 track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td></tr>
+                            <tr ><td ng-repeat="x in result1 track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <p><br></p>
+                </div>
+
+                <div class="row">
+                    <div class="6u">
+                        <md-input-container class="md-block" flex="80">
+                            <label>Key</label>
+                            <input md-maxlength="16" required name="clientName" ng-model="project.clientName">
+                            <div ng-messages="projectForm.clientName.$error">
+                                <div ng-message="required">This is required.</div>
+                                <div ng-message="md-maxlength">Each input block must be less than 16 characters long.</div>
+                            </div>
+                        </md-input-container>
+                        <div>
+                            <button class="button alt" ng-click="transformation(project.clientName,result)">Transform</button>
+                        </div>
+                    </div>
+                    <div class="6u">
+                        <table>
+                            <tr><td ng-repeat="x in result track by $index" ng-if="$index <4">{{x}}</td></tr>
+                            <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td></tr>
+                            <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td></tr>
+                            <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td></tr>
+                        </table>
+                    </div>
+                </div>
+
+                <div class = "row">
+                    <p><br></p>
+                </div>
+
+                <!--Check input-->
+                <div>
+                    <a class="button big" type="submit" href="keySchedule.html">Submit</a>
+                </div>
+
+            </form>
+        </md-content>
+
     </div>
 </section>
 
+<!-- Angular Material requires Angular.js Libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
 
-<!-- Key transform-->
-<section id="two" class="wrapper style1">
-    <div class="container" ng-controller="ASCIIController">
-        <div class="row">
-            <div class="6u">
-                <button ng-click="transformation(input01)">transform</button>
-            </div>
-            <div class="6u">
-                <table>
-                    <tr><td ng-repeat="x in result track by $index" ng-if="$index <4">{{x}}</td></tr>
-                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 4 || $index ==5 || $index ==6 || $index ==7">{{x}}</td></tr>
-                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 8 || $index ==9 || $index ==10 || $index ==11">{{x}}</td></tr>
-                    <tr ><td ng-repeat="x in result track by $index" ng-if="$index == 12 || $index ==13 || $index ==14 || $index ==15">{{x}}</td></tr>
-                </table>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Angular Material Library -->
+<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+<script src="Controller/input.js"></script>
 
-<!--Submit Button-->
-<section id="three" class="wrapper style1">
-    <button ng-click="transformation(input01)">Submit</button>
-</section>
+<!-- Your application bootstrap  -->
+<script type="text/javascript">
 
-<!-- In production use:
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
--->
-<script src="js/temp/html5shiv.js"></script>
-<script src="js/temp/jquery.min.js"></script>
-<script src="js/temp/skel.min.js"></script>
-<script src="js/temp/skel-layers.min.js"></script>
-<script src="js/temp/init.js"></script>
+</script>
 
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="app.js"></script>
-<script src="view1/view1.js"></script>
-<script src="view2/view2.js"></script>
-<script src="components/version/version.js"></script>
-<script src="components/version/version-directive.js"></script>
-<script src="components/version/interpolate-filter.js"></script>
-
-<script src="Controller/cipherkey.js"></script>
 </body>
 </html>

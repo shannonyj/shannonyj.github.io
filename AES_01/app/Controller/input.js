@@ -4,16 +4,22 @@
 angular.module('inputErrorsApp', ['ngMaterial', 'ngMessages'])
 
 
-    .controller('AppCtrl', function($scope) {
+    .controller('AppCtrl', function($scope,consts) {
         $scope.project = {
-            description: '1234asdfqwerty00',
+            description: '',
+            clientName: ''
         };
-        $scope.input01 = '1234asdfqwerty00';
-        $scope.result = [];
-        $scope.transformation = function (input01){
-            for (var i = 0; i < $scope.input01.length; i++){
+        $scope.result1 = consts.output[0];
+        $scope.result = consts.output[1];
+        $scope.transformation = function (input01,arr){
+            while (arr.length>0) arr.pop();
+            var tmp = [];
+            for (var i = 0; i < input01.length; i++){
                 output01 = input01.charCodeAt(i).toString(16);
-                $scope.result.push(output01);
+                arr.push(output01);
             }
         };
+    })
+    .constant("consts",{
+        output: [[],[]]
     });

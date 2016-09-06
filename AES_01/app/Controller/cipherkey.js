@@ -24,6 +24,7 @@ myApp.controller('ASCIIController', ['$scope', function($scope){
     $scope.result = [];
 
     $scope.transformation = function (input01){
+        $scope.result = [];
         for (var i = 0; i < $scope.input01.length; i++){
             output01 = input01.charCodeAt(i).toString(16);
             $scope.result.push(output01);
