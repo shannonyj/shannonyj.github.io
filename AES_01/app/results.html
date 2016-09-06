@@ -14,10 +14,8 @@
         // KEY:       000102030405060708090a0b0c0d0e0f
         // OUTPUT:    69c4e0d86a7b0430d8cdb78070b4c55a
 
-        // accumulate values to put into text area
         var accumulated_output_info;
 
-        // add a labeled value to the text area
         function accumulate_output( str )
         {
             accumulated_output_info = accumulated_output_info + str + "\n";
@@ -48,22 +46,15 @@
         // convert a two-digit hex value to a number
         function cvt_byte( str )
         {
-            // get the first hex digit
             var val1 = str.charCodeAt(0);
-
-            // do some error checking
             if ( val1 >= 48 && val1 <= 57 )
-            // have a valid digit 0-9
                 val1 -= 48;
             else if ( val1 >= 65 && val1 <= 70 )
-            // have a valid digit A-F
                 val1 -= 55;
             else if ( val1 >= 97 && val1 <= 102 )
-            // have a valid digit A-F
                 val1 -= 87;
             else
             {
-                // not 0-9 or A-F, complain
                 window.alert( str.charAt(1)+" is not a valid hex digit" );
                 return -1;
             }
@@ -71,23 +62,17 @@
             // get the second hex digit
             var val2 = str.charCodeAt(1);
 
-            // do some error checking
             if ( val2 >= 48 && val2 <= 57 )
-            // have a valid digit 0-9
                 val2 -= 48;
             else if ( val2 >= 65 && val2 <= 70 )
-            // have a valid digit A-F
                 val2 -= 55;
             else if ( val2 >= 97 && val2 <= 102 )
-            // have a valid digit A-F
                 val2 -= 87;
             else
             {
-                // not 0-9 or A-F, complain
                 window.alert( str.charAt(2)+" is not a valid hex digit" );
                 return -1;
             }
-
             // all is ok, return the value
             return val1*16 + val2;
         }
@@ -210,7 +195,7 @@
                 0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26,
                 0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d);
 
-        // convert two-dimensional indicies to one-dim array indices
+        // convert two-dimensional indices to one-dim array indices
         var I00 = 0;
         var I01 = 1;
         var I02 = 2;
@@ -622,7 +607,6 @@
             // what type of data do we have to work with?
             if ( document.stuff.outtype[0].checked )
             {
-                // convert each set of bits back to ASCII
                 for( i=0; i<16; i++ )
                     str += String.fromCharCode( AES_output[i] );
             }
