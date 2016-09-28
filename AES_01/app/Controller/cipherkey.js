@@ -2,10 +2,10 @@
  * Created by shannon_z on 12/8/16.
  */
 
-var myApp = angular.module('myApp', []);
 
-myApp.controller('NumberController', ['$scope', function($scope) {
+myApp.controller('NumberController', ['$scope', function($scope, consts) {
     $scope.displaynumber = '0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0';
+    $scope.c = consts;
 }]);
 
 myApp.controller('SpicyController', ['$scope', function($scope) {
@@ -20,10 +20,10 @@ myApp.controller('SpicyController', ['$scope', function($scope) {
 
 myApp.controller('ASCIIController', ['$scope', function($scope){
 
-    $scope.input01 = '1234asdfqwerty00';
+    //$scope.input01 = '1234asdfqwerty00';
     $scope.result = [];
 
-    $scope.transformation = function (input01){
+    $scope.transformation = function (input01, flag){
         $scope.result = [];
         for (var i = 0; i < $scope.input01.length; i++){
             output01 = input01.charCodeAt(i).toString(16);
@@ -33,7 +33,7 @@ myApp.controller('ASCIIController', ['$scope', function($scope){
 }]);
 
 myApp.controller('insuredCtrl', function($scope, $http) {
-    $http.get("Controller/RCON.json").success(function (response) {
+    $http.get("../Controller/RCON.json").success(function (response) {
         $scope.members = response.rcon;
     });
 });
