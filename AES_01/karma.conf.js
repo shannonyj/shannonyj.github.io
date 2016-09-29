@@ -8,9 +8,21 @@ module.exports = function(config) {
       'bower_components/angular/angular.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-animate/angular-animate.js',
       'components/**/*.js',
-      'view*/**/*.js'
+      'view1/**/*.js',
+      'view2/**/*.js',
+      'view2/view2.js'
     ],
+
+    preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'view*/**/*.js': ['coverage'],
+      'GF/**/*.js': ['coverage'],
+      'components/**/*.js':['coverage']
+    },
 
     autoWatch: true,
 

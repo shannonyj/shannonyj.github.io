@@ -3,11 +3,12 @@
 // define our application and pull in ngRoute and ngAnimate
 var myApp = angular.module('myApp', [
   'ngRoute',
-  //'ngAnimate',
-  //'myApp.view1'
+  'ngAnimate',
+  //'myApp.view1',
   //'myApp.view2',
   //'myApp.version',
-  'ngMaterial'
+  'ngMaterial',
+    'ngMessages',
 ]);
 
 // ROUTING ===============================================
@@ -25,7 +26,7 @@ myApp.config(function($routeProvider) {
 
       // about page
       .when('/input', {
-        templateUrl: 'page-input.html',
+        templateUrl: 'input/page-input.html',
         controller: 'inputController'
       })
 
