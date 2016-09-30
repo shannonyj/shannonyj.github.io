@@ -1,35 +1,3 @@
-<!DOCTYPE html>
-<!--
-	Created by ZHOU YANJUN
-	Final Year Project
-	AES Web Demo
--->
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
-
-<head>
-    <title>My AES App</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="../css/skel.css" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/style-xlarge.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-</head>
-<body id="top">
-
-<header id="header" class="skel-layers-fixed">
-    <h1><a href="#">AES Demo</a></h1>
-    <nav id="nav">
-        <ul>
-            <li>Encryption</li>
-            <!-- <li><a href="#" class="button special">Sign Up</a></li> -->
-        </ul>
-    </nav>
-</header>
 
 <section id="one" class="wrapper style1">
     <header class="major">
@@ -39,67 +7,70 @@
 
     <div class="container">
         <div class="row">
-
             <div class="4u">
-                <table>
-                    <tr><td ng-repeat=""></td></tr>
-                    <tr><td></td></tr>
-                    <tr><td></td></tr>
-                    <tr><td></td></tr>
+                <table ng-controller="insuredCtrl">
+                    <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
+                        <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
+                    </tr>
+                    <tr class="keyspecial"><td>{{test01.output[1][4]}}</td><td>{{test01.output[1][5]}}</td>
+                        <td>{{test01.output[1][6]}}</td><td>{{test01.output[1][7]}}</td>
+                    </tr>
+                    <tr class="keyspecial"><td>{{test01.output[1][8]}}</td><td>{{test01.output[1][9]}}</td>
+                        <td>{{test01.output[1][10]}}</td><td>{{test01.output[1][11]}}</td>
+                    </tr>
+                    <tr class="keyspecial"><td>{{test01.output[1][12]}}</td><td>{{test01.output[1][13]}}</td>
+                        <td>{{test01.output[1][14]}}</td><td>{{test01.output[1][15]}}</td>
+                    </tr>
                 </table>
             </div>
-            <div class="4u">
-                <div class="mytable">
-                    <div><div><p> </p></div></div>
-                    <!--Group 1-->
-                    <div ng-show="ngClick">
-                        <div><img src="../images/arrow1.png" height="16" width="37"></div>
-                        <div class="special"><p>Shift Over 1 Byte</p></div>
-                        <div><img src="../images/arrow1.png" height="16" width="37"></div>
-                    </div>
-                    <!--Group 2-->
-                    <div>
-                        <div><img src="../images/arrow1.png" height="16" width="37"></div>
-                        <div class="special"><p>Shift Over 2 Bytes</p></div>
-                        <div><img src="../images/arrow1.png" height="16" width="37"></div>
-                    </div>
-                    <!--Group 3 -->
-                    <div>
-                        <div><img src="../images/arrow1.png" height="16" width="37"></div>
-                        <div class="special"><p>Shift Over 3 Bytes</p></div>
-                        <div><img src="../images/arrow1.png" height="16" width="37"></div>
-                    </div>
+        <div class="4u">
+            <div class="mytable">
+                <div><div><p> </p></div></div>
+                <!--Group 1-->
+                <!--<div ng-show="ngClick">-->
+                <div>
+                    <div><img src="images/arrow1.png" height="16" width="37"></div>
+                    <div class="special"  ng-click="show1 = !show1"><p>Shift Over 1 Byte</p></div>
+                    <div><img src="images/arrow1.png" height="16" width="37"></div>
+                </div>
+                <!--Group 2-->
+                <div>
+                    <div><img src="images/arrow1.png" height="16" width="37"></div>
+                    <div class="special"  ng-click="show2 = !show2"><p>Shift Over 2 Bytes</p></div>
+                    <div><img src="images/arrow1.png" height="16" width="37"></div>
+                </div>
+                <!--Group 3 -->
+                <div>
+                    <div><img src="images/arrow1.png" height="16" width="37"></div>
+                    <div class="special" ng-click="show3 = !show3"><p>Shift Over 3 Bytes</p></div>
+                    <div><img src="images/arrow1.png" height="16" width="37"></div>
                 </div>
             </div>
-            <div class="4u">
-                <table>
-                    <tr><td></td></tr>
-                    <tr><td></td></tr>
-                    <tr><td></td></tr>
-                    <tr><td></td></tr>
-                </table>
-            </div>
-
+        </div>
+        <div class="4u">
+            <table ng-controller="insuredCtrl">
+                <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
+                    <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
+                </tr>
+                <tr class="keyspecial" ng-show="show1"><td>{{test01.output[1][5]}}</td><td>{{test01.output[1][6]}}</td>
+                    <td>{{test01.output[1][7]}}</td><td>{{test01.output[1][4]}}</td>
+                </tr>
+                <tr class="keyspecial" ng-show="show2"><td>{{test01.output[1][10]}}</td><td>{{test01.output[1][11]}}</td>
+                    <td>{{test01.output[1][8]}}</td><td>{{test01.output[1][9]}}</td>
+                </tr>
+                <tr class="keyspecial" ng-show="show3"><td>{{test01.output[1][15]}}</td><td>{{test01.output[1][12]}}</td>
+                    <td>{{test01.output[1][13]}}</td><td>{{test01.output[1][14]}}</td>
+                </tr>
+            </table>
+        </div>
         </div>
     </div>
 
 </section>
 
-    <!-- Next Step -->
+<!-- Next Step -->
+<section id="last" class="wrapper style1">
     <div class="skel-layers-fixed">
-        <a href="#" class="button alt" style="float: right;">Next -></a>
+        <a href="#/view2/step3" class="button alt" style="float: right;">Next -></a>
     </div>
-
-    <!-- Angular Material requires Angular.js Libraries -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-
-    <!-- Angular Material Library -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-    <script src="../Controller/cipherkey.js"></script>
-
-
-</body>
-</html>
+</section>

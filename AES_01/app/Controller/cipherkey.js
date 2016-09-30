@@ -32,10 +32,11 @@ myApp.controller('ASCIIController', ['$scope', function($scope){
     };
 }]);
 
-myApp.controller('insuredCtrl', function($scope, $http) {
-    $http.get("../Controller/RCON.json").success(function (response) {
+myApp.controller('insuredCtrl', function($scope, $http, consts) {
+    $http.get("Controller/RCON.json").success(function (response) {
         $scope.members = response.rcon;
     });
+    $scope.test01 = consts;
 });
 
 

@@ -4,8 +4,8 @@
 var myApp = angular.module('myApp', [
   'ngRoute',
   'ngAnimate',
-  //'myApp.view1',
-  //'myApp.view2',
+  'myApp.view1',
+  'myApp.view2',
   //'myApp.version',
   'ngMaterial',
     'ngMessages',
@@ -24,13 +24,13 @@ myApp.config(function($routeProvider) {
         controller: 'mainController'
       })
 
-      // about page
+      // input page
       .when('/input', {
-        templateUrl: 'input/page-input.html',
+        templateUrl: 'view1/page-input.html',
         controller: 'inputController'
       })
 
-      // contact page
+      // overview page
       .when('/overview', {
         templateUrl: 'view1/page-overview.html',
         controller: 'overviewController'

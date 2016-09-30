@@ -1,10 +1,8 @@
 /**
  * Created by shannon_z on 6/9/16.
  */
-angular.module('inputApp', ['ngMaterial', 'ngMessages'])
 
-
-.controller('AppCtrl', function($scope,$location,consts) {
+myApp.controller('AppCtrl', function($scope,$location,consts) {
         $scope.project = {
             description: '',
             clientName: ''

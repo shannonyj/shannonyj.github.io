@@ -1,32 +1,10 @@
-<html lang="en" >
-<head>
-    <title>My AES App</title>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="../css/skel.css" />
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/style-xlarge.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Angular Material style sheet -->
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
-</head>
-<body ng-app= "inputApp" ng-cloak>
-
-<header id="header" class="skel-layers-fixed">
-    <h1><a href="#">AES Demo</a></h1>
-    <nav id="nav">
-        <ul>
-            <li>Input</li>
-        </ul>
-    </nav>
-</header>
-
-<section id="one" class="wrapper style1">
+<section id="one" class="wrapper style1" ng-cloak>
     <header class="major">
         <h2>Plaintext and Key Input</h2>
         <p>16 bits are allowed for both fields</p>
     </header>
 
-    <div ng-controller="AppCtrl" layout="column" ng-cloak class="container">
+    <div ng-controller="AppCtrl" layout="column" class="container">
 
         <md-content layout-padding>
             <form name="projectForm">
@@ -89,26 +67,10 @@
 
                 <!--Check input-->
                 <div>
-                    <a class="button big" type="submit" href="../keySchedule/keySchedule.html">Submit</a>
+                    <a class="button big" type="submit" href="#/view1">Submit</a>
                 </div>
 
             </form>
         </md-content>
     </div>
 </section>
-
-
-<!-- Angular Material requires Angular.js Libraries -->
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-
-<!-- Angular Material Library -->
-<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-
-<!-- Your application bootstrap  -->
-<script src="../Controller/input.js"></script>
-
-</body>
-</html>

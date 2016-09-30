@@ -4,10 +4,7 @@
 	Final Year Project
 	AES Web Demo
 -->
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<html>
 
 <head>
     <title>My AES App</title>
@@ -19,7 +16,8 @@
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 </head>
-<body id="top">
+
+<body id="top" ng-app="myApp">
 
 <header id="header" class="skel-layers-fixed">
     <h1><a href="#">AES Demo</a></h1>
@@ -63,7 +61,7 @@
 
 
 <div class="skel-layers-fixed">
-    <a href="keySchedule/keySchedule_Result.html" class="button alt" style="float: right;">Next -></a>
+    <a href="keySchedule_Result.html" class="button alt" style="float: right;">Next -></a>
 </div>
 
 <!-- Angular Material requires Angular.js Libraries -->
@@ -75,6 +73,7 @@
 <!-- Angular Material Library -->
 <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
 <script src="../Controller/cipherkey.js"></script>
+<script src="../app.js"></script>
 
 
 </body>
