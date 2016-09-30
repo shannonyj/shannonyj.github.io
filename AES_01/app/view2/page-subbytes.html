@@ -4,13 +4,36 @@
 
 <!-- Add Round Key-->
 
+<section id="one" class="wrapper style1">
+    <header class="major">
+        <h2>Subbytes</h2>
+        <p style="font-size: medium">
+            In the SubBytes step, each byte a(i,j) in the state matrix is replaced with a SubByte s(i,j) using the Rijndael S-box. <br>
+            This operation provides the non-linearity in the cipher. <br>
+            The S-box used is derived from the multiplicative inverse over GF(2^8), known to have good non-linearity properties. <br>
+            To avoid attacks based on simple algebraic properties, the S-box is constructed by combining the inverse function with an
+            invertible affine transformation.
+        </p>
+    </header>
+</section>
+
 <!-- S-box -->
+<section id="two" class="wrapper style1">
 <div class="container" align="center" >
-    <p>S-Box</p>
-    <table ng-controller="insuredCtrl" style="font-size: small">
-        <tr ng-repeat="data in s_enc">
-            <td ng-repeat="datum in data">{{datum}}
-            </td>
-        </tr>
-    </table>
+    <div class="row">
+        <div class = "6u">
+
+        </div>
+        <div class="6u">
+        <p>S-Box</p>
+        <p>Byte Substitution Table</p>
+        <table ng-controller="insuredCtrl" style="font-size: small">
+            <tr ng-repeat="data in s_enc">
+                <td ng-repeat="datum in data">{{datum}}
+                </td>
+            </tr>
+        </table>
+        </div>
+    </div>
 </div>
+</section>
