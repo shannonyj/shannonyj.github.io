@@ -17,7 +17,8 @@ angular.module('myApp.view2', ['ngRoute'])
                 templateUrl: 'view2/page-shiftrow.html'
             })
             .when('/view2/step3', {
-                templateUrl: 'view2/page-mixcolumn.html'
+                templateUrl: 'view2/page-mixcol.html',
+                controller: 'sBoxCtrl',
             })
             .when('/view2/step4', {
                 templateUrl: 'view2/page-addroundkey.html'

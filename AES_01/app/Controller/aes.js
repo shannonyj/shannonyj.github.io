@@ -12,3 +12,8 @@ myApp.controller('sBoxCtrl', function($scope, $http, consts) {
     });
     $scope.test01 = consts;
 });
+
+myApp.controller('MultipleCtrl', function($scope, consts){
+    $scope.input = consts.output;
+    $scope.c = PolynomialField.AESCompute($scope.input[0][1], $scope.input[0][2]);
+});

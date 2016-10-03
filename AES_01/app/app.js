@@ -53,4 +53,19 @@ myApp.controller('inputController', function($scope) {
 // contact page controller
 myApp.controller('overviewController', function($scope) {
   $scope.pageClass = 'page-overview';
+}).directive("mathjaxAutobind", function () {
+    return {
+        restrict: "A",
+        controller: ["$scope", "$element", "$attrs",
+            function ($scope, $element, $attrs) {
+                $scope.$watch($attrs.mathjaxAutobind, function (texExpression) {
+                    var texScript = angular.element("<script type='math/tex'>")
+                        .html(texExpression ? texExpression : "");
+                    $element.html("");
+                    $element.append(texScript);
+                    MathJax.Hub.Queue(["Update", MathJax.Hub, $element[0]]);
+                });
+            }]
+    };
 });
+
