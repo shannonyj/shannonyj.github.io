@@ -1,10 +1,13 @@
 <section id="one" class="wrapper style1">
 
     <header class="major">
-        <h2>MixColumns</h2>
-        <p style="font-size: medium">The columns are considered as
-            polynomials over ` GF(2^8) ` and multiplied modulo x4 + 1 with a fixed polynomial a(x), given by<br>
-            ` a(x) = {03}x3 \oplus {01}x2 + {01}x + {02} ` .
+        <h2>3 - MixColumns</h2>
+        <p style="font-size: medium">
+            The MixColumns() transformation operates on the State column-by-column, treating each
+            column as a four-term polynomial.<br>
+            The columns are considered as
+            polynomials over ` GF(2^8) ` and multiplied modulo ` x^4 + 1 ` with a fixed polynomial a(x), <br>
+            given by ` a(x) = {03}x^3 \oplus {01}x^2 + {01}x + {02} ` .
         </p>
     </header>
 </section>
@@ -13,7 +16,7 @@
     <div class="container" align="center">
         <div class="row">
             <!-- Before -->
-            <div class = "4u">
+            <div class = "4u" align="center">
                     <table ng-controller="insuredCtrl">
                         <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
                             <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
@@ -24,21 +27,21 @@
             <div class = "4u">
                 <div>
                     <!-- The Matrix -->
-                    <span mathjax-autobind="'\\begin{bmatrix}02 & 03 & 01 & 01 \\\\ 01 & 02 \\end{bmatrix}'"></span>
+                    <span mathjax-autobind="'\\begin{bmatrix}02 & 03 & 01 & 01 \\\\
+                    01 & 02 & 03 & 01 \\\\
+                     01 & 01 & 02 & 03 \\\\
+                     03 & 01 & 01 & 02\\end{bmatrix}'"></span>
+
+                    <p><br></p>
                     <p>
+                        The four bytes of the column are replaced by the following
 
-
-                    <!--\begin{bmatrix}02 & 03 & 01 & 01 \\ 01 & 02 \end{bmatrix}-->
-
+                        $$ s'_{0,c} = ({02}·s_{0,c}) \oplus ({03}·s_{1,c}) \oplus s_{2,c} \oplus s_{3,c} $$
+                        $$ s'_{1,c} = s_{0,c} \oplus ({02}·s_{1,c}) \oplus ({03}·s_{2,c}) \oplus s_{3,c} $$
+                        $$ s'_{2,c} = s_{0,c} \oplus s_{1,c} \oplus ({02}·s_{2,c}) \oplus ({03}·s_{3,c}) $$
+                        $$ s'_{3,c} = ({03}·s_{0,c}) \oplus s_{1,c} \oplus s_{2,c} \oplus ({03}·s_{3,c}) $$
                     </p>
-                    <!--
-                    <p style="margin: 0 0 0 0;">
-                        02 03 01 01<br>
-                        01 02 03 01<br>
-                        01 01 02 03<br>
-                        03 01 01 02
-                    </p>
-                    -->
+
                 </div>
                 <div>
 
@@ -50,8 +53,10 @@
                 <p ng-controller="MultipleCtrl">
                     {{c}}
                 </p>
+                <!--
                 <input ng-model="tmp">
                 <span mathjax-autobind="tmp"></span>
+                -->
             </div>
         </div>
     </div>

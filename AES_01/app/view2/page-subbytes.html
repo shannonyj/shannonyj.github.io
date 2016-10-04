@@ -8,9 +8,10 @@
     <header class="major">
         <h2>Subbytes</h2>
         <p style="font-size: medium">
-            In the SubBytes step, each byte a(i,j) in the state matrix is replaced with a SubByte s(i,j) using the Rijndael S-box. <br>
+
+            In the SubBytes step, each byte ` a_(i,j) ` in the state matrix is replaced with a SubByte ` s_(i,j) ` using the Rijndael S-box. <br>
             This operation provides the non-linearity in the cipher. <br>
-            The S-box used is derived from the multiplicative inverse over GF(2^8), known to have good non-linearity properties. <br>
+            The S-box used is derived from the multiplicative inverse over ` GF(2^8) `, known to have good non-linearity properties. <br>
             To avoid attacks based on simple algebraic properties, the S-box is constructed by combining the inverse function with an
             invertible affine transformation.
         </p>

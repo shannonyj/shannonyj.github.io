@@ -1,13 +1,20 @@
+<section id="headear" class="wrapper style1">
 
-<section id="one" class="wrapper style1">
     <header class="major">
         <h2>2 - ShiftRow</h2>
-        <p>Overview</p>
+        <p style="font-size: medium">
+            In the ShiftRows() transformation, the bytes in the last three rows of the State are cyclically <br>
+            shifted over different numbers of bytes (offsets). The first row, r = 0, is not shifted.
+        </p>
     </header>
+</section>
+
+
+<section id="one" class="wrapper style1">
 
     <div class="container">
         <div class="row">
-            <div class="4u">
+            <div class="4u" align="center">
                 <table ng-controller="insuredCtrl">
                     <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
                         <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
@@ -23,7 +30,7 @@
                     </tr>
                 </table>
             </div>
-        <div class="4u">
+        <div class="4u" align="center">
             <div class="mytable">
                 <div><div><p> </p></div></div>
                 <!--Group 1-->
@@ -34,20 +41,20 @@
                     <div><img src="images/arrow1.png" height="16" width="37"></div>
                 </div>
                 <!--Group 2-->
-                <div>
+                <div ng-show="show1">
                     <div><img src="images/arrow1.png" height="16" width="37"></div>
                     <div class="special"  ng-click="show2 = !show2"><p>Shift Over 2 Bytes</p></div>
                     <div><img src="images/arrow1.png" height="16" width="37"></div>
                 </div>
                 <!--Group 3 -->
-                <div>
+                <div ng-show="show2">
                     <div><img src="images/arrow1.png" height="16" width="37"></div>
                     <div class="special" ng-click="show3 = !show3"><p>Shift Over 3 Bytes</p></div>
                     <div><img src="images/arrow1.png" height="16" width="37"></div>
                 </div>
             </div>
         </div>
-        <div class="4u">
+        <div class="4u" align="center">
             <table ng-controller="insuredCtrl">
                 <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
                     <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
