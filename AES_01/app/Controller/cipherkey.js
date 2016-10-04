@@ -37,6 +37,7 @@ myApp.controller('insuredCtrl', function($scope, $http, consts) {
         $scope.members = response.rcon;
     });
     $scope.test01 = consts;
+    PolynomialField.updateAllMath();
 });
 
 

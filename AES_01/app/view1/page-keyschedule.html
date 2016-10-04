@@ -40,13 +40,13 @@
     </div>
 </section>
 
-Situation 1: Words in porsitions that are a multiple of 4
-(w4, w8, ..., w40) are calculated by:
-a) Applying the RotWord and SubBytes transformation to the previous word wi-1
-b) Adding (XOR) this result to the word 4 positions earlierw1-4, pulus a round constant Rcon
+Situation 1: Words in positions that are a multiple of 4
+(` w_4 `, ` w_8 `, ..., ` w_40 `) are calculated by:
+a) Applying the RotWord and SubBytes transformation to the previous word ` w_{i-1} `
+b) Adding (XOR) this result to the word 4 positions earlier ` w_{i-4} `, plus a round constant Rcon
 
 Situation 2: The remaining 32-bit words wi, are calcalated
-by adding (XOR) the previous word wi-1, with the word 4 positions earlier wi-4
+by adding (XOR) the previous word ` w_{i-1} `, with the word 4 positions earlier ` w_{i-4} `
 
 <section id="last" class="wrapper style1">
 <div class="skel-layers-fixed">

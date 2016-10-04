@@ -18,7 +18,7 @@ angular.module('myApp.view2', ['ngRoute'])
             })
             .when('/view2/step3', {
                 templateUrl: 'view2/page-mixcol.html',
-                controller: 'sBoxCtrl',
+                controller: 'mixColCtrl',
             })
             .when('/view2/step4', {
                 templateUrl: 'view2/page-addroundkey.html'
