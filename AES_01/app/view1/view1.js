@@ -10,7 +10,8 @@ angular.module('myApp.view1', ['ngRoute'])
         })
 
             .when('/view1/result', {
-                templateUrl: 'view1/page-keyScheduleResult.html'
+                templateUrl: 'view1/page-keyScheduleResult.html',
+                controller: 'keyCtrl',
             });
     }])
 
