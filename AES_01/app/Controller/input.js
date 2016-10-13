@@ -36,6 +36,8 @@ myApp.controller('AppCtrl', function($scope,$location,consts) {
     .constant("consts",{
         output: [[],[]],
         finalkey: [[],[],[],[],[],[],[],[],[],[]],
+        roundresult:[[],[],[],[],[],[],[],[],[],[],[]],
+        //roundresult:[[],[],[],[],[],[],[],[],[],[],[]],
         rcon:
             [
                 {

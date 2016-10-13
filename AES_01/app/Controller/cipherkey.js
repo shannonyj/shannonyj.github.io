@@ -22,14 +22,17 @@ myApp.controller('insuredCtrl', function($scope, $http, consts) {
     $http.get("Controller/RCON.json").success(function (response) {
         $scope.members = response.rcon;
     });
-    $http.get("Controller/SBox.json").success(function (response) {
-        $scope.sbox = response.s_enc;
-    });
+    $scope.sbox = consts.s_enc;
+
     $scope.test01 = consts;
     $scope.resultarr = {};
     $scope.findsbox = function (val){
         $scope.resultarr[($scope.sbox[parseInt(val[0])+1]["x"+val[1]])] = {'background-color':'red'};
-      return ($scope.sbox[parseInt(val[0])+1]["x"+val[1]]).substr(2,2);
+        return ($scope.sbox[parseInt(val[0])+1]["x"+val[1]]).substr(2,2);
+    };
+    $scope.addthree = function(val1, val2, val3){
+        $scope.addresult = PolynomialField.AESAdd(PolynomialField.AESAdd(val1,val2),val3);
+        return $scope.addresult;
     };
     PolynomialField.updateAllMath();
 });
