@@ -1,7 +1,7 @@
 <section id="one" class="wrapper style1">
 
     <header class="major">
-        <h2>0 - Add Round Key</h2>
+        <h2>4 - Add Round Key</h2>
         <p style="font-size: medium">
             In the ShiftRows() transformation, the bytes in the last three rows of the State are cyclically <br>
             shifted over different numbers of bytes (offsets). The first row, r = 0, is not shifted.
@@ -14,22 +14,14 @@
     <div class="container">
         <div class="row">
 
-            <!--Result-->
+            <!--Previous Step-->
 
             <div class="6u" align="center">
-                <table ng-controller="insuredCtrl">
-                    <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
-                        <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td>{{test01.output[1][4]}}</td><td>{{test01.output[1][5]}}</td>
-                        <td>{{test01.output[1][6]}}</td><td>{{test01.output[1][7]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td>{{test01.output[1][8]}}</td><td>{{test01.output[1][9]}}</td>
-                        <td>{{test01.output[1][10]}}</td><td>{{test01.output[1][11]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td>{{test01.output[1][12]}}</td><td>{{test01.output[1][13]}}</td>
-                        <td>{{test01.output[1][14]}}</td><td>{{test01.output[1][15]}}</td>
-                    </tr>
+                <table ng-controller="numCtrl">
+                    <tr class="keyspecial"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index < 4">{{x}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 3 && $index <8">{{x}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 7 && $index <12">{{x}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 11 && $index <16">{{x}}</td></tr>
                 </table>
             </div>
 
@@ -37,20 +29,25 @@
 
             <div class="6u" align="center">
                 <h3>Round Key 1</h3>
-                <p>Produced previously during key schedule <a href="/#/view1/result">Details</a></p>
-                <table ng-controller="insuredCtrl">
-                    <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
-                        <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td>{{test01.output[1][4]}}</td><td>{{test01.output[1][5]}}</td>
-                        <td>{{test01.output[1][6]}}</td><td>{{test01.output[1][7]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td>{{test01.output[1][8]}}</td><td>{{test01.output[1][9]}}</td>
-                        <td>{{test01.output[1][10]}}</td><td>{{test01.output[1][11]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td>{{test01.output[1][12]}}</td><td>{{test01.output[1][13]}}</td>
-                        <td>{{test01.output[1][14]}}</td><td>{{test01.output[1][15]}}</td>
-                    </tr>
+                <p>Produced previously during key schedule <a href="#/view1/result">Details</a></p>
+
+                <table ng-controller="keyCtrl">
+                    <tr><td ng-repeat="y in keyresult[1]" ng-if="$index < 4">{{y[0]}}</td></tr>
+                    <tr><td ng-repeat="y in keyresult[1]" ng-if="$index < 4">{{y[1]}}</td></tr>
+                    <tr><td ng-repeat="y in keyresult[1]" ng-if="$index < 4">{{y[2]}}</td></tr>
+                    <tr><td ng-repeat="y in keyresult[1]" ng-if="$index < 4">{{y[3]}}</td></tr>
+                </table>
+            </div>
+
+
+            <!--Result-->
+
+            <div class="6u" align="center">
+                <table ng-controller="numCtrl">
+                    <tr class="keyspecial"><td ng-repeat="x in finalresult[1] track by $index" ng-if="$index < 4">{{x}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in finalresult[1] track by $index" ng-if="$index > 3 && $index <8">{{x}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in finalresult[1] track by $index" ng-if="$index > 7 && $index <12">{{x}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in finalresult[1] track by $index" ng-if="$index > 11 && $index <16">{{x}}</td></tr>
                 </table>
             </div>
 

@@ -8,48 +8,47 @@
 </section>
 
 <section id="test" class="wrapper style1" ng-controller="keyCtrl">
-    Test
-    {{test01.finalkey}}
 
-    <div ng-repeat="x in keyresult">
-        +
-    </div>
 
-    Round 0 Key
-    <table ng-repeat="x in keyresult">
-        <tr ng-repeat="y in x" ng-if="$index < 4">
-            <td ng-repeat="z in y">{{z}}</td>
-        </tr>
-    </table>
-</section>
-
-<section id="two" class="wrapper style1">
-
-    <!-- Key 1 - 5 -->
-    <div class="container">
-        <div class="row">
-            <div class="\-4u">
-                <table>
-                    <tr></tr>
-                </table>
-                <div>Round 1 Key</div>
-            </div>
+    <div class="row">
+        <div class="\-4u">
+            <table>
+                <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[0]}}</td></tr>
+                <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[1]}}</td></tr>
+                <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[2]}}</td></tr>
+                <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[3]}}</td></tr>
+            </table>
+            <p>Cipher Key</p>
         </div>
     </div>
 
-    <!-- Key 6 - 10 -->
-    <div class="container">
-        <div class="row">
-            <div class="\-4u">
-                <table>
-                    <tr></tr>
-                </table>
-                <div>Round 6 Key</div>
-            </div>
+
+    <div class="row">
+        <div class="\-4u" ng-repeat="x in keyresult" ng-if="$index > 0 && $index < 6">
+            <table>
+                <tr><td  ng-repeat="y in x" ng-if="$index < 4">{{y[0]}}</td></tr>
+                <tr><td  ng-repeat="y in x" ng-if="$index < 4">{{y[1]}}</td></tr>
+                <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[2]}}</td></tr>
+                <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[3]}}</td></tr>
+            </table>
+            <p>Round {{$index}} Key </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="\-4u" ng-repeat="x in keyresult" ng-if="$index > 5 && $index < 11">
+            <table>
+                <tr><td  ng-repeat="y in x" ng-if="$index < 4">{{y[0]}}</td></tr>
+                <tr><td  ng-repeat="y in x" ng-if="$index < 4">{{y[1]}}</td></tr>
+                <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[2]}}</td></tr>
+                <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[3]}}</td></tr>
+            </table>
+            <p>Round {{$index}} Key </p>
         </div>
     </div>
 
 </section>
+
 
 
 <section id="last" class="wrapper style1">

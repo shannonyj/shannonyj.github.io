@@ -2,6 +2,34 @@
  * Created by f81602d on 9/26/2016.
  */
 
+//
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//
+//
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//               佛祖保佑         永无BUG
+//
+//
+//
+
 myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
     $scope.test01 = consts;
     input01 = $scope.test01.output[0];
@@ -12,8 +40,20 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
         consts.roundresult[0].push(temp);
     }
 
-    $scope.keyStr = key01.join('');
-    aseencrypt.aes_encrypt(input01, key01);
+    input_amend = [input01[0],input01[4],input01[8],input01[12],
+        input01[1],input01[5],input01[9],input01[13],
+        input01[2],input01[6],input01[10],input01[14],
+        input01[3],input01[7],input01[11],input01[15]
+    ];
+
+    inputStr = input_amend.join('');
+    key_amend = [key01[0],key01[4],key01[8],key01[12],
+        key01[1],key01[5],key01[9],key01[13],
+        key01[2],key01[6],key01[10],key01[14],
+        key01[3],key01[7],key01[11],key01[15]
+    ];
+    keyStr = key_amend.join('');
+    aseencrypt.aes_encrypt(inputStr, keyStr);
 
     testResult = aseencrypt.result;
     testSub = aseencrypt.subbytes;
@@ -108,6 +148,52 @@ myApp.service("aseencrypt",function () {
         0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf,
         0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68,
         0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16];
+
+    function cvt_byte( str )
+    {
+        var val1 = str.charCodeAt(0);
+        if ( val1 >= 48 && val1 <= 57 )
+            val1 -= 48;
+        else if ( val1 >= 65 && val1 <= 70 )
+            val1 -= 55;
+        else if ( val1 >= 97 && val1 <= 102 )
+            val1 -= 87;
+
+        // get the second hex digit
+        var val2 = str.charCodeAt(1);
+
+        if ( val2 >= 48 && val2 <= 57 )
+            val2 -= 48;
+        else if ( val2 >= 65 && val2 <= 70 )
+            val2 -= 55;
+        else if ( val2 >= 97 && val2 <= 102 )
+            val2 -= 87;
+
+        // all is ok, return the value
+        return val1*16 + val2;
+    }
+
+    function get_value(str)
+    {
+        var dbyte = new Array(16);
+        var i;
+        var val;	// one hex digit
+
+        for( i=0; i<16; i++ )
+        {
+            // isolate and convert this substring
+            dbyte[i] = cvt_byte( str.toString().substr(i*2,2) );
+            if( dbyte[i] < 0 )
+            {
+                // have an error
+                dbyte[0] = -1;
+                return dbyte;
+            }
+        } // for i
+        return dbyte;
+    } // if isASCII
+
+
     function aes_mul( a, b )
     {
         var res = 0;
@@ -367,6 +453,7 @@ myApp.service("aseencrypt",function () {
         // mark the end of the word
         accumulated_output_info += "\n";
     }
+
     function key_expand( key )
     {
         var temp = new Array(4);
@@ -374,11 +461,9 @@ myApp.service("aseencrypt",function () {
         var w = new Array( 4*11 );
 
         // copy initial key stuff
-        for( i=0; i<4; i++ )
+        for( i=0; i<16; i++ )
         {
-            for (j = 0; j < 4; j ++){
-                w[i*4+j] = parseInt(key[i+4*j],16);
-            }
+            w[i] = key[i];
         }
         accumulate_wordarray( "w[0] = ", w.slice(0,4) );
         accumulate_wordarray( "w[1] = ", w.slice(4,8) );
@@ -414,6 +499,7 @@ myApp.service("aseencrypt",function () {
 
         return w;
     }
+
     function accumulate_array( label, ary )
     {
         var i, j;
@@ -434,7 +520,7 @@ myApp.service("aseencrypt",function () {
 
             // process the four elements in this "row"
             for( j=0; j<4; j++ )
-                accumulated_output_info += " " + ary[i+j] ;
+                accumulated_output_info += " " + cvt_hex8( ary[i+j] );
 
             // mark the end of this row
             accumulated_output_info += "\n";
@@ -476,23 +562,24 @@ myApp.service("aseencrypt",function () {
         // get the message from the user
         // also check if it is ASCII or hex
         //TODO get value
-        var msg =  input;
-
+        var msg =  get_value(input);
 
         accumulate_array( "Input bits", msg );
+
+        var key01 = get_value(key);
 
         accumulate_array( "Key bits", key );
 
         // expand the key
-        w = key_expand( key );
-        this.w1 = w;
+        w = key_expand( key01 );
 
         // initial state = message in columns (transposed from what we input)
-        state = input;
+        state = transpose( msg );
 
         accumulate_array( "Initial state", state );
         // display the round key - Transpose due to the way it is stored/used
         accumulate_array( "Round Key", transpose(w.slice( 0, 16 )) );
+
         this.result = [];
         this.result.push(angular.copy(state));
 

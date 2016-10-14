@@ -2,10 +2,37 @@
  * Created by shannon_z on 12/8/16.
  */
 
+//
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//
+//
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//               佛祖保佑         永无BUG
+//
+//
+//
+
 
 myApp.controller('NumberController', ['$scope', function($scope, consts) {
     $scope.displaynumber = '0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0';
-    $scope.c = consts.output;
 }]);
 
 myApp.controller('SpicyController', ['$scope', function($scope) {
@@ -43,12 +70,11 @@ myApp.controller('keyCtrl', function($scope, consts, sub){
                           [consts.output[1][1],consts.output[1][5],consts.output[1][9],consts.output[1][13]],
                           [consts.output[1][2],consts.output[1][6],consts.output[1][10],consts.output[1][14]],
                           [consts.output[1][3],consts.output[1][7],consts.output[1][11],consts.output[1][15]]];
-    //consts.finalkey[0] = [["04","ed","ab","75"],["84","26","03","14"],["04","ed","ab","75"],["84","26","03","14"]];
-    consts.finalkey[0] = [["0f","15","71", "c9"],["47", "d9", "e8", "59"],[ "0c", "b7", "ad", "d6"],[ "af", "7f", "67", "98"]];
+    //consts.finalkey[0] = [["0f","15","71", "c9"],["47", "d9", "e8", "59"],[ "0c", "b7", "ad", "d6"],[ "af", "7f", "67", "98"]];
     $scope.test01 = consts;
 
 
-    for (var j = 1; j < 10; j++){
+    for (var j = 1; j < 11; j++){
         for (var m = 0; m<4; m ++){
             wMinus4 = [consts.finalkey[j-1][m][0],consts.finalkey[j-1][m][1],consts.finalkey[j-1][m][2],consts.finalkey[j-1][m][3]];
             if(m == 0){
