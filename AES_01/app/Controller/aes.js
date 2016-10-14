@@ -31,6 +31,7 @@
 //
 
 myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
+
     $scope.test01 = consts;
     input01 = $scope.test01.output[0];
     key01 = $scope.test01.output[1];
@@ -60,10 +61,10 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
     testShift = aseencrypt.shiftrows;
     testMix = aseencrypt.mixcolumns;
 
-    $scope.subbytesresult = [[],[],[],[],[],[],[],[],[]];
-    $scope.shiftrowsresult = [[],[],[],[],[],[],[],[],[]];
+    $scope.subbytesresult = [[],[],[],[],[],[],[],[],[],[]];
+    $scope.shiftrowsresult = [[],[],[],[],[],[],[],[],[],[]];
     $scope.mixcolumnsresult = [[],[],[],[],[],[],[],[],[]];
-    $scope.finalresult = [[],[],[],[],[],[],[],[],[],[],[]];
+    $scope.finalresult = [[],[],[],[],[],[],[],[],[],[],[],[]];
 
     for (var j = 0; j<aseencrypt.subbytes.length; j++){
         for (var k = 0; k<16; k++){
@@ -89,7 +90,7 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
             $scope.finalresult[j].push(temp);
         }
     }
-
+    $scope.roundkey = consts.finalkey;
     PolynomialField.updateAllMath();
 });
 
@@ -584,6 +585,7 @@ myApp.service("aseencrypt",function () {
         this.result.push(angular.copy(state));
 
         state = AddRoundKey(state, w, 0);
+        this.result.push(angular.copy(state));
 
         this.subbytes = [];
         this.shiftrows = [];
@@ -611,8 +613,10 @@ myApp.service("aseencrypt",function () {
         }
 
         SubBytes(state, S_enc);
+        this.subbytes.push(angular.copy(state));
         accumulate_array( "After SubBytes", state );
         ShiftRows(state);
+        this.shiftrows.push(angular.copy(state));
         accumulate_array( "After ShiftRows", state );
         AddRoundKey(state, w, 10*4*4);
         accumulate_array( "Output", state );

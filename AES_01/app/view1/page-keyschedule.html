@@ -19,32 +19,47 @@
 </section>
 
 <section id="two" class ="wrapper style1">
-    <p> Cipher Key</p>
     <div class="container">
         <div class="row">
-        <table ng-controller="insuredCtrl">
-            <tr class="special"><th></th><th></th><th></th><th>` w_{i-1} `</th></tr>
-            <tr class="keyspecial"><td>{{test01.output[1][0]}}</td><td>{{test01.output[1][1]}}</td>
-                <td>{{test01.output[1][2]}}</td><td>{{test01.output[1][3]}}</td>
-            </tr>
-            <tr class="keyspecial"><td>{{test01.output[1][4]}}</td><td>{{test01.output[1][5]}}</td>
-                <td>{{test01.output[1][6]}}</td><td>{{test01.output[1][7]}}</td>
-            </tr>
-            <tr class="keyspecial"><td>{{test01.output[1][8]}}</td><td>{{test01.output[1][9]}}</td>
-                <td>{{test01.output[1][10]}}</td><td>{{test01.output[1][11]}}</td>
-            </tr>
-            <tr class="keyspecial"><td>{{test01.output[1][12]}}</td><td>{{test01.output[1][13]}}</td>
-                <td>{{test01.output[1][14]}}</td><td>{{test01.output[1][15]}}</td>
-            </tr>
-        </table>
+            <div class="3u" align="right">
+                <table ng-controller="insuredCtrl">
+                    <tr class="special"><th>` .w_0 `</th><th>` .w_1 `</th><th>` .w_2 `</th><th>` .w_3 `</th></tr>
+                    <tr class="keyspecial"><td class="special">{{test01.output[1][0]}}</td><td class="special">{{test01.output[1][1]}}</td>
+                        <td class="special">{{test01.output[1][2]}}</td><td class="special">{{test01.output[1][3]}}</td>
+                    </tr>
+                    <tr class="keyspecial"><td class="special">{{test01.output[1][4]}}</td><td class="special">{{test01.output[1][5]}}</td>
+                        <td class="special">{{test01.output[1][6]}}</td><td class="special">{{test01.output[1][7]}}</td>
+                    </tr>
+                    <tr class="keyspecial"><td class="special">{{test01.output[1][8]}}</td><td class="special">{{test01.output[1][9]}}</td>
+                        <td class="special">{{test01.output[1][10]}}</td><td class="special">{{test01.output[1][11]}}</td>
+                    </tr>
+                    <tr class="keyspecial"><td class="special">{{test01.output[1][12]}}</td><td class="special">{{test01.output[1][13]}}</td>
+                        <td class="special">{{test01.output[1][14]}}</td><td class="special">{{test01.output[1][15]}}</td>
+                    </tr>
+                </table><br>
+                <p style="padding-right: 25%"> Cipher Key</p>
+            </div>
+            <div class="2u" align="center" style="padding-left: 0em;">
+                <table>
+                    <tr class="special"><th>` .w_4 `</th><th>` .w_5 `</th><th>` .w_6 `</th><th>` .w_7 `</th></tr>
+                    <tr><td><br></td><td></td><td></td><td></td></tr>
+                    <tr><td><br></td><td></td><td></td><td></td></tr>
+                    <tr><td><br></td><td></td><td></td><td></td></tr>
+                    <tr><td><br></td><td></td><td></td><td></td></tr>
+                </table><br>
+                <p> Round 1 Key</p>
+            </div>
+            <div class="7u" align="left" style="padding-left: 0em;">
+                <table>
+                    <tr class="special"><th>` ... `</th><th style="font-size:1px">hiiiiiiiiiiiiiiiiiiiiiiiiii</th><th style="font-size:1px">hiiiiiiiiiiiiiiiiiiiiiiiiii</th><th></th><th></th><th></th><th></th><th></th></tr>
+                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
+                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
+                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
+                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
+                </table><br>
+                <p style="padding-left: 5%"> Round 2 Key</p><t></t>
+            </div>
 
-            <table>
-                <tr class="special"><th></th><th></th><th></th><th></th><th></th><th></th><th> ` `</th><th></th></tr>
-                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            </table>
         </div>
     </div>
 
@@ -56,8 +71,11 @@
 <section id="steps" class="wrapper style1">
 
     <hr />
-    <h3 ng-model="collapsed" ng-click="show =!show">Situation 1: Words in positions that are a multiple of 4</h3>
-    <div ng-show="show">
+    <div class="row" style="padding-left: 15px">
+        <h3 ng-model="collapsed" ng-click="show =!show">Situation 1: Words in positions that are a multiple of 4</h3>
+    </div>
+
+    <div ng-show="show" style="padding-left: 3em">
         <p>
         (` w_4 `, ` w_8 `, ..., ` w_40 `) are calculated by: <br>
         a) Applying the RotWord and SubBytes transformation to the previous word ` w_{i-1} `<br></p>
@@ -65,7 +83,7 @@
         <div class = "container">
             <div class="row">
                 <!--Move w4 out, Rotwords, Subbytes-->
-                <div class="\-2u">
+                <div class="1u" align="center">
                     <!--w4-->
                     <table>
                         <tr><td>{{test01.output[1][3]}}</td></tr>
@@ -78,11 +96,11 @@
 
                 <!--Arrow 1st step ROTWORD-->
 
-                <div class="\-2u">
+                <div class="1u" align="center">
                     <p style="font-size: small">Step 1: ROTWORD</p>
                     <img src="images/arrow1.png" height="24" width="64">
                 </div>
-                <div class="\-2u">
+                <div class="1u" align="center">
                     <!--w4-->
                     <table>
                         <tr><td>{{test01.output[1][7]}}</td></tr>
@@ -95,12 +113,12 @@
 
                 <!--Arrow 2nd step SubBytes-->
 
-                <div class="\-2u">
+                <div class="1u" align="center">
                     <p style="font-size: small">Step 2: SubBytes</p>
                     <img src="images/arrow1.png" height="24" width="64">
                 </div>
 
-                <div class="\-2u">
+                <div class="1u" align="center">
 
                     <!--w4-->
                     <table>
@@ -111,16 +129,22 @@
                     </table>
                     <div>` w''_3 `</div>
                 </div>
+
 <!--{{resultarr["0x04"]}}-->
 
-                <div class="\-4u">
+                <div class="1u" align="center">
+                    <p style="font-size: xx-small"></p>
+                </div>
+
+                <div class="6u" align="center">
                     <table class="empty" ng-controller="insuredCtrl" style="font-size: xx-small">
                         <tr ng-repeat="data in sbox" class="special">
-                            <td ng-repeat="datum in data" style="margin: 0; padding: 0 0.25em 0 0.25em; line-height: 2px">
-                            <p ng-style="resultarr[datum]">{{datum}}</p>
+                            <td ng-repeat="datum in data" style="margin: 0; line-height: 2px" ng-style="resultarr[datum]">
+                            {{datum}}
                             </td>
                         </tr>
                     </table>
+                    <p >S-Box Reference</p>
                 </div>
 
             </div>
@@ -131,6 +155,7 @@
         </p>
         <!--Key Add-->
         <div class = "row" ng-controller="insuredCtrl">
+            <div class="1u" align="right"><p></p></div>
             <!--wi-4-->
             <div class="\-4u">
                 <table>
@@ -191,14 +216,16 @@
     -->
     <hr />
 
-    <h3 ng-model="collapsed" ng-click="show00 =!show00">Situation 2: The remaining 32-bit words ` w_i `</h3>
-    <div>
-        <p ng-show="show00">
+    <div class="row" style="padding-left: 15px">
+        <h3 ng-model="collapsed" ng-click="show00 =!show00">Situation 2: The remaining 32-bit words ` w_i `</h3>
+    </div>
+    <div ng-show="show00" style="padding-left: 3em">
+        <p >
             The remaining 32-bit words ` w_i `, are calculated
             by adding (XOR) the previous word ` w_{i-1} `, with the word 4 positions earlier ` w_{i-4} `
         </p>
         <!-- i = 5 -->
-        <div class = "row" ng-show="show00">
+        <div class = "row" ng-show="show00" style="padding-left: 3em">
             <p>When i = 5:</p>
             <div class="\-4u">
                 <table>
@@ -243,9 +270,9 @@
         </div>
 
         <!-- i = 6 -->
-        <div class = "row"  ng-show="show02">
+        <div class = "row"  ng-show="show02" style="padding-left: 3em">
             <p>When i = 6:</p>
-            <div class="\-4u">
+            <div class="\-4u" style="padding-left: 4em">
                 <table>
                     <tr><td>{{test01.output[1][2]}}</td></tr><tr><td>{{test01.output[1][6]}}</td></tr>
                     <tr><td>{{test01.output[1][10]}}</td></tr><tr><td>{{test01.output[1][14]}}</td></tr>
@@ -287,7 +314,7 @@
         </div>
 
         <!-- i = 7 -->
-        <div class = "row"  ng-show="show03">
+        <div class = "row"  ng-show="show03" style="padding-left: 3em">
             <p>When i = 7:</p>
             <div class="\-4u">
                 <table>
@@ -332,7 +359,7 @@
         </div>
         <hr />
     </div>
-
+    </div>
 
 
 </section>

@@ -34,6 +34,11 @@ myApp.config(function($routeProvider) {
       .when('/overview', {
         templateUrl: 'view1/page-overview.html',
         controller: 'overviewController'
+      })
+
+      .when('/finalresult',{
+          templateUrl: 'view1/page-result.html',
+          controller: 'resultController'
       });
 
 });
@@ -67,5 +72,9 @@ myApp.controller('overviewController', function($scope) {
                 });
             }]
     };
+});
+
+myApp.controller('resultController', function($scope) {
+    $scope.pageClass = 'page-result';
 });
 

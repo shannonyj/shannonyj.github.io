@@ -10,20 +10,24 @@
 <section id="test" class="wrapper style1" ng-controller="keyCtrl">
 
 
-    <div class="row">
+    <div layout="column" layout-align="center center">
         <div class="\-4u">
+            <div>
             <table>
                 <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[0]}}</td></tr>
                 <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[1]}}</td></tr>
                 <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[2]}}</td></tr>
                 <tr><td ng-repeat="y in keyresult[0]" ng-if="$index < 4">{{y[3]}}</td></tr>
             </table>
+            </div>
+            <div align="center">
             <p>Cipher Key</p>
+            </div>
         </div>
     </div>
 
 
-    <div class="row">
+    <div layout="row" layout-align="space-around center">
         <div class="\-4u" ng-repeat="x in keyresult" ng-if="$index > 0 && $index < 6">
             <table>
                 <tr><td  ng-repeat="y in x" ng-if="$index < 4">{{y[0]}}</td></tr>
@@ -31,11 +35,11 @@
                 <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[2]}}</td></tr>
                 <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[3]}}</td></tr>
             </table>
-            <p>Round {{$index}} Key </p>
+            <p align="center">Round {{$index}} Key </p>
         </div>
     </div>
 
-    <div class="row">
+    <div layout="row" layout-align="space-around center">
         <div class="\-4u" ng-repeat="x in keyresult" ng-if="$index > 5 && $index < 11">
             <table>
                 <tr><td  ng-repeat="y in x" ng-if="$index < 4">{{y[0]}}</td></tr>
@@ -43,7 +47,7 @@
                 <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[2]}}</td></tr>
                 <tr><td ng-repeat="y in x" ng-if="$index < 4">{{y[3]}}</td></tr>
             </table>
-            <p>Round {{$index}} Key </p>
+            <p align="center">Round {{$index}} Key </p>
         </div>
     </div>
 
