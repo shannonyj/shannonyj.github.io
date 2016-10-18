@@ -77,7 +77,7 @@
             <div class="6u">
                 <p>S-Box<br> Byte Substitution Table</p>
                 <table ng-controller="insuredCtrl" style="font-size: x-small;">
-                    <tr ng-repeat="data in sbox">
+                    <tr ng-repeat="data in sbox" class="special">
                         <td ng-repeat="datum in data" style="padding: 0.25em 0.5em" ng-style="resultarr[datum]"
                             ng-hide="datum == findsbox(test01.roundresult[0][$index])">
                             <a href="https://abdcfaferadfa.github.io/FYP-GF/app/#/sbox?url=&val={{($parent.$index-1)*16 + ($index-1)}}"
