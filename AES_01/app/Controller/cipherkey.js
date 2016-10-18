@@ -45,34 +45,56 @@ myApp.controller('SpicyController', ['$scope', function($scope) {
 }]);
 
 
-myApp.controller('insuredCtrl', function($scope, $http, consts) {
+myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, $window, consts) {
+    if(angular.isDefined($cookieStore.get('AES'))){
+        var tempoutput = $cookieStore["get"]('AES');
+        consts.output[0] = tempoutput[0];
+        consts.output[1] = tempoutput[1];
+    }
+
     $http.get("Controller/RCON.json").success(function (response) {
         $scope.members = response.rcon;
     });
     $scope.sbox = consts.s_enc;
 
+    $scope.tointeger = function(val){
+        var result="1";
+        try {
+            result = parseInt(val.substr(2,2),16)
+        }
+        catch (err){
+            console.error(err);
+        }
+        return result;
+    };
+
     $scope.test01 = consts;
     $scope.resultarr = {};
     $scope.findsbox = function (val){
-        $scope.resultarr[($scope.sbox[parseInt(val[0])+1]["x"+val[1]])] = {'background-color':'red'};
+        $scope.resultarr[($scope.sbox[parseInt(val[0])+1]["x"+val[1]])] = {'background-color':'Salmon'};
         return ($scope.sbox[parseInt(val[0])+1]["x"+val[1]]).substr(2,2);
     };
     $scope.addthree = function(val1, val2, val3){
         $scope.addresult = PolynomialField.AESAdd(PolynomialField.AESAdd(val1,val2),val3);
         return $scope.addresult;
     };
+
+    $window.onbeforeunload = function(){
+        $cookieStore.put('AES',consts.output);
+    };
+
     PolynomialField.updateAllMath();
 });
 
 
-myApp.controller('keyCtrl', function($scope, consts, sub){
+myApp.controller('keyCtrl', function($scope, consts, sub, toTwoDigit){
     consts.finalkey[0] = [[consts.output[1][0],consts.output[1][4],consts.output[1][8],consts.output[1][12]],
                           [consts.output[1][1],consts.output[1][5],consts.output[1][9],consts.output[1][13]],
                           [consts.output[1][2],consts.output[1][6],consts.output[1][10],consts.output[1][14]],
                           [consts.output[1][3],consts.output[1][7],consts.output[1][11],consts.output[1][15]]];
     //consts.finalkey[0] = [["0f","15","71", "c9"],["47", "d9", "e8", "59"],[ "0c", "b7", "ad", "d6"],[ "af", "7f", "67", "98"]];
     $scope.test01 = consts;
-
+    $scope.two = toTwoDigit.two;
 
     for (var j = 1; j < 11; j++){
         for (var m = 0; m<4; m ++){

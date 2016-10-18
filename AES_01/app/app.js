@@ -9,6 +9,7 @@ var myApp = angular.module('myApp', [
   //'myApp.version',
   'ngMaterial',
     'ngMessages',
+    'ngCookies'
 ]);
 
 // ROUTING ===============================================
@@ -76,5 +77,11 @@ myApp.controller('overviewController', function($scope) {
 
 myApp.controller('resultController', function($scope) {
     $scope.pageClass = 'page-result';
+});
+
+myApp.service("toTwoDigit", function(){
+    this.two = function(val){
+        return (val.length<2)?"0"+val:val;
+    }
 });
 

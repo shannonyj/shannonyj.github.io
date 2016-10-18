@@ -2,11 +2,7 @@
  * Created by shannon_z on 6/9/16.
  */
 
-myApp.controller('AppCtrl', function($scope,$location,consts) {
-        $scope.project = {
-            description: '',
-            clientName: ''
-        };
+myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,consts) {
         obj = $location.search();
         console.log(obj);
         if ("a" in obj){
@@ -26,6 +22,7 @@ myApp.controller('AppCtrl', function($scope,$location,consts) {
                 arr.push(output01);
             }
         };
+        $cookieStore.remove('AES');
 
        /* $scope.outputTrans = function(arr){
             for (var l = 0; l < 4; l ++){

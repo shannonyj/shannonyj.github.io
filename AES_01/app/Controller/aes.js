@@ -30,7 +30,7 @@
 //
 //
 
-myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
+myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
 
     $scope.test01 = consts;
     input01 = $scope.test01.output[0];
@@ -40,6 +40,8 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
         temp = PolynomialField.AESAdd(input01[i], key01[i]);
         consts.roundresult[0].push(temp);
     }
+
+    $scope.two = toTwoDigit.two;
 
     input_amend = [input01[0],input01[4],input01[8],input01[12],
         input01[1],input01[5],input01[9],input01[13],
@@ -94,11 +96,31 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt) {
     PolynomialField.updateAllMath();
 });
 
-myApp.controller('sBoxCtrl', function($scope, $http, consts) {
-    $http.get("Controller/SBox.json").success(function (response) {
-        $scope.s_enc = response.s_enc;
-    });
+myApp.controller('sBoxCtrl', function($scope, $http, $cookies, $cookieStore, $window, consts) {
+    if(angular.isDefined($cookieStore.get('AES'))){
+        var tempoutput = $cookieStore["get"]('AES');
+        consts.output[0] = tempoutput[0];
+        consts.output[1] = tempoutput[1];
+    }
+
+    $scope.s_enc = consts.s_enc;
+    $scope.tointeger = function(val){
+        var result="1";
+        try {
+            result = parseInt(val.substr(2,2),16)
+        }
+        catch (err){
+            console.error(err);
+        }
+        return result;
+    };
+
     $scope.test01 = consts;
+
+    $window.onbeforeunload = function(){
+        $cookieStore.put('AES',consts.output);
+    };
+
     PolynomialField.updateAllMath();
     //MathJax.Hub.Queue(["Typeset",MathJax.Hub])();
 });
