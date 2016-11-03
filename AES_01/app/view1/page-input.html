@@ -2,13 +2,16 @@
     <header class="major">
         <h2>Plaintext and Key Input</h2>
         <p style="font-size: medium">AES-128 allows a fixed block size and a fixed key size as 128 bits.<br>
-
+            It operates on a 4 x 4 matrix of bytes, termed as <b>state</b>. <br>
+            In this demo, each state is expressed by 1 byte (16 bits of 0s and 1s).<br>
+            Hence, inputs from <b>00</b> to <b>ff</b> are allowed.
         </p>
     </header>
 
     <div ng-controller="AppCtrl" layout="column" class="container">
 
         <md-content layout-padding>
+
             <!--Input-->
             <div layout="row">
                 <h2 class="md-title">Input</h2>
@@ -60,15 +63,20 @@
                 </div>
             </div>
 
-                <!--Empty-->
-                <div class = "row">
-                    <p><br></p>
-                </div>
+            <!--Empty-->
+            <div class = "row">
+                <p><br></p>
+            </div>
 
-                <!--Check input-->
-                <div layout="row" layout-align="center">
-                    <a class="button big" type="submit" href="#/view1">Proceed to Encryption Process</a>
-                </div>
+            <!--Check input-->
+            <div layout="row" layout-align="center">
+                <a class="button big" type="submit" href="#/view1">Proceed to Encryption Process</a>
+            </div>
+
+            <!--Empty-->
+            <div class = "row">
+                <p><br></p>
+            </div>
 
 
         </md-content>
