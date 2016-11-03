@@ -9,7 +9,8 @@ var myApp = angular.module('myApp', [
   //'myApp.version',
   'ngMaterial',
     'ngMessages',
-    'ngCookies'
+    'ngCookies',
+   // 'material.svgAssetsCache'
 ]);
 
 // ROUTING ===============================================
@@ -42,7 +43,10 @@ myApp.config(function($routeProvider) {
           controller: 'resultController'
       });
 
-});
+})
+    .config(['$mdIconProvider', function ($mdIconProvider) {
+        $mdIconProvider.icon('md-close', 'img/icons/ic_close_24px.svg', 24);
+    }]);
 
 
 // CONTROLLERS ============================================
@@ -77,6 +81,32 @@ myApp.controller('overviewController', function($scope) {
 
 myApp.controller('resultController', function($scope) {
     $scope.pageClass = 'page-result';
+});
+
+myApp.controller('BasicDemoCtrl', function($scope){
+
+    $scope.number=16;
+    $scope.getNumber = function(num) {
+        return new Array(num);
+    };
+
+
+    $scope.removable = false;
+
+    $scope.input = ['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f'];
+    $scope.key = ['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f'];
+    $scope.editableinput  = angular.copy($scope.input);
+    $scope.editablekey  = angular.copy($scope.key);
+
+    $scope.ctrl = {
+        add: function ($chip) {
+            var a  = 'error';
+            if (parseInt($chip,16) < 256) {
+                return $chip;
+            }
+            return a;
+        }
+    };
 });
 
 myApp.service("toTwoDigit", function(){

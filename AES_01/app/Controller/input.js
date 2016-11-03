@@ -3,26 +3,9 @@
  */
 
 myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,consts) {
-        obj = $location.search();
-        console.log(obj);
-        if ("a" in obj){
-            consts.output[0] = obj["a"]
-        }
-        if ("b" in obj){
-            consts.output[1] = obj["b"]
-        }
-        $scope.result1 = consts.output[0];
-        $scope.result = consts.output[1];
-
-        $scope.transformation = function (input01,arr){
-            while (arr.length>0) arr.pop();
-            var tmp = [];
-            for (var i = 0; i < input01.length; i++){
-                output01 = input01.charCodeAt(i).toString(16);
-                arr.push(output01);
-            }
-        };
-        $cookieStore.remove('AES');
+    $scope.input = consts.output[0];
+    $scope.key =  consts.output[1];
+    $cookieStore.remove('AES');
 
        /* $scope.outputTrans = function(arr){
             for (var l = 0; l < 4; l ++){
@@ -31,7 +14,8 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
         };*/
     })
     .constant("consts",{
-        output: [[],[]],
+        output: [['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f'],
+            ['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f']],
         finalkey: [[],[],[],[],[],[],[],[],[],[],[]],
         roundresult:[[],[],[],[],[],[],[],[],[],[],[]],
         //roundresult:[[],[],[],[],[],[],[],[],[],[],[]],
