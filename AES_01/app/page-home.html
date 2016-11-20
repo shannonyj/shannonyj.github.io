@@ -1,4 +1,5 @@
 <!-- page-home.html -->
+<link rel="stylesheet" href="app.css" />
 <section id="banner">
   <div class="inner">
     <h2>AES Cryptography</h2>
@@ -16,49 +17,66 @@
   <header class="major">
     <h2>About AES</h2>
     <p>Advanced Encryption Standard Basics</p>
-  </header>
-  <header>
-    <p>
-      The Advanced Encryption Standard (AES) is formal encryption method adopted by the National Institute of
-      Standards and Technology of the US Government, and is accepted worldwide. It is founded on solid and
-      well-published mathematical ground, and appears to resist all known attacks with no back-door or
-      know weakness.
+    <p style="font-size: medium">
+      The Advanced Encryption Standard (AES) is formal encryption method adopted by the National Institute of Standards and Technology of<br>
+      the US Government, and is accepted worldwide. It is founded on solid and well-published mathematical ground, and appears to resist <br>
+      all known attacks with no back-door or known weakness.
     </p>
   </header>
   <style type="text/css">
-    .marquee_horizontal
-    {   height:50px;
-      width:80px;
-      background-color:FAFAFA;
-      border-width:2px;
-      border-style:dashed;
-      border-color:DEB8DD;
-    }
-    .marquee_vertical
-    {   height:50px;
-      width:18px;
-      background-color:FAFAFA;
-    }
+
 
   </style>
 
 
 
   <div class="container" ng-controller="NumberController">
-    <p>Plain Text</p>
-    <marquee class="marquee_vertical" class="arrow_box" direction="down" behavior="scroll" scrollamount="20" >
-      {{displaynumber}}
-    </marquee>
+    <div layout = 'row'>
 
-    <p>Cipher Key</p>
-    <marquee class="marquee_horizontal" direction="Right" behavior="scroll" scrollamount="15" >
-      {{displaynumber}}
-    </marquee>
+      <div flex="45" layout="column" >
+        <div layout="row" layout-align="end center">
+          <div><p style="padding-top: 15px; padding-right: 1em !important;"><b>Plain Text</b></p></div>
+          <div>
+            <marquee class="marquee_horizontal" direction="Right" behavior="scroll" scrollamount="12" >
+              {{displaynumber}}</marquee>
+          </div>
+          <div style="padding-left: 0.5em !important;"><img src="images/Arrow_right.png" height="50px" width="50px"></div>
+        </div>
+        <div layout = "row" layout-align="end center">
+          <div>
+            <p style="padding-top: 15px; padding-right: 1em !important;"><b>Cipher Key</b></p>
+          </div>
+          <div>
+            <marquee class="marquee_horizontal" direction="Right" behavior="scroll" scrollamount="10" >
+              {{displaynumber}}
+            </marquee>
+          </div>
+          <div style="padding-left: 0.5em !important;">
+            <img src="images/Arrow_right.png" height="50px" width="50px">
+          </div>
+        </div>
 
-    <p>Cipher Text</p>
-    <marquee class="marquee_vertical" direction="down" behavior="scroll" scrollamount="20" >
-      {{displaynumber}}
-    </marquee>
+      </div>
+
+      <div flex="25" style="padding-top: 1em;">
+        <p class="rijnbox">
+          <br>Rijndael <br>Encryptor
+        </p>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="center start">
+      <div layout="column" layout-align="center center">
+        <div class="adjust">
+          <img src="images/Arrow_down.png" height="50px" width="50px">
+        </div>
+        <div class="adjust">
+        <marquee class="marquee_vertical" direction="down" behavior="scroll" scrollamount="20" >
+          {{displaynumber}}
+        </marquee></div>
+        <div class="adjust"><p><b>Cipher Text</b></p></div>
+      </div>
+    </div>
   </div>
 
   <div class="container">
@@ -123,6 +141,8 @@
   </div>
 </section>
 
+
+<!--
 <footer id="footer">
 <div class="row double">
     <div class="1u">
@@ -154,3 +174,4 @@
 
 </div>
 </footer>
+-->

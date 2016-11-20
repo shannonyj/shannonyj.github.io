@@ -1,21 +1,14 @@
 <section id="one" class="wrapper style1">
     <header class="major">
-        <h2>Key Schedule</h2>
-        <p style="font-size: medium">The expanded key can be seen as an array of 32-bit words (columns). <br>
-            The first four columns are filled with the given Cipher Key from input.</p>
-    </header>
+        <h2>Part 1. Key Schedule</h2>
+        <p style="font-size: medium">
+            Key Schedule is the expansion of the giver Cipher key into 11 partial keys, <br>
+            used in different rounds of the encryption process.<br><br>
 
-    <!--RCON Table-->
-    <div class="container" align="center" style="font-size: x-small;">
-        <p>RCON Table <br>
-            Rcon[i] contains value given by ` [x^{i-1},{00},{00},{00}] `.</p>
-        <table ng-controller="insuredCtrl" style="font-size: small">
-            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c0}}</td></tr>
-            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c1 }}</td></tr>
-            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c1 }}</td></tr>
-            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c1 }}</td></tr>
-        </table>
-    </div>
+            The expanded key can be seen as an array of 32-bit words (columns),<br>
+            numbered from 0 to 43. The first four columns are filled with the
+            Cipher key that you entered just now.</p>
+    </header>
 </section>
 
 <section id="two" class ="wrapper style1">
@@ -61,6 +54,18 @@
             </div>
 
         </div>
+    </div>
+
+    <!--RCON Table-->
+    <div class="container" align="center" style="font-size: x-small;">
+        <p>RCON Table <br>
+            Rcon[i] contains value given by ` [x^{i-1},{00},{00},{00}] `.</p>
+        <table ng-controller="insuredCtrl" style="font-size: small">
+            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c0}}</td></tr>
+            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c1 }}</td></tr>
+            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c1 }}</td></tr>
+            <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c1 }}</td></tr>
+        </table>
     </div>
 
     <div class="container">

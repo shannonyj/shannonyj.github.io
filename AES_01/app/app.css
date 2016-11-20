@@ -70,3 +70,34 @@
 
 .chipsdemoBasicUsage .custom-chips md-chips-wrap.md-removable md-chip md-chip-template {
   padding-right: 5px; }
+
+.marquee_horizontal
+{
+  height:50px;
+  width:90px;
+  padding-top: 12px;
+}
+.marquee_vertical
+{
+  height:100px;
+  width:18px;
+  text-align: center;
+}
+.rijnbox
+{
+  background-color:#aaaaaa;
+  border-style: solid;
+  border-width: medium;
+  border-color: black;
+  height: 110px;
+  width: 150px;
+  font-weight: bold;
+  color: white !important;
+  text-align: center;
+  font-size: large;
+}
+.adjust
+{
+  padding-left: 1.5em;
+}
+
