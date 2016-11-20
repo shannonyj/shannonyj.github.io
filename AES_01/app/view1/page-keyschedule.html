@@ -2,7 +2,7 @@
     <header class="major">
         <h2>Part 1. Key Schedule</h2>
         <p style="font-size: medium">
-            Key Schedule is the expansion of the giver Cipher key into 11 partial keys, <br>
+            Key Schedule is the expansion of the given Cipher key into 11 partial keys, <br>
             used in different rounds of the encryption process.<br><br>
 
             The expanded key can be seen as an array of 32-bit words (columns),<br>
@@ -14,9 +14,14 @@
 <section id="two" class ="wrapper style1">
     <div class="container">
         <div class="row">
-            <div class="3u" align="right">
+            <div class="2u"> </div>
+            <div class="2u">
                 <table ng-controller="insuredCtrl">
-                    <tr class="special"><th>` .w_0 `</th><th>` .w_1 `</th><th>` .w_2 `</th><th>` .w_3 `</th></tr>
+                    <tr class="special">
+                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;">` w_0 `</th>
+                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;">` w_1 `</th>
+                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;">` w_2 `</th>
+                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;">` w_3 `</th></tr>
                     <tr class="keyspecial"><td class="special">{{test01.output[1][0]}}</td><td class="special">{{test01.output[1][1]}}</td>
                         <td class="special">{{test01.output[1][2]}}</td><td class="special">{{test01.output[1][3]}}</td>
                     </tr>
@@ -30,27 +35,42 @@
                         <td class="special">{{test01.output[1][14]}}</td><td class="special">{{test01.output[1][15]}}</td>
                     </tr>
                 </table><br>
-                <p style="padding-right: 25%"> Cipher Key</p>
+                <p style="padding-left: 45%"> Cipher Key</p>
             </div>
-            <div class="2u" align="center" style="padding-left: 0em;">
+            <div class="2u">
                 <table>
-                    <tr class="special"><th>` .w_4 `</th><th>` .w_5 `</th><th>` .w_6 `</th><th>` .w_7 `</th></tr>
-                    <tr><td><br></td><td></td><td></td><td></td></tr>
-                    <tr><td><br></td><td></td><td></td><td></td></tr>
-                    <tr><td><br></td><td></td><td></td><td></td></tr>
-                    <tr><td><br></td><td></td><td></td><td></td></tr>
+                    <tr class="special">
+                        <th style="padding: 0.4em 1.1em 0.3em 1.1em;">` w_4 `</th>
+                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;">` w_5 `</th>
+                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;">` w_6 `</th>
+                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;">` w_7 `</th></tr>
+                    <tr ng-repeat="i in [1,2,3,4]"><td ng-repeat="j in [1,2,3,4]"><br></td></tr>
                 </table><br>
-                <p> Round 1 Key</p>
+                <p style="padding-left: 40%"> Round 1 Key</p>
             </div>
-            <div class="7u" align="left" style="padding-left: 0em;">
+            <div class="2u">
                 <table>
-                    <tr class="special"><th>` ... `</th><th style="font-size:1px">hiiiiiiiiiiiiiiiiiiiiiiiiii</th><th style="font-size:1px">hiiiiiiiiiiiiiiiiiiiiiiiiii</th><th></th><th></th><th></th><th></th><th></th></tr>
-                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
-                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
-                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
-                    <tr><td><br></td><td></td><td></td><td></td><td><br></td><td></td><td></td><td></td></tr>
+                    <tr class="special">
+                        <th  ng-repeat="m in [1,2,3,4]" style="color:white;">` .w_4 `</th></tr>
+                    <tr ng-repeat="i in [1,2,3,4]"><td ng-repeat="j in [1,2,3,4]"><br></td></tr>
                 </table><br>
-                <p style="padding-left: 5%"> Round 2 Key</p><t></t>
+                <p style="padding-left: 40%"> Round 2 Key</p>
+            </div>
+            <div class="3u">
+                <div class="bolder">
+                    <p>......</p>
+                </div>
+            </div>
+            <div class="2u">
+                <table>
+                    <tr class="special">
+                        <th  style="color:white;">` .w_4 `</th>
+                        <th  style="color:white;">` .w_4 `</th>
+                        <th  style="color:white;">` .w_4 `</th>
+                        <th  style="color:white;">` .w_4 `</th></tr>
+                    <tr ng-repeat="i in [1,2,3,4]"><td ng-repeat="j in [1,2,3,4]"><br></td></tr>
+                </table><br>
+                <p style="padding-left: 34%"> Round 10 Key</p>
             </div>
 
         </div>

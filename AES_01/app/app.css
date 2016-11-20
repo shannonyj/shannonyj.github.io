@@ -100,4 +100,9 @@
 {
   padding-left: 1.5em;
 }
-
+.bolder{
+  padding-left: 5.5em;
+  padding-top: 5em;
+  font-size: x-large;
+  font-weight: bolder;
+}
