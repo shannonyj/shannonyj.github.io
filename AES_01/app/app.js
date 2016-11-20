@@ -8,8 +8,9 @@ var myApp = angular.module('myApp', [
   'myApp.view2',
   //'myApp.version',
   'ngMaterial',
-    'ngMessages',
-    'ngCookies',
+  'ngMessages',
+  'ngCookies',
+  'ngToast'
    // 'material.svgAssetsCache'
 ]);
 

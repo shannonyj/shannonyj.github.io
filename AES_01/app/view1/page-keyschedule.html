@@ -1,17 +1,23 @@
-<section id="one" class="wrapper style1">
-    <header class="major">
+<section id="one" class="wrapper style1" style="padding: 0 0 0 0;">
+    <header class="major" style="padding-top:3em; padding-bottom: 0;">
         <h2>Part 1. Key Schedule</h2>
-        <p style="font-size: medium">
+        <p style="font-size: large">
             Key Schedule is the expansion of the given Cipher key into 11 partial keys, <br>
-            used in different rounds of the encryption process.<br><br>
-
-            The expanded key can be seen as an array of 32-bit words (columns),<br>
-            numbered from 0 to 43. The first four columns are filled with the
-            Cipher key that you entered just now.</p>
+            used in different rounds of the encryption process.</p>
     </header>
 </section>
 
-<section id="two" class ="wrapper style1">
+<section id="two" class ="wrapper style1" style="padding: 0 1em 1em 1em">
+    <div class="row">
+        <header>
+        <p style="font-size: medium">
+            The expanded key can be seen as an array of 32-bit words<br>
+            numbered from 0 to 43. In the table below, each 32-bit <br>
+            word is taking 1 column while each table cell contains<br>
+            8 bits. The first four columns are filled with the Cipher<br>
+            key that you entered just now.</p>
+        </header>
+    </div>
     <div class="container">
         <div class="row">
             <div class="2u"> </div>
@@ -76,6 +82,16 @@
         </div>
     </div>
 
+</section>
+
+
+
+<section id="steps" class="wrapper style1">
+
+    <hr />
+    <div class="row" style="padding-left: 15px">
+        <h3 ng-model="collapsed" ng-click="show =!show">Situation 1: Words in positions that are a multiple of 4</h3>
+    </div>
     <!--RCON Table-->
     <div class="container" align="center" style="font-size: x-small;">
         <p>RCON Table <br>
@@ -87,19 +103,6 @@
             <tr><td ng-repeat="indivisual in members" style="padding: 0.1em 0.25em">{{ indivisual.c1 }}</td></tr>
         </table>
     </div>
-
-    <div class="container">
-
-    </div>
-</section>
-
-<section id="steps" class="wrapper style1">
-
-    <hr />
-    <div class="row" style="padding-left: 15px">
-        <h3 ng-model="collapsed" ng-click="show =!show">Situation 1: Words in positions that are a multiple of 4</h3>
-    </div>
-
     <div ng-show="show" style="padding-left: 3em">
         <p>
         (` w_4 `, ` w_8 `, ..., ` w_40 `) are calculated by: <br>
