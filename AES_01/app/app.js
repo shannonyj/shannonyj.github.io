@@ -84,7 +84,7 @@ myApp.controller('resultController', function($scope) {
     $scope.pageClass = 'page-result';
 });
 
-myApp.controller('BasicDemoCtrl', function($scope){
+myApp.controller('BasicDemoCtrl', function($scope, consts){
 
     $scope.number=16;
     $scope.getNumber = function(num) {
@@ -94,8 +94,8 @@ myApp.controller('BasicDemoCtrl', function($scope){
 
     $scope.removable = false;
 
-    $scope.input = ['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f'];
-    $scope.key = ['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f'];
+    $scope.input = consts.output[0];
+    $scope.key = consts.output[1];
     $scope.editableinput  = angular.copy($scope.input);
     $scope.editablekey  = angular.copy($scope.key);
 
