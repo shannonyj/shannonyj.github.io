@@ -1,0 +1,36 @@
+
+<div layout="row" layout-align="center center" ng-controller="insuredCtrl">
+    <div>
+        Text Input
+        <table ng-controller="insuredCtrl" style="font-size: x-small;">
+            <tr>
+                <td ng-repeat="i in [0,1,2,3]">{{test01.output[0][i]}}</td></tr>
+            <tr>
+                <td class="special" ng-repeat="i in [4,5,6,7]">{{test01.output[0][i]}}</td></tr>
+            <tr>
+                <td class="special" ng-repeat="i in [8,9,10,11]">{{test01.output[0][i]}}</td></tr>
+            <tr>
+                <td class="special" ng-repeat="i in [12,13,14,15]">{{test01.output[0][i]}}</td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        Cipher Key
+        <table>
+            <table ng-controller="insuredCtrl">
+                <tr class="keyspecial"><td class="special">{{test01.output[1][0]}}</td><td class="special">{{test01.output[1][1]}}</td>
+                    <td class="special">{{test01.output[1][2]}}</td><td class="special">{{test01.output[1][3]}}</td>
+                </tr>
+                <tr class="keyspecial"><td class="special">{{test01.output[1][4]}}</td><td class="special">{{test01.output[1][5]}}</td>
+                    <td class="special">{{test01.output[1][6]}}</td><td class="special">{{test01.output[1][7]}}</td>
+                </tr>
+                <tr class="keyspecial"><td class="special">{{test01.output[1][8]}}</td><td class="special">{{test01.output[1][9]}}</td>
+                    <td class="special">{{test01.output[1][10]}}</td><td class="special">{{test01.output[1][11]}}</td>
+                </tr>
+                <tr class="keyspecial"><td class="special">{{test01.output[1][12]}}</td><td class="special">{{test01.output[1][13]}}</td>
+                    <td class="special">{{test01.output[1][14]}}</td><td class="special">{{test01.output[1][15]}}</td>
+                </tr>
+            </table><br>
+        </table>
+    </div>
+</div>

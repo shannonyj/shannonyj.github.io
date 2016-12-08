@@ -1,3 +1,7 @@
+<section class="wrapper style1">
+    <div ng-include="'view1/page-header.html'"></div>
+</section>
+
 <section id="one" class="wrapper style1" style="padding: 0 0 0 0;">
     <header class="major" style="padding-top:3em; padding-bottom: 0;">
         <h2>Part 1. Key Schedule</h2>
@@ -51,37 +55,37 @@
             <div class="2u">
                 <table>
                     <tr class="special">
-                        <th style="padding: 0.4em 1.1em 0.3em 1.1em;" ng-click="show =!show;">` w_4 `</th>
-                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;" ng-click="show5 =!show5; show =!show; show2 =!show2;">` w_5 `</th>
-                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;" ng-click="show6 =!show6; show5 =!show5; show3 =!show3;">` w_6 `</th>
-                        <th style="padding: 0.4em 1.1em 0.4em 1.1em;" ng-click="show6 =!show6; show7 =!show7; show4 =!show4;">` w_7 `</th></tr>
+                        <th class="thspecial" ng-click="show =!show;">` w_4 `</th>
+                        <th class="thspecial" ng-click="show5 =!show5; show =!show; show2 =!show2;">` w_5 `</th>
+                        <th class="thspecial" ng-click="show6 =!show6; show5 =!show5; show3 =!show3;">` w_6 `</th>
+                        <th class="thspecial" ng-click="show6 =!show6; show7 =!show7; show4 =!show4;">` w_7 `</th></tr>
                    <!--Row 1-->
                     <tr>
-                        <td><p style="margin: 0 0 0 0;">{{addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"])}}</p></td>
-                        <td><p ng-show="show2" style="margin: 0 0 0 0;">{{addthree(test01.output[1][1],addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"]),0)}}</p></td>
-                        <td><p ng-show="show3" style="margin: 0 0 0 0;">{{addthree(test01.output[1][2],addthree(test01.output[1][1],addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"]),0),0)}}</p></td>
-                        <td><p ng-show="show4" style="margin: 0 0 0 0;">{{addthree(test01.output[1][3],0,addthree(test01.output[1][2],addthree(test01.output[1][1],addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"]),0),0))}}</p></td>
+                        <td><p class="zeromargin">{{addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"])}}</p></td>
+                        <td><p ng-show="show2" class="zeromargin">{{addthree(test01.output[1][1],addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"]),0)}}</p></td>
+                        <td><p ng-show="show3" class="zeromargin">{{addthree(test01.output[1][2],addthree(test01.output[1][1],addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"]),0),0)}}</p></td>
+                        <td><p ng-show="show4" class="zeromargin">{{addthree(test01.output[1][3],0,addthree(test01.output[1][2],addthree(test01.output[1][1],addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"]),0),0))}}</p></td>
                     </tr>
                     <!--Row 2-->
                     <tr>
-                        <td><p style="margin: 0 0 0 0;">{{addthree(test01.output[1][4],findsbox(test01.output[1][11]),members[0]["c1"])}}</p></td>
-                        <td><p ng-show="show2" style="margin: 0 0 0 0;">{{addthree(test01.output[1][5],addthree(test01.output[1][0],findsbox(test01.output[1][11]),members[0]["c1"]),0)}}</p></td>
-                        <td><p ng-show="show3" style="margin: 0 0 0 0;">{{addthree(test01.output[1][6],addthree(test01.output[1][5],addthree(test01.output[1][0],findsbox(test01.output[1][11]),members[0]["c1"]),0),0)}}</p></td>
-                        <td><p ng-show="show4" style="margin: 0 0 0 0;">{{addthree(test01.output[1][7],0,addthree(test01.output[1][6],addthree(test01.output[1][5],addthree(test01.output[1][0],findsbox(test01.output[1][11]),members[0]["c1"]),0),0))}}</p></td>
+                        <td><p class="zeromargin">{{addthree(test01.output[1][4],findsbox(test01.output[1][11]),members[0]["c1"])}}</p></td>
+                        <td><p ng-show="show2" class="zeromargin">{{addthree(test01.output[1][5],addthree(test01.output[1][0],findsbox(test01.output[1][11]),members[0]["c1"]),0)}}</p></td>
+                        <td><p ng-show="show3" class="zeromargin">{{addthree(test01.output[1][6],addthree(test01.output[1][5],addthree(test01.output[1][0],findsbox(test01.output[1][11]),members[0]["c1"]),0),0)}}</p></td>
+                        <td><p ng-show="show4" class="zeromargin">{{addthree(test01.output[1][7],0,addthree(test01.output[1][6],addthree(test01.output[1][5],addthree(test01.output[1][0],findsbox(test01.output[1][11]),members[0]["c1"]),0),0))}}</p></td>
                     </tr>
                     <!--Row 3-->
                     <tr>
-                        <td><p style="margin: 0 0 0 0;">{{addthree(test01.output[1][8],findsbox(test01.output[1][15]),members[0]["c1"])}}</p></td>
-                        <td><p ng-show="show2" style="margin: 0 0 0 0;">{{addthree(test01.output[1][9],addthree(test01.output[1][0],findsbox(test01.output[1][15]),members[0]["c1"]),0)}}</p></td>
-                        <td><p ng-show="show3" style="margin: 0 0 0 0;">{{addthree(test01.output[1][10],addthree(test01.output[1][9],addthree(test01.output[1][0],findsbox(test01.output[1][15]),members[0]["c1"]),0),0)}}</p></td>
-                        <td><p ng-show="show4" style="margin: 0 0 0 0;">{{addthree(test01.output[1][11],0,addthree(test01.output[1][10],addthree(test01.output[1][9],addthree(test01.output[1][0],findsbox(test01.output[1][15]),members[0]["c1"]),0),0))}}</p></td>
+                        <td><p class="zeromargin">{{addthree(test01.output[1][8],findsbox(test01.output[1][15]),members[0]["c1"])}}</p></td>
+                        <td><p ng-show="show2" class="zeromargin">{{addthree(test01.output[1][9],addthree(test01.output[1][0],findsbox(test01.output[1][15]),members[0]["c1"]),0)}}</p></td>
+                        <td><p ng-show="show3" class="zeromargin">{{addthree(test01.output[1][10],addthree(test01.output[1][9],addthree(test01.output[1][0],findsbox(test01.output[1][15]),members[0]["c1"]),0),0)}}</p></td>
+                        <td><p ng-show="show4" class="zeromargin">{{addthree(test01.output[1][11],0,addthree(test01.output[1][10],addthree(test01.output[1][9],addthree(test01.output[1][0],findsbox(test01.output[1][15]),members[0]["c1"]),0),0))}}</p></td>
                     </tr>
                     <!--Row 4-->
                     <tr>
-                        <td><p style="margin: 0 0 0 0;">{{addthree(test01.output[1][12],findsbox(test01.output[1][3]),members[0]["c1"])}}</p></td>
-                        <td><p ng-show="show2" style="margin: 0 0 0 0;">{{addthree(test01.output[1][13],addthree(test01.output[1][0],findsbox(test01.output[1][3]),members[0]["c1"]),0)}}</p></td>
-                        <td><p ng-show="show3" style="margin: 0 0 0 0;">{{addthree(test01.output[1][14],addthree(test01.output[1][13],addthree(test01.output[1][0],findsbox(test01.output[1][3]),members[0]["c1"]),0),0)}}</p></td>
-                        <td><p ng-show="show4" style="margin: 0 0 0 0;">{{addthree(test01.output[1][15],0,addthree(test01.output[1][14],addthree(test01.output[1][13],addthree(test01.output[1][0],findsbox(test01.output[1][3]),members[0]["c1"]),0),0))}}</p></td>
+                        <td><p class="zeromargin">{{addthree(test01.output[1][12],findsbox(test01.output[1][3]),members[0]["c1"])}}</p></td>
+                        <td><p ng-show="show2" class="zeromargin">{{addthree(test01.output[1][13],addthree(test01.output[1][0],findsbox(test01.output[1][3]),members[0]["c1"]),0)}}</p></td>
+                        <td><p ng-show="show3" class="zeromargin">{{addthree(test01.output[1][14],addthree(test01.output[1][13],addthree(test01.output[1][0],findsbox(test01.output[1][3]),members[0]["c1"]),0),0)}}</p></td>
+                        <td><p ng-show="show4" class="zeromargin">{{addthree(test01.output[1][15],0,addthree(test01.output[1][14],addthree(test01.output[1][13],addthree(test01.output[1][0],findsbox(test01.output[1][3]),members[0]["c1"]),0),0))}}</p></td>
                     </tr>
                 </table><br>
                 <p style="padding-left: 40%"> Round 1 Key</p>
@@ -293,7 +297,7 @@
     </div>
 
     <!--i=5-->
-    <div ng-show="show5" style="padding-left: 3em" style="padding-left: 30em;padding-right: 30em">
+    <div ng-show="show5" class="middle">
         <hr />
         <header class="major">
             <p style="font-size: x-large"><b>
@@ -305,7 +309,7 @@
             <p>Adding (XOR) the previous word (` w_{i-1} `), with the word 4 positions earlier (` w_{i-4} `).</p>
         </header>
 
-        <div layout="row" layout-align="space-around center" style="padding-left: 30em;padding-right: 30em">
+        <div layout="row" layout-align="space-around center" class="middle">
 
             <div class="\-4u">
                 <table>
@@ -362,7 +366,7 @@
             <p>Adding (XOR) the previous word (` w_{i-1} `), with the word 4 positions earlier (` w_{i-4} `).</p>
         </header>
 
-        <div layout="row" layout-align="space-around center" style="padding-left: 30em;padding-right: 30em">
+        <div layout="row" layout-align="space-around center" class="middle">
             <div class="\-4u" style="padding-left: 4em">
                 <table>
                     <tr><td>{{test01.output[1][2]}}</td></tr><tr><td>{{test01.output[1][6]}}</td></tr>
@@ -462,6 +466,9 @@
 
 </section>
 
+<section class="wrapper style1">
+    <div ng-controller="keyCtrl" ng-include="'view1/page-keyScheduleResult.html'"></div>
+</section>
 
 
 <section id="last" class="wrapper style1">

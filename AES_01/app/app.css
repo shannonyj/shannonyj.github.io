@@ -110,3 +110,15 @@
   left: 50%;
   transform: translate3d(-50%, 0, 0);
 }
+
+/*table*/
+.thspecial {
+  padding: 0.4em 1.1em 0.3em 1.1em;
+}
+.zeromargin {
+  margin: 0 0 0 0;
+}
+.middle {
+  padding-left: 30em;
+  padding-right: 30em;
+}

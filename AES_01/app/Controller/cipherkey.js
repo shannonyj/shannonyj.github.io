@@ -101,7 +101,7 @@ myApp.controller('keyCtrl', function($scope, consts, sub, toTwoDigit){
             wMinus4 = [consts.finalkey[j-1][m][0],consts.finalkey[j-1][m][1],consts.finalkey[j-1][m][2],consts.finalkey[j-1][m][3]];
             if(m == 0){
                 rot=[consts.finalkey[j-1][3][1],consts.finalkey[j-1][3][2],consts.finalkey[j-1][3][3],consts.finalkey[j-1][3][0]];
-                console.log(rot);
+                //console.log(rot);
                 subtemp = [sub.findsbox(rot[0]),sub.findsbox(rot[1]),sub.findsbox(rot[2]), sub.findsbox(rot[3])];
                 temp = [PolynomialField.AESAdd(consts.rcon[j-1]["c0"],PolynomialField.AESAdd(subtemp[0],wMinus4[0])),
                     PolynomialField.AESAdd(consts.rcon[j-1]["c1"],PolynomialField.AESAdd(subtemp[1],wMinus4[1])),
@@ -113,8 +113,8 @@ myApp.controller('keyCtrl', function($scope, consts, sub, toTwoDigit){
                     PolynomialField.AESAdd(wMinus4[2],consts.finalkey[j][m-1][2]),
                     PolynomialField.AESAdd(wMinus4[3],consts.finalkey[j][m-1][3])];
             }
-            console.log(wMinus4);
-            console.log(temp);
+            //console.log(wMinus4);
+            //console.log(temp);
 
             consts.finalkey[j].push(temp);
         }

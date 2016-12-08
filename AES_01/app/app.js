@@ -6,6 +6,7 @@ var myApp = angular.module('myApp', [
   'ngAnimate',
   'myApp.view1',
   'myApp.view2',
+  'myApp.mainview',
   //'myApp.version',
   'ngMaterial',
   'ngMessages',
