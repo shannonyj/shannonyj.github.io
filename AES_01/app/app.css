@@ -110,6 +110,10 @@
   left: 50%;
   transform: translate3d(-50%, 0, 0);
 }
+.dark-theme1{
+  background-color: rgb(99, 99, 99);
+  color: white;
+}
 
 /*table*/
 .thspecial {
