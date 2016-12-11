@@ -70,6 +70,7 @@
                     <table ng-controller="insuredCtrl">
                         <tr ng-repeat="k in [0,1,2,3]"><td ng-repeat="l in [0,1,2,3]">{{findsbox(test01.roundresult[0][k*4+l])}}</td></tr>
                     </table>
+                    {{findsbox(test01.roundresult[0][8])}}
                 </div>
             </div>
 
@@ -88,12 +89,8 @@
             </div>
         </div>
     </div>
-</section>
 
-
-<!-- Next -->
-<section id="last" class="wrapper style1">
-    <div class="skel-layers-fixed">
-        <a href="#/view2/step2" class="button alt" style="float: right;">Next -></a>
+    <div layout="row" layout-align="center" style="padding-top: 3em;" ng-controller="jumpCtrl">
+        <a class="button special" type="submit" ng-click="scrollTo('shiftrow')">Proceed to Step 2: ShiftRows</a>
     </div>
 </section>

@@ -34,16 +34,11 @@ myApp.config(function($routeProvider) {
         controller: 'inputController'
       })
 
-      // overview page
-      .when('/overview', {
-        templateUrl: 'view1/page-overview.html',
-        controller: 'overviewController'
+      //display page
+      .when('/display',{
+          templateUrl: 'page-display.html',
+          //controller: 'insuredCtrl'
       })
-
-      .when('/finalresult',{
-          templateUrl: 'view1/page-result.html',
-          controller: 'resultController'
-      });
 
 })
     .config(['$mdIconProvider', function ($mdIconProvider) {
@@ -83,6 +78,44 @@ myApp.controller('overviewController', function($scope) {
 
 myApp.controller('resultController', function($scope) {
     $scope.pageClass = 'page-result';
+});
+
+myApp.controller('sideNavCtrl', function($scope, $mdSidenav, $log, $location, $anchorScroll) {
+    $scope.toggleRightNav = buildToggler('right');
+    $scope.isOpenRight = function(){
+        return $mdSidenav('right').isOpen();
+    };
+
+    function buildToggler(navID) {
+        return function() {
+            // Component lookup should always be available since we are not using `ng-if`
+            $mdSidenav(navID)
+                .toggle()
+                .then(function () {
+                    $log.debug("toggle " + navID + " is done");
+                });
+        }
+    }
+});
+
+myApp.controller('jumpCtrl', function($scope, $mdSidenav, $log, $location, $anchorScroll) {
+    $scope.scrollTo = function(div) {
+        $location.hash(div);
+        $anchorScroll();
+        $mdSidenav('right').close()
+            .then(function () {
+                $log.debug("close RIGHT is done");
+            });
+    };
+    $scope.gotoBottom = function() {
+        // set the location.hash to the id of
+        // the element you wish to scroll to.
+        $location.hash('bottom');
+        console.log("I am called");
+
+        // call $anchorScroll()
+        $anchorScroll();
+    };
 });
 
 myApp.controller('BasicDemoCtrl', function($scope, consts){

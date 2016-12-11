@@ -71,8 +71,8 @@ myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, 
     $scope.test01 = consts;
     $scope.resultarr = {};
     $scope.findsbox = function (val){
-        $scope.resultarr[($scope.sbox[parseInt(val[0])+1]["x"+val[1]])] = {'background-color':'Salmon'};
-        return ($scope.sbox[parseInt(val[0])+1]["x"+val[1]]).substr(2,2);
+        $scope.resultarr[($scope.sbox[parseInt(val[0],16)+1]["x"+val[1]])] = {'background-color':'Salmon'};
+        return ($scope.sbox[parseInt(val[0],16)+1]["x"+val[1]]).substr(2,2);
     };
     $scope.addthree = function(val1, val2, val3){
         $scope.addresult = PolynomialField.AESAdd(PolynomialField.AESAdd(val1,val2),val3);

@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/style-xlarge.css" />
   <link rel="stylesheet" href="css/matrix.css" />
   <link rel="stylesheet" href="bower_components/ng-toast/dist/ngToast.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Angular Material style sheet -->
@@ -56,17 +57,25 @@
 
 </head>
 <body ng-app="myApp">
-<header id="header" class="skel-layers-fixed">
-  <h1><a href="#">AES Demo</a></h1>
-  <nav id="nav">
-    <ul>
-      <li>Input</li>
-    </ul>
-  </nav>
-</header>
+  <header id="header" class="skel-layers-fixed" ng-controller="sideNavCtrl">
+    <h1><a href="#">AES Demo</a></h1>
+    <nav id="nav">
+      <div layout="row" layout-align="space-between center" >
+        <div>Menu</div>
+        <div style="font-size: 35px; padding-left: 0.5em;">
+          <i class="material-icons" ng-click="toggleRightNav()">view_headline</i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="right" >
+    <div ng-include="'view1/page-sidenav.html'"></div>
+  </md-sidenav>
 <!-- inject our views using ng-view -->
 <!-- each angular controller applies a different class here -->
-<div ng-view></div>
+  <div ng-view></div>
+  <a id="bottom"></a> You're at the bottom!
 
 <footer id="footer">
   <div class="container">

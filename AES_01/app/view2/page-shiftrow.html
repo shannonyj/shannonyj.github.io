@@ -9,21 +9,21 @@
     </header>
 </section>
 
-<section id="one" class="wrapper style1">
+<section id="one" class="wrapper style1" ng-controller="numCtrl">
 
     <div class="container">
         <div class="row">
             <div class="4u" align="center">
-                <table ng-controller="numCtrl">
-                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index < 4">{{x}}</td></tr>
-                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index > 3 && $index <8">{{x}}</td></tr>
-                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index > 7 && $index <12">{{x}}</td></tr>
-                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index > 11 && $index <16">{{x}}</td></tr>
+                <table>
+                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index < 4">{{two(x)}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index > 3 && $index <8">{{two(x)}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index > 7 && $index <12">{{two(x)}}</td></tr>
+                    <tr class="keyspecial"><td ng-repeat="x in subbytesresult[0] track by $index" ng-if="$index > 11 && $index <16">{{two(x)}}</td></tr>
                 </table>
             </div>
             <div class="4u" align="center">
             <div class="mytable">
-                <div><div><p> </p></div></div>
+                <div><div><p></p></div></div>
                 <!--Group 1-->
                 <!--<div ng-show="ngClick">-->
                 <div>
@@ -46,11 +46,11 @@
             </div>
         </div>
         <div class="4u" align="center">
-            <table ng-controller="numCtrl">
-                <tr class="keyspecial"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index < 4">{{x}}</td></tr>
-                <tr class="keyspecial" ng-show="show1"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index > 3 && $index <8">{{x}}</td></tr>
-                <tr class="keyspecial" ng-show="show2"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index > 7 && $index <12">{{x}}</td></tr>
-                <tr class="keyspecial" ng-show="show3"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index > 11 && $index <16">{{x}}</td></tr>
+            <table>
+                <tr class="keyspecial"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index < 4">{{two(x)}}</td></tr>
+                <tr class="keyspecial" ng-show="show1"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index > 3 && $index <8">{{two(x)}}</td></tr>
+                <tr class="keyspecial" ng-show="show2"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index > 7 && $index <12">{{two(x)}}</td></tr>
+                <tr class="keyspecial" ng-show="show3"><td ng-repeat="x in shiftrowsresult[0] track by $index" ng-if="$index > 11 && $index <16">{{two(x)}}</td></tr>
             </table>
         </div>
         </div>
