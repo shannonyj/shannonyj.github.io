@@ -1,8 +1,8 @@
-<section id="one" class="wrapper style1">
+<section id="one" class="wrapper style3">
 
     <header class="major">
-        <h2>3 - MixColumns</h2>
-        <p style="font-size: medium">
+        <h2 style="color: #ffecec !important;">3 - MixColumns</h2>
+        <p style="font-size: medium; color: #ffecec !important;">
             The MixColumns() transformation operates on the State column-by-column, treating each
             column as a four-term polynomial.<br>
             The columns are considered as
@@ -11,9 +11,7 @@
             given by <script type='math/tex'>a(x) = {03}x^3 \oplus {01}x^2 + {01}x + {02}</script> .
         </p>
     </header>
-</section>
 
-<section id="two" class="wrapper style1">
     <div class="container" align="center">
         <div class="row">
             <!-- Before -->
@@ -67,12 +65,7 @@
 
         </div>
     </div>
-</section>
-
-
-<!-- Next -->
-<section id="last" class="wrapper style1">
-    <div class="skel-layers-fixed">
-        <a href="#/view2/step4" class="button alt" style="float: right;">Next -></a>
+    <div layout="row" layout-align="center" ng-controller="jumpCtrl">
+        <a class="button" type="submit" ng-click="scrollTo('addrk')">Proceed to Step 4: AddRoundKey</a>
     </div>
 </section>

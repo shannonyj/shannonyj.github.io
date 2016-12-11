@@ -857,6 +857,28 @@
 				background-color: #4e91cb;
 			}
 
+		input[type="submit"].white,
+		input[type="reset"].white,
+		input[type="button"].white,
+		.button.white {
+			background-color: #ffffff;
+			color: #6b7a8f !important;
+		}
+
+		input[type="submit"].white:hover,
+		input[type="reset"].white:hover,
+		input[type="button"].white:hover,
+		.button.white:hover {
+			background-color: #c5c5c5;
+		}
+
+		input[type="submit"].white:active,
+		input[type="reset"].white:active,
+		input[type="button"].white:active,
+		.button.white:active {
+			background-color: #c5c5c5;
+		}
+
 		input[type="submit"].disabled, input[type="submit"]:disabled,
 		input[type="reset"].disabled,
 		input[type="reset"]:disabled,
@@ -880,6 +902,16 @@
 		.wrapper.style1 {
 			background: #fff;
 			color: #555f66;
+		}
+
+		.wrapper.style3 {
+			background: #c09f80;
+			color: #ffecec;
+		}
+
+		.wrapper.style4 {
+			background: #6b7a8f;
+			color: #ffecec;
 		}
 
 		.wrapper.style2 {
