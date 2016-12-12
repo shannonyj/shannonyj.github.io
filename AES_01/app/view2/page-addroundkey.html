@@ -58,9 +58,9 @@
             <div align="center" style="padding-right: 6em !important;">
                 <p>Before AddRoundKey</p>
             </div>
-            <div align="center">
+            <div align="center" ng-controller="jumpCtrl">
                 <h3 style="margin-bottom: 0 !important;">Round Key 1</h3>
-                <p>Produced previously during <a href="#/view1/result">key schedule</a></p>
+                <p>Produced previously during <a ng-click="scrollTo('scheduleresult')">key schedule</a></p>
             </div>
             <div align="center" style="padding-left: 6em !important;">
                 <p>After AddRoundKey</p>
