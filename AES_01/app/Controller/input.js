@@ -7,12 +7,12 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
     $scope.key =  consts.output[1];
     $cookieStore.remove('AES');
 
-       /* $scope.outputTrans = function(arr){
-            for (var l = 0; l < 4; l ++){
-                output01
-            }
-        };*/
-    })
+    /* $scope.outputTrans = function(arr){
+     for (var l = 0; l < 4; l ++){
+     output01
+     }
+     };*/
+})
     .constant("consts",{
         output: [['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f'],
             ['40', '2b', '32', '69','74', 'ff', '05', '36','7a','e2','48','70','55','3d','71','11']],
@@ -65,24 +65,24 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
         s_enc:
             [
                 { "title":" ",
-                    "x0":"x0",
-                    "x1":"x1",
-                    "x2":"x2",
-                    "x3":"x3",
-                    "x4":"x4",
-                    "x5":"x5",
-                    "x6":"x6",
-                    "x7":"x7",
-                    "x8":"x8",
-                    "x9":"x9",
-                    "xa":"xa",
-                    "xb":"xb",
-                    "xc":"xc",
-                    "xd":"xd",
-                    "xe":"xe",
-                    "xf":"xf"
+                    "x0":"  x0",
+                    "x1":"  x1",
+                    "x2":"  x2",
+                    "x3":"  x3",
+                    "x4":"  x4",
+                    "x5":"  x5",
+                    "x6":"  x6",
+                    "x7":"  x7",
+                    "x8":"  x8",
+                    "x9":"  x9",
+                    "xa":"  xa",
+                    "xb":"  xb",
+                    "xc":"  xc",
+                    "xd":"  xd",
+                    "xe":"  xe",
+                    "xf":"  xf"
                 },
-                { "title":" 0x ",
+                { "title":"  0x ",
                     "x0":"0x63",
                     "x1":"0x7c",
                     "x2":"0x77",
@@ -101,7 +101,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xf":"0x76"
                 },
 
-                {"title":"1x",
+                {"title":"  1x",
                     "x0":"0xca",
                     "x1":"0x82",
                     "x2":"0xc9",
@@ -119,7 +119,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x72",
                     "xf":"0xc0"
                 },
-                {"title":"2x",
+                {"title":"  2x",
                     "x0":"0xb7",
                     "x1":"0xfd",
                     "x2":"0x93",
@@ -137,7 +137,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x31",
                     "xf":"0x15"
                 },
-                {"title":"3x",
+                {"title":"  3x",
                     "x0":"0x04",
                     "x1":"0xc7",
                     "x2":"0x23",
@@ -155,7 +155,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0xb2",
                     "xf":"0x75"
                 },
-                {"title":"4x",
+                {"title":"  4x",
                     "x0":"0x09",
                     "x1":"0x83",
                     "x2":"0x2c",
@@ -173,7 +173,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x2f",
                     "xf":"0x84"
                 },
-                {"title":"5x",
+                {"title":"  5x",
                     "x0":"0x53",
                     "x1":"0xd1",
                     "x2":"0x00",
@@ -191,7 +191,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x58",
                     "xf":"0xcf"
                 },
-                {"title":"6x",
+                {"title":"  6x",
                     "x0":"0xd0",
                     "x1":"0xef",
                     "x2":"0xaa",
@@ -209,7 +209,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x9f",
                     "xf":"0xa8"
                 },
-                {"title":"7x",
+                {"title":"  7x",
                     "x0":"0x51",
                     "x1":"0xa3",
                     "x2":"0x40",
@@ -227,7 +227,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0xf3",
                     "xf":"0xd2"
                 },
-                {"title":"8x",
+                {"title":"  8x",
                     "x0":"0xcd",
                     "x1":"0x0c",
                     "x2":"0x13",
@@ -245,7 +245,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x19",
                     "xf":"0x73"
                 },
-                {"title":"9x",
+                {"title":"  9x",
                     "x0":"0x60",
                     "x1":"0x81",
                     "x2":"0x4f",
@@ -263,7 +263,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x0b",
                     "xf":"0xdb"
                 },
-                {"title":"ax",
+                {"title":"  ax",
                     "x0":"0xe0",
                     "x1":"0x32",
                     "x2":"0x3a",
@@ -281,7 +281,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0xe4",
                     "xf":"0x79"
                 },
-                {"title":"bx",
+                {"title":"  bx",
                     "x0":"0xe7",
                     "x1":"0xc8",
                     "x2":"0x37",
@@ -299,7 +299,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0xae",
                     "xf":"0x08"
                 },
-                {"title":"cx",
+                {"title":"  cx",
                     "x0":"0xba",
                     "x1":"0x78",
                     "x2":"0x25",
@@ -317,7 +317,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x8b",
                     "xf":"0x8a"
                 },
-                {"title":"dx",
+                {"title":"  dx",
                     "x0":"0x70",
                     "x1":"0x3e",
                     "x2":"0xb5",
@@ -335,7 +335,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x1d",
                     "xf":"0x9e"
                 },
-                {"title":"ex",
+                {"title":"  ex",
                     "x0":"0xe1",
                     "x1":"0xf8",
                     "x2":"0x98",
@@ -353,7 +353,7 @@ myApp.controller('AppCtrl', function($scope,$location,$cookies, $cookieStore,con
                     "xe":"0x28",
                     "xf":"0xdf"
                 },
-                {"title":"fx",
+                {"title":"  fx",
                     "x0":"0x8c",
                     "x1":"0xa1",
                     "x2":"0x89",
