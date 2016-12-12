@@ -126,3 +126,15 @@
   padding-left: 30em;
   padding-right: 30em;
 }
+
+/*div*/
+.dialog {
+  background-color: #000066;
+}
+.dialogwhite {
+  background-color: #fff;
+  border: 1.5px solid black;
+  border-style: dashed;
+  border-radius: 10px;
+  padding: 2em;
+}
