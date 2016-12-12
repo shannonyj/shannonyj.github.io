@@ -1,27 +1,22 @@
-<hr />
-<section id="one" class="wrapper style1">
+<section id="one" class="wrapper style7">
     <header class="major">
         <h2>1 - Subbytes</h2>
         <p style="font-size: medium">
-
-            In the SubBytes step, each byte ` a_(i,j) ` in the state matrix is replaced with a SubByte ` s_(i,j) ` using the Rijndael S-box. <br>
-            This operation provides the non-linearity in the cipher. <br>
-            The S-box used is derived from the multiplicative inverse over ` GF(2^8) `, known to have good non-linearity properties. <br>
-            To avoid attacks based on simple algebraic properties, the S-box is constructed by combining the inverse function with an
+            In the SubBytes step, each byte ` a_(i,j) ` in the state matrix is replaced with a SubByte ` s_(i,j) ` using the Rijndael<br>
+            S-box. This operation provides the non-linearity in the cipher. The S-box used is derived from the multiplicative inverse<br>
+            over ` GF(2^8) `, known to have good non-linearity properties. <br>
+            To avoid attacks based on simple algebraic properties, the S-box is constructed by combining the inverse function with an<br>
             invertible affine transformation.
         </p>
     </header>
-</section>
 
-
-<!-- Add Round Key-->
-<section id="plus" class="wrapper style1">
-    <div class="container" align="center">
-        Add Round Key before 1st Round
-    </div>
-
-    <div class="container" align="center"  ng-controller="numCtrl">
-        <div class="row">
+    <section style="padding: 1em 5em 3em 5em;">
+        <div layout="row" layout-align="space-around center">
+            <div style="background-color: #000066;">
+                <p>Add Round Key before 1st Round</p>
+            </div>
+            <div  style="background-color: #fff;">
+                <div layout="row" layout-align="space-around center" ng-controller="numCtrl">
             <!-- Initial State Input-->
             <div class="\-6u">
                 <table>
@@ -47,12 +42,11 @@
                 </table>
             </div>
         </div>
-    </div>
+            </div>
+        </div>
+    </section>
 
-</section>
 
-
-<section id="two" class="wrapper style1">
     <div class="container" align="center" >
         <div class="row">
             <div class = "6u">

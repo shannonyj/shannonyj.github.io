@@ -51,10 +51,17 @@
             <div class="2u">
                 <table>
                     <tr class="special">
-                        <th class="thspecial" ng-click="show =!show;">` w_4 `</th>
-                        <th class="thspecial" ng-click="show5 =!show5; show =!show; show2 =!show2;">` w_5 `</th>
-                        <th class="thspecial" ng-click="show6 =!show6; show5 =!show5; show3 =!show3;">` w_6 `</th>
-                        <th class="thspecial" ng-click="show6 =!show6; show7 =!show7; show4 =!show4;">` w_7 `</th></tr>
+                        <th class="thspecial" ng-click="show = 1;">` w_4 `</th>
+                        <th class="thspecial" ng-click="show2 = 1; show = 0; show5 = 1; show6 = 0; show7 = 0;">
+                            ` w_5 `
+                        </th>
+                        <th class="thspecial" ng-click="show3 = 1; show = 0; show5 =0; show6 = 1; show7 = 0;">
+                            ` w_6 `
+                        </th>
+                        <th class="thspecial" ng-click="show4 = 1;  show5 = 0; show = 0;show6 =0; show7 = 1;">
+                            ` w_7 `
+                        </th>
+                    </tr>
                    <!--Row 1-->
                     <tr>
                         <td><p class="zeromargin">{{addthree(test01.output[1][0],findsbox(test01.output[1][7]),members[0]["c0"])}}</p></td>
@@ -293,7 +300,7 @@
     </div>
 
     <!--i=5-->
-    <div ng-show="show5" class="middle">
+    <div ng-show="show5" style="padding-left: 3em">
         <hr />
         <header class="major">
             <p style="font-size: x-large"><b>
@@ -463,8 +470,8 @@
 </section>
 
 
-<section id="last" class="wrapper style1">
-<div class="skel-layers-fixed">
-    <a href="#/view1/result" class="button alt" style="float: right;">Next -></a>
-</div>
+<section id="last" class="wrapper style1" style="padding-top: 0 !important;">
+    <div layout="row" layout-align="center" style="padding-top: 3em;" ng-controller="jumpCtrl">
+        <a class="button special" type="submit" ng-click="scrollTo('scheduleresult')">Proceed to see all 11 rounds key</a>
+    </div>
 </section>

@@ -65,12 +65,12 @@ myApp.controller('toastCtrl',function($scope, ngToast, $mdToast) {
     $scope.showActionToast = function() {
         var pinTo = $scope.getToastPosition();
         var toast = $mdToast.simple()
-            .textContent('Hint: Click on Column 4 to see conversion step.')
+            .textContent('Hint: Click on w4 to see conversion step.')
             .position('bottom center')
             .action('Okay, I got it!')
             .highlightAction(true)
             .highlightClass('md-accent')// Accent is used by default, this just demonstrates the usage.
-            .hideDelay(0);
+            .hideDelay(2000);
 
 
         $mdToast.show(toast).then(function(response) {
@@ -81,12 +81,12 @@ myApp.controller('toastCtrl',function($scope, ngToast, $mdToast) {
     $scope.showActionToast2 = function() {
         var pinTo = $scope.getToastPosition();
         var toast = $mdToast.simple()
-            .textContent('Hint: Click on Column 5 to see the next step.')
+            .textContent('Hint: Click on w5 to see the next step.')
             .position('bottom center')
             .action('Okay, I got it!')
             .highlightAction(true)
             .highlightClass('md-accent')// Accent is used by default, this just demonstrates the usage.
-            .hideDelay(0);
+            .hideDelay(2000);
 
 
         $mdToast.show(toast).then(function(response) {
@@ -97,12 +97,12 @@ myApp.controller('toastCtrl',function($scope, ngToast, $mdToast) {
     $scope.showActionToast3 = function() {
         var pinTo = $scope.getToastPosition();
         var toast = $mdToast.simple()
-            .textContent('Hint: Click on Column 6 to see the next step.')
+            .textContent('Hint: Click on w6 to see the next step.')
             .position('bottom center')
             .action('Okay, I got it!')
             .highlightAction(true)
             .highlightClass('md-accent')// Accent is used by default, this just demonstrates the usage.
-            .hideDelay(0);
+            .hideDelay(2000);
 
 
         $mdToast.show(toast).then(function(response) {
@@ -113,12 +113,12 @@ myApp.controller('toastCtrl',function($scope, ngToast, $mdToast) {
     $scope.showActionToast4 = function() {
         var pinTo = $scope.getToastPosition();
         var toast = $mdToast.simple()
-            .textContent('Hint: Click on Column 7 to see the next step.')
+            .textContent('Hint: Click on w7 to see the next step.')
             .position('bottom center')
             .action('Okay, I got it!')
             .highlightAction(true)
             .highlightClass('md-accent')// Accent is used by default, this just demonstrates the usage.
-            .hideDelay(0);
+            .hideDelay(2000);
 
 
         $mdToast.show(toast).then(function(response) {
@@ -129,12 +129,12 @@ myApp.controller('toastCtrl',function($scope, ngToast, $mdToast) {
     $scope.showActionToast5 = function() {
         var pinTo = $scope.getToastPosition();
         var toast = $mdToast.simple()
-            .textContent('Now you have gone through the transformation of Round 1 Key. Proceed to the next page to see all scheduled key results.')
+            .textContent('Now you have gone through the transformation of Round 1 Key. Proceed to the next section to see all scheduled key results.')
             .position('bottom center')
             .action('Okay, I got it!')
             .highlightAction(true)
             .highlightClass('md-accent')// Accent is used by default, this just demonstrates the usage.
-            .hideDelay(0);
+            .hideDelay(2000);
 
         $mdToast.show(toast).then(function(response) {
         });
