@@ -35,15 +35,6 @@ myApp.controller('NumberController', ['$scope', function($scope, consts) {
     $scope.displaynumber = '0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 1 1 0 0 1 0';
 }]);
 
-myApp.controller('SpicyController', ['$scope', function($scope) {
-    $scope.customSpice = 'wasabi';
-    $scope.spice = 'very';
-
-    $scope.spicy = function(spice) {
-        $scope.spice = spice;
-    };
-}]);
-
 
 myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, $window, consts) {
     if(angular.isDefined($cookieStore.get('AES'))){
@@ -52,23 +43,11 @@ myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, 
         consts.output[1] = tempoutput[1];
     }
 
-    $http.get("Controller/RCON.json").success(function (response) {
-        $scope.members = response.rcon;
-    });
+    $scope.test01 = consts;
+    $scope.rcon = consts.rcon;
     $scope.sbox = consts.s_enc;
 
-    $scope.tointeger = function(val){
-        var result="1";
-        try {
-            result = parseInt(val.substr(2,2),16)
-        }
-        catch (err){
-            console.error(err);
-        }
-        return result;
-    };
-
-    $scope.test01 = consts;
+    // Change color of Sbox
     $scope.resultarr = {};
     $scope.findsbox = function (val){
         $scope.resultarr[($scope.sbox[parseInt(val[0],16)+1]["x"+val[1]])] = {'background-color':'Salmon'};
@@ -92,7 +71,7 @@ myApp.controller('keyCtrl', function($scope, consts, sub, toTwoDigit){
                           [consts.output[1][1],consts.output[1][5],consts.output[1][9],consts.output[1][13]],
                           [consts.output[1][2],consts.output[1][6],consts.output[1][10],consts.output[1][14]],
                           [consts.output[1][3],consts.output[1][7],consts.output[1][11],consts.output[1][15]]];
-    //consts.finalkey[0] = [["0f","15","71", "c9"],["47", "d9", "e8", "59"],[ "0c", "b7", "ad", "d6"],[ "af", "7f", "67", "98"]];
+
     $scope.test01 = consts;
     $scope.two = toTwoDigit.two;
 

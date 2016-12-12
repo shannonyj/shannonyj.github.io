@@ -6,7 +6,6 @@ var myApp = angular.module('myApp', [
   'ngAnimate',
   'myApp.view1',
   'myApp.view2',
-  'myApp.mainview',
   //'myApp.version',
   'ngMaterial',
   'ngMessages',
@@ -142,11 +141,5 @@ myApp.controller('BasicDemoCtrl', function($scope, consts){
             return a;
         }
     };
-});
-
-myApp.service("toTwoDigit", function(){
-    this.two = function(val){
-        return (val.length<2)?"0"+val:val;
-    }
 });
 
