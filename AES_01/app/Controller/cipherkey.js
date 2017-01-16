@@ -47,6 +47,22 @@ myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, 
     $scope.rcon = consts.rcon;
     $scope.sbox = consts.s_enc;
 
+    /*Change to vertical*/
+    $scope.input = $scope.test01.output[0];
+    $scope.output = $scope.test01.output[1];
+
+    $scope.new_input = [$scope.input[0],$scope.input[4],$scope.input[8],$scope.input[12],
+        $scope.input[1],$scope.input[5],$scope.input[9],$scope.input[13],
+        $scope.input[2],$scope.input[6],$scope.input[10],$scope.input[14],
+        $scope.input[3],$scope.input[7],$scope.input[11],$scope.input[15]
+    ];
+
+    $scope.new_output = [$scope.output[0],$scope.output[4],$scope.output[8],$scope.output[12],
+        $scope.output[1],$scope.output[5],$scope.output[9],$scope.output[13],
+        $scope.output[2],$scope.output[6],$scope.output[10],$scope.output[14],
+        $scope.output[3],$scope.output[7],$scope.output[11],$scope.output[15]
+    ];
+
     // Change color of Sbox
     $scope.resultarr = {};
     $scope.findsbox = function (val){
@@ -67,10 +83,13 @@ myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, 
 
 
 myApp.controller('keyCtrl', function($scope, consts, sub, toTwoDigit){
-    consts.finalkey[0] = [[consts.output[1][0],consts.output[1][4],consts.output[1][8],consts.output[1][12]],
-                          [consts.output[1][1],consts.output[1][5],consts.output[1][9],consts.output[1][13]],
-                          [consts.output[1][2],consts.output[1][6],consts.output[1][10],consts.output[1][14]],
-                          [consts.output[1][3],consts.output[1][7],consts.output[1][11],consts.output[1][15]]];
+    //consts.finalkey = consts.output[1];
+
+    consts.finalkey[0] = [[consts.output[1][0],consts.output[1][1],consts.output[1][2],consts.output[1][3]],
+                          [consts.output[1][4],consts.output[1][5],consts.output[1][6],consts.output[1][7]],
+                          [consts.output[1][8],consts.output[1][9],consts.output[1][10],consts.output[1][11]],
+                          [consts.output[1][12],consts.output[1][13],consts.output[1][14],consts.output[1][15]]];
+
 
     $scope.test01 = consts;
     $scope.two = toTwoDigit.two;

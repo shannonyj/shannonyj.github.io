@@ -36,12 +36,10 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
     input01 = $scope.test01.output[0];
     key01 = $scope.test01.output[1];
     consts.roundresult[0] = [];
-    for (var i = 0 ; i < 16; i++){
-        temp = PolynomialField.AESAdd(input01[i], key01[i]);
-        consts.roundresult[0].push(temp);
-    }
+
 
     $scope.two = toTwoDigit.two;
+
 
     input_amend = [input01[0],input01[4],input01[8],input01[12],
         input01[1],input01[5],input01[9],input01[13],
@@ -49,14 +47,38 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
         input01[3],input01[7],input01[11],input01[15]
     ];
 
-    inputStr = input_amend.join('');
+    //inputStr = input_amend.join('');
+    inputStr = input01.join('');
+
     key_amend = [key01[0],key01[4],key01[8],key01[12],
         key01[1],key01[5],key01[9],key01[13],
         key01[2],key01[6],key01[10],key01[14],
         key01[3],key01[7],key01[11],key01[15]
     ];
-    keyStr = key_amend.join('');
+
+    //keyStr = key_amend.join('');
+    keyStr = key01.join('');
+
+
+    $scope.new_input = input_amend;
+    $scope.new_key = key_amend;
+
+    for (var i = 0 ; i < 16; i++){
+        temp = PolynomialField.AESAdd(input_amend[i], key_amend[i]);
+        consts.roundresult[0].push(temp);
+    }
+
+    /*
+    $scope.before_input = inputStr;
+    $scope.before_key = keyStr;
+    $scope.after_input = input01;
+    $scope.after_key = key01;
+    */
+
+
+
     aseencrypt.aes_encrypt(inputStr, keyStr);
+    //aseencrypt.aes_encrypt(input01, key01);
 
     testResult = aseencrypt.result;
     testSub = aseencrypt.subbytes;

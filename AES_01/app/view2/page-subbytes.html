@@ -18,10 +18,14 @@
             </div>
             <div class="dialogwhite">
                 <div layout="row" layout-align="space-around center" ng-controller="numCtrl">
+                    <!--
+                    <p>This is key before{{before_key}}</p>
+                    <p>This is key after{{after_key}}</p>
+                    -->
             <!-- Initial State Input-->
             <div class="\-6u">
                 <table>
-                    <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{test01.output[0][i*4+j]}}</td></tr>
+                    <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{new_input[i*4+j]}}</td></tr>
                 </table>
             </div>
             <div class="\-4u">
@@ -30,7 +34,7 @@
             <!-- Initial State Cipher Key-->
             <div class="\-6u">
                 <table>
-                    <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{test01.output[1][i*4+j]}}</td></tr>
+                    <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{new_key[i*4+j]}}</td></tr>
                 </table>
             </div>
             <div class="\-4u">
@@ -89,7 +93,7 @@
                     <tr ng-repeat="data in sbox" class="special">
                         <td ng-repeat="datum in data" style="margin: 0; line-height: 4px" ng-style="resultarr[datum]"
                             ng-hide="datum == findsbox(test01.roundresult[0][$index])">
-                            <a href="https://abdcfaferadfa.github.io/FYP-GF/app/#/sbox?url=&val={{($parent.$index-1)*16 + ($index-1)}}"
+                            <a href="https://abdcfaferadfa.github.io/FYP-GF/app/#/sbox?internal&val={{($parent.$index-1)*16 + ($index-1)}}"
                                style="text-decoration:none;color:black;">
                                 {{datum.substr(2,2)}}
                             </a>

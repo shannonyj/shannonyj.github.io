@@ -11,15 +11,9 @@
         </div>
         <div flex="5">
             <table ng-controller="insuredCtrl" style="font-size: small;">
+                <tr ng-repeat="i in [0,1,2,3]">
+                    <td class="smallspecial" ng-repeat="j in [1,2,3,4]">{{new_input[i*4+j-1]}}</td></tr>
                 <tr>
-                    <td class="smallspecial" ng-repeat="i in [0,1,2,3]">{{test01.output[0][i]}}</td></tr>
-                <tr>
-                    <td class="smallspecial" ng-repeat="i in [4,5,6,7]">{{test01.output[0][i]}}</td></tr>
-                <tr>
-                    <td class="smallspecial" ng-repeat="i in [8,9,10,11]">{{test01.output[0][i]}}</td></tr>
-                <tr>
-                    <td class="smallspecial" ng-repeat="i in [12,13,14,15]">{{test01.output[0][i]}}</td>
-                </tr>
             </table>
         </div>
     </div>
@@ -34,15 +28,9 @@
         </div>
         <div flex="5" style="padding-left: 1em">
             <table ng-controller="insuredCtrl" style="font-size: small;">
+                <tr ng-repeat="i in [0,1,2,3]">
+                    <td class="smallspecial" ng-repeat="j in [1,2,3,4]">{{new_output[i*4+j-1]}}</td></tr>
                 <tr>
-                    <td class="smallspecial" ng-repeat="i in [0,1,2,3]">{{test01.output[1][i]}}</td></tr>
-                <tr>
-                    <td class="smallspecial" ng-repeat="i in [4,5,6,7]">{{test01.output[1][i]}}</td></tr>
-                <tr>
-                    <td class="smallspecial" ng-repeat="i in [8,9,10,11]">{{test01.output[1][i]}}</td></tr>
-                <tr>
-                    <td class="smallspecial" ng-repeat="i in [12,13,14,15]">{{test01.output[1][i]}}</td>
-                </tr>
             </table>
         </div>
     </div>
