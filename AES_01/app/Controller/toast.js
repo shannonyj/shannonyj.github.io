@@ -41,6 +41,8 @@ myApp.controller('toastCtrl',function($scope, ngToast, $mdToast) {
         left: true,
         right: false
     };
+
+
     $scope.toastPosition = angular.extend({},last);
 
     $scope.getToastPosition = function() {
