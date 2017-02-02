@@ -36,7 +36,7 @@ myApp.controller('NumberController', ['$scope', function($scope, consts) {
 }]);
 
 
-myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, $window, consts) {
+myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, $window, consts, toTwoDigit) {
     if(angular.isDefined($cookieStore.get('AES'))){
         var tempoutput = $cookieStore["get"]('AES');
         consts.output[0] = tempoutput[0];
@@ -46,6 +46,12 @@ myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, 
     $scope.test01 = consts;
     $scope.rcon = consts.rcon;
     $scope.sbox = consts.s_enc;
+
+    $scope.toBin = function(val){
+        return ("00000000" + parseInt(val,16).toString(2)).substring(("00000000" + parseInt(val,16).toString(2)).length - 8);
+    };
+
+    $scope.eight = toTwoDigit.eight;
 
     /*Change to vertical*/
     $scope.input = $scope.test01.output[0];
