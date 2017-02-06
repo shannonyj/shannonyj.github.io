@@ -2,21 +2,39 @@
     <form ng-cloak ng-controller="numCtrl">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h2>Matrix Calculation</h2>
+                <p style="margin:0;">Matrix Calculation for ` s'_{0,{{test01.default}}}` : {{mixcolumnsresult[0][test01.default]}}</p>
                 <span flex></span>
             </div>
         </md-toolbar>
 
         <md-dialog-content>
-            <div class="md-dialog-content" ng-controller="matrixCtrl" layout="row" layout-align="space-between center">
-                <span mathjax-autobind="'\\begin{bmatrix}02 & 03 & 01 & 01 \\\\
-                    01 & 02 & 03 & 01 \\\\
-                    01 & 01 & 02 & 03 \\\\
-                    03 & 01 & 01 & 02\\end{bmatrix}'"></span>
+            <div class="md-dialog-content" ng-controller="matrixCtrl"></div>
+            <div layout="row" layout-align="space-between center">
+                <div><span mathjax-autobind="'\\begin{bmatrix}02 & 03 & 01 & 01 \\\\
+                        01 & 02 & 03 & 01 \\\\
+                        01 & 01 & 02 & 03 \\\\
+                        03 & 01 & 01 & 02\\end{bmatrix}'"></span></div>
+                <div>` * `</div>
+                <div>
+                \begin{bmatrix}{{two(shiftrowsresult[0][test01.default])}}\\
+                    {{two(shiftrowsresult[0][(test01.default+4)%16])}}\\
+                    {{two(shiftrowsresult[0][(test01.default+8)%16])}}\\
+                    {{two(shiftrowsresult[0][(test01.default+12)%16])}}\end{bmatrix}</div>
+                <div>` = `</div>
+                <div>
+                \begin{bmatrix}{{two(mixcolumnsresult[0][test01.default])}}\\
+                    {{two(mixcolumnsresult[0][(test01.default+4)%16])}}\\
+                    {{two(mixcolumnsresult[0][(test01.default+8)%16])}}\\
+                    {{two(mixcolumnsresult[0][(test01.default+12)%16])}}\end{bmatrix}</div>
             </div>
 
-            <div>
-                {{mat}} ` \oplus `
+            <div layout="row" layout-align="space-between center">
+                {{con}}
+                {{con[1]}}
+                <div>\begin{bmatrix}{{con[test01.default]}}\end{bmatrix}</div>
+                 ` \oplus `
+                ` = `
+                \begin{bmatrix}{{mixcolumnsresult[0][test01.default]}}\end{bmatrix}
             </div>
             <!--
                 Pass in value: $index of the cell

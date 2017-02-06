@@ -27,9 +27,6 @@
 
             <div class = "4u">
                 <div>
-                    <a ng-controller="View1Ctrl" ng-click="showSteps($event)">
-                        Click Test</a>
-
                     <!-- The Matrix -->
                     <span mathjax-autobind="'\\begin{bmatrix}02 & 03 & 01 & 01 \\\\
                     01 & 02 & 03 & 01 \\\\
@@ -57,10 +54,28 @@
             <div class="4u" align="center">
                 <p>After mixcolumns</p>
                 <table ng-controller="numCtrl">
-                    <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index < 4">{{two(x)}}</td></tr>
-                    <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 3 && $index <8">{{two(x)}}</td></tr>
-                    <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 7 && $index <12">{{two(x)}}</td></tr>
-                    <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 11 && $index <16">{{two(x)}}</td></tr>
+                    <tr class="light">
+                        <td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index < 4">
+                            <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                            {{two(x)}}</a>
+                        </td>
+                    </tr>
+                    <tr class="light">
+                        <td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 3 && $index <8">
+                            <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                                {{two(x)}}
+                            </a>
+                        </td>
+                    </tr>
+                    <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 7 && $index <12">
+                        <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                        {{two(x)}}
+                    </a></td></tr>
+                    <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 11 && $index <16">
+                        <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                            {{two(x)}}
+                        </a>
+                    </td></tr>
                 </table>
                 <!--
                 <input ng-model="tmp">

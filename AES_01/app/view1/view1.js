@@ -32,7 +32,7 @@ angular.module('myApp.view1', ['ngRoute'])
                 });
         };
 
-        $scope.showSteps = function(ev){
+        $scope.showSteps = function(ev, val){
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: "../app/popwindows/mixcol-matrix.html",
@@ -46,6 +46,8 @@ angular.module('myApp.view1', ['ngRoute'])
                 }, function() {
                     $scope.status = 'You cancelled the dialog.';
                 });
+            $scope.val= val;
+            consts.default = $scope.val;
         };
 
         function DialogController($scope, $mdDialog) {
