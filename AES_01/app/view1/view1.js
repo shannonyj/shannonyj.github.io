@@ -32,6 +32,22 @@ angular.module('myApp.view1', ['ngRoute'])
                 });
         };
 
+        $scope.showSteps = function(ev){
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: "../app/popwindows/mixcol-matrix.html",
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose:true,
+                fullscreen: $scope.customFullscreen // Only for -xs, -sm breakpoints.
+            })
+                .then(function(answer) {
+                    $scope.status = 'You said the information was "' + answer + '".';
+                }, function() {
+                    $scope.status = 'You cancelled the dialog.';
+                });
+        };
+
         function DialogController($scope, $mdDialog) {
             $scope.hide = function() {
                 $mdDialog.hide();
