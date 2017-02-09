@@ -140,6 +140,7 @@
 
 
 <section id="steps" class="wrapper style1">
+    <!--i=4-->
     <div ng-show="show" style="padding-left: 3em">
         <hr />
         <header class="major">
@@ -150,37 +151,32 @@
 
         <div class="container">
             <div class="row">
+
+                <!--1st step ROTWORD-->
                 <div class="4u" style="padding-left: 1em;">
                     <section class="special box">
                         <p>Step 1: Applying the RotWord transformation to the previous word ` w_{i-1} `.<br>
                             <i>In this case, ` w_{3} `</i></p>
                         <div class = "container" align="center">
                             <div class="row">
-                                <!--Move w4 out, Rotwords, Subbytes-->
+                                <!--w3-->
                                 <div class="1u" style="padding-left: 6em;">
-                                    <!--w4-->
                                     <table>
-                                        <tr><td>{{new_output[3]}}</td></tr>
-                                        <tr><td>{{new_output[7]}}</td></tr>
-                                        <tr><td>{{new_output[11]}}</td></tr>
-                                        <tr><td>{{new_output[15]}}</td></tr>
+                                        <tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{new_output[$index*4 + 3]}}</td></tr>
                                     </table>
                                     <div>` w_3 `</div>
                                 </div>
 
-                                <!--Arrow 1st step ROTWORD-->
-
+                                <!--Arrow 1st step-->
                                 <div class="1u" style="padding-left: 6em;">
                                     <p style="font-size: small">Rotation</p>
                                     <img src="images/arrow1.png" height="24" width="64">
                                 </div>
+
+                                <!--w'3-->
                                 <div class="1u" style="padding-left: 6em;">
-                                    <!--w4-->
                                     <table>
-                                        <tr><td>{{new_output[7]}}</td></tr>
-                                        <tr><td>{{new_output[11]}}</td></tr>
-                                        <tr><td>{{new_output[15]}}</td></tr>
-                                        <tr><td>{{new_output[3]}}</td></tr>
+                                        <tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{new_output[($index*4 + 7)%16]}}</td></tr>
                                     </table>
                                     <div>` w'_3 `</div>
                                 </div>
@@ -188,17 +184,15 @@
                         </div>
                     </section>
                 </div>
+
+                <!--2nd step SUBBYTE-->
                 <div class="4u" style="padding-left: 1em;">
                     <section class="special box">
                         <p style="margin: 0 0 4em 0;">Step 2: Using SBox, applying the SubBytes transformation to Step 1's result ` w'_3 `.</p>
                         <div class="row">
                             <div class="1u" style="padding-left: 6em;">
-                                <!--w4-->
                                 <table>
-                                    <tr><td>{{new_output[7]}}</td></tr>
-                                    <tr><td>{{new_output[11]}}</td></tr>
-                                    <tr><td>{{new_output[15]}}</td></tr>
-                                    <tr><td>{{new_output[3]}}</td></tr>
+                                    <tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{new_output[($index*4 + 7)%16]}}</td></tr>
                                 </table>
                                 <div>` w'_3 `</div>
                             </div>
@@ -208,74 +202,55 @@
                             </div>
                             <div class="1u" style="padding-left: 6em;">
                                 <table>
-                                    <tr><td>{{findsbox(new_output[7])}}</td></tr>
-                                    <tr><td>{{findsbox(new_output[11])}}</td></tr>
-                                    <tr><td>{{findsbox(new_output[15])}}</td></tr>
-                                    <tr><td>{{findsbox(new_output[3])}}</td></tr>
+                                    <tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{findsbox(new_output[($index*4 + 7)%16])}}</td></tr>
                                 </table>
                                 <div>` w''_3 `</div>
                             </div>
                         </div>
                     </section>
                 </div>
+
+                <!--3rd step XOR-->
                 <div class="4u" style="padding-left: 1em;">
                     <section class="special box">
                         <p>Step 3: Adding (XOR) this result to the word 4 positions earlier ` w_{i-4} `, plus a round constant Rcon</p>
                         <div class="row">
                             <div class="\-4u" style="padding-left: 3em;padding-right: 0.5em;">
                                 <table>
-                                    <tr><td>{{new_output[0]}}</td></tr>
-                                    <tr><td>{{new_output[4]}}</td></tr>
-                                    <tr><td>{{new_output[8]}}</td></tr>
-                                    <tr><td>{{new_output[12]}}</td></tr>
+                                    <tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{new_output[$index*4]}}</td></tr>
                                 </table>
                                 <div>` w_0 `</div>
                             </div>
-                            <div class="\-4u" style="padding-left: 0; padding-right: 0.5em;">
-                                ` \oplus `
-                            </div>
+                            <div class="\-4u" style="padding-left: 0; padding-right: 0.5em;">` \oplus `</div>
 
                             <!--Changed-->
                             <div class="\-4u" style="padding-left: 0;padding-right: 0.5em;">
                                 <table>
-                                    <tr><td>{{findsbox(new_output[7])}}</td></tr>
-                                    <tr><td>{{findsbox(new_output[11])}}</td></tr>
-                                    <tr><td>{{findsbox(new_output[15])}}</td></tr>
-                                    <tr><td>{{findsbox(new_output[3])}}</td></tr>
+                                    <tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{findsbox(new_output[($index*4 + 7)%16])}}</td></tr>
                                 </table>
                                 <div>` w''_3 `</div>
                             </div>
-                            <div class="\-4u" style="padding-left: 0em; padding-right: 0.5em;">
-                                ` \oplus `
-                            </div>
+                            <div class="\-4u" style="padding-left: 0em; padding-right: 0.5em;">` \oplus `</div>
 
                             <!--RCON-->
                             <div class="\-4u" style="padding-left: 0em;">
                                 <table>
-                                    <tr><td>{{(rcon[0]["c0"])}}</td></tr>
-                                    <tr><td>{{rcon[0]["c1"]}}</td></tr>
-                                    <tr><td>{{rcon[0]["c1"]}}</td></tr>
-                                    <tr><td>{{rcon[0]["c1"]}}</td></tr>
+                                    <tr><td>{{(rcon[0]["c0"])}}</td></tr><tr><td>{{rcon[0]["c1"]}}</td></tr><tr><td>{{rcon[0]["c1"]}}</td></tr><tr><td>{{rcon[0]["c1"]}}</td></tr>
                                 </table>
                                 <div>` RCON[4] `</div>
                             </div>
-                            <div class="\-4u" style="padding-left: 0;">
-                                ` = `
-                            </div>
+                            <div class="\-4u" style="padding-left: 0;">` = `</div>
 
                             <!--Output-->
                             <div class="\-4u" style="padding-left: 0.5em;">
                                 <table>
                                     <tr><td>{{addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"])}}</td></tr>
-                                    <tr><td>{{addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"])}}</td></tr>
-                                    <tr><td>{{addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"])}}</td></tr>
-                                    <tr><td>{{addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"])}}</td></tr>
+                                    <tr ng-repeat="x in new_output" ng-if="$index < 3"><td>{{addthree(new_output[($index+1)*4], findsbox(new_output[(($index)*4+11)%16]), rcon[0]["c1"])}}</td></tr>
                                 </table>
                                 <div>` w_4 `</div>
                             </div>
                         </div>
-                        <a ng-controller="View1Ctrl" ng-click="showAdvanced($event)">
-                            Click to see the bit-wise` \oplus `calculation</a>
+                        <a ng-controller="View1Ctrl" ng-click="showAdvanced($event)">Click to see the bit-wise` \oplus `calculation</a>
                     </section>
                 </div>
             </div>
@@ -329,22 +304,17 @@
 
             <div class="\-4u">
                 <table>
-                    <tr><td>{{new_output[1]}}</td></tr><tr><td>{{new_output[5]}}</td></tr>
-                    <tr><td>{{new_output[9]}}</td></tr><tr><td>{{new_output[13]}}</td></tr>
+                    <tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{new_output[$index*4 + 1]}}</td></tr>
                 </table>
                 <div>` w_1 `</div>
             </div>
-            <div class="\-4u">
-                ` \oplus `
-            </div>
+            <div class="\-4u">` \oplus `</div>
 
             <!--Output from Section 1-->
             <div class="\-4u">
                 <table>
                     <tr><td>{{addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"])}}</td></tr>
-                    <tr><td>{{addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"])}}</td></tr>
-                    <tr><td>{{addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"])}}</td></tr>
-                    <tr><td>{{addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"])}}</td></tr>
+                    <tr ng-repeat="x in new_output" ng-if="$index < 3"><td>{{addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"])}}</td></tr>
                 </table>
                 <div>` w_4 `</div>
             </div>
@@ -354,9 +324,7 @@
             <div class="\-4u">
                 <table>
                     <tr><td>{{addthree(new_output[1],addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"]),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[9],addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"]),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[13],addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"]),0)}}</td></tr>
+                    <tr ng-repeat="x in new_output" ng-if="$index < 3"><td>{{addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0)}}</td></tr>
                 </table>
                 <div>` w_5 `</div>
             </div>
@@ -385,73 +353,31 @@
                     </div>
                 </div>
             </div>
-            <!--2nd-->
-            <div>
-                {{new_output[5]}}` \oplus `{{addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"])}}
-                ` = `{{addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0)}}
+
+            <!--2nd to 4th-->
+            <div ng-repeat="x in new_output" ng-if="$index <3">
+                {{new_output[$index*4 + 5]}}` \oplus `{{addthree(new_output[($index+1)*4],findsbox(new_output[(($index+1)*4 + 7)%16]),rcon[0]["c1"])}}
+                ` = `{{addthree(new_output[($index+1)*4 + 1],addthree(new_output[($index+1)*4],findsbox(new_output[($index*4 + 11)%16]),rcon[0]["c1"]),0)}}
                 <div layout="row" layout-align="space-around center">
                     <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[5]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"])}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0)}}_{16}`</div>
+                        <div>` {{new_output[($index+1)*4 + 1]}}_{16} `</div>
+                        <div>` {{addthree(new_output[($index+1)*4],findsbox(new_output[(($index+1)*4 + 7)%16]),rcon[0]["c1"])}}_{16} `<hr style="margin: 0 !important;"></div>
+                        <div>` {{addthree(new_output[($index+1)*4 + 1],addthree(new_output[($index+1)*4],findsbox(new_output[(($index+1)*4 + 7)%16]),rcon[0]["c1"]),0)}}_{16} `</div>
                     </div>
                     <div layout="column" layout-align="space-around center">
                         <div>`=` </div><div>`=` </div><div>`=` </div>
                     </div>
                     <div>
-                        `{{toBin(new_output[5])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]))}}_{2}`
+                        `{{toBin(new_output[($index+1)*4 + 1])}}_{2}`<br>
+                        `{{toBin(addthree(new_output[($index+1)*4],findsbox(new_output[(($index+1)*4 + 7)%16]),rcon[0]["c1"]))}}_{2}`
                         <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0))}}_{2} `
-                    </div>
-                </div>
-            </div>
-            <!--3rd-->
-            <div>
-                {{new_output[9]}}` \oplus `{{addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"])}}
-                ` = `{{addthree(new_output[9],addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"]),0)}}
-                <div layout="row" layout-align="space-around center">
-                    <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[9]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"])}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[9],addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"]),0)}}_{16}`</div>
-                    </div>
-                    <div layout="column" layout-align="space-around center">
-                        <div>`=` </div><div>`=` </div><div>`=` </div>
-                    </div>
-                    <div>
-                        `{{toBin(new_output[9])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"]))}}_{2}`
-                        <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[9],addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"]),0))}}_{2} `
-                    </div>
-                </div>
-            </div>
-            <!--4th-->
-            <div>
-                {{new_output[13]}}` \oplus `{{addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"])}}
-                ` = `{{addthree(new_output[13],addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"]),0)}}
-                <div layout="row" layout-align="space-around center">
-                    <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[13]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"])}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[13],addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"]),0)}}_{16}`</div>
-                    </div>
-                    <div layout="column" layout-align="space-around center">
-                        <div>`=` </div><div>`=` </div><div>`=` </div>
-                    </div>
-                    <div>
-                        `{{toBin(new_output[13])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"]))}}_{2}`
-                        <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[13],addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"]),0))}}_{2} `
+                        ` {{toBin(addthree(new_output[($index+1)*4 + 1],addthree(new_output[($index+1)*4],findsbox(new_output[(($index+1)*4 + 7)%16]),rcon[0]["c1"]),0))}}_{2} `
                     </div>
                 </div>
             </div>
         </div>
 
-        <div ng-controller="toastCtrl" ng-if="show5" ng-init="showActionToast3()">
-        </div>
+        <div ng-controller="toastCtrl" ng-if="show5" ng-init="showActionToast3()"></div>
 
     </div>
 
@@ -470,37 +396,24 @@
 
         <div layout="row" layout-align="space-around center" class="middle">
             <div class="\-4u" style="padding-left: 4em">
-                <table>
-                    <tr><td>{{new_output[2]}}</td></tr><tr><td>{{new_output[6]}}</td></tr>
-                    <tr><td>{{new_output[10]}}</td></tr><tr><td>{{new_output[14]}}</td></tr>
-                </table>
+                <table><tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{new_output[$index*4 + 2]}}</td></tr></table>
                 <div>` w_2 `</div>
             </div>
-            <div class="\-4u">
-                ` \oplus `
-            </div>
+            <div class="\-4u">` \oplus `</div>
 
             <!--Output from Section 1-->
             <div class="\-4u">
-                <table>
-                    <tr><td>{{addthree(new_output[1],addthree(new_output[4],findsbox(new_output[7]),rcon[0]["c0"]),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[9],addthree(new_output[4],findsbox(new_output[15]),rcon[0]["c1"]),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[13],addthree(new_output[4],findsbox(new_output[3]),rcon[0]["c1"]),0)}}</td></tr>
+                <table><tr><td>{{addthree(new_output[1],addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"]),0)}}</td></tr>
+                    <tr ng-repeat="x in new_output" ng-if="$index < 3"><td>{{addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0)}}</td></tr>
                 </table>
                 <div>` w_5 `</div>
             </div>
-            <div class="\-4u">
-                ` = `
-            </div>
+            <div class="\-4u">` = `</div>
 
             <!-- Sum -->
             <div class="\-4u">
-                <table>
-                    <tr><td>{{addthree(new_output[2],addthree(new_output[1],addthree(new_output[4],findsbox(new_output[7]),rcon[0]["c0"]),0),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[6],addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[10],addthree(new_output[9],addthree(new_output[4],findsbox(new_output[15]),rcon[0]["c1"]),0),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[14],addthree(new_output[13],addthree(new_output[4],findsbox(new_output[3]),rcon[0]["c1"]),0),0)}}</td></tr>
+                <table><tr><td>{{addthree(new_output[2],addthree(new_output[1],addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"]),0),0)}}</td></tr>
+                    <tr ng-repeat="x in new_output" ng-if="$index < 3"><td>{{addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0)}}</td></tr>
                 </table>
                 <div>` w_6 `</div>
             </div>
@@ -528,73 +441,31 @@
                     </div>
                 </div>
             </div>
-            <!--2nd-->
-            <div>
-                {{new_output[6]}}` \oplus `{{addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0)}}
-                ` = `{{addthree(new_output[6],addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0),0)}}
+
+            <!--2nd to 4th-->
+            <div ng-repeat="x in new_output" ng-if="$index <3">
+                {{new_output[$index*4 + 6]}}` \oplus `{{addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0)}}
+                ` = `{{addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]),rcon[0]["c1"]),0),0)}}
                 <div layout="row" layout-align="space-around center">
                     <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[6]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0)}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[6],addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0),0)}}_{16}`</div>
+                        <div>` {{new_output[$index*4 + 6]}}_{16} ` </div>
+                        <div>` {{addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0)}}_{16}`<hr style="margin: 0 !important;"></div>
+                        <div>` {{addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]),rcon[0]["c1"]),0),0)}}_{16}`</div>
                     </div>
                     <div layout="column" layout-align="space-around center">
                         <div>`=` </div><div>`=` </div><div>`=` </div>
                     </div>
                     <div>
-                        `{{toBin(new_output[6])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0))}}_{2}`
+                        `{{toBin(new_output[$index*4 + 6])}}_{2}`<br>
+                        `{{toBin(addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0))}}_{2}`
                         <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[6],addthree(new_output[5],addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"]),0),0))}}_{2} `
-                    </div>
-                </div>
-            </div>
-            <!--3rd-->
-            <div>
-                {{new_output[10]}}` \oplus `{{addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0)}}
-                ` = `{{addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0)}}
-                <div layout="row" layout-align="space-around center">
-                    <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[10]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0)}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0)}}_{16}`</div>
-                    </div>
-                    <div layout="column" layout-align="space-around center">
-                        <div>`=` </div><div>`=` </div><div>`=` </div>
-                    </div>
-                    <div>
-                        `{{toBin(new_output[10])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0))}}_{2}`
-                        <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0))}}_{2} `
-                    </div>
-                </div>
-            </div>
-            <!--4th-->
-            <div>
-                {{new_output[14]}}` \oplus `{{addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0)}}
-                ` = `{{addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0)}}
-                <div layout="row" layout-align="space-around center">
-                    <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[14]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0)}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0)}}_{16}`</div>
-                    </div>
-                    <div layout="column" layout-align="space-around center">
-                        <div>`=` </div><div>`=` </div><div>`=` </div>
-                    </div>
-                    <div>
-                        `{{toBin(new_output[14])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0))}}_{2}`
-                        <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0))}}_{2} `
+                        ` {{toBin(addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]),rcon[0]["c1"]),0),0))}}_{2} `
                     </div>
                 </div>
             </div>
         </div>
 
-        <div ng-controller="toastCtrl" ng-if="show6" ng-init="showActionToast4()">
-        </div>
+        <div ng-controller="toastCtrl" ng-if="show6" ng-init="showActionToast4()"></div>
 
     </div>
 
@@ -607,43 +478,31 @@
             <p style="font-size: large">Example: ` w_7 `</p>
         </header>
 
-        <header class="major">
-            <p>Adding (XOR) the word 4 positions earlier (` w_{i-4} `) with the previous word (` w_{i-1} `).</p>
-        </header>
+        <header class="major"><p>Adding (XOR) the word 4 positions earlier (` w_{i-4} `) with the previous word (` w_{i-1} `).</p></header>
 
         <div layout="row" layout-align="space-around center" style="padding-left: 30em;padding-right: 30em">
             <div class="\-4u">
-                <table>
-                    <tr><td>{{new_output[3]}}</td></tr><tr><td>{{new_output[7]}}</td></tr>
-                    <tr><td>{{new_output[11]}}</td></tr><tr><td>{{new_output[15]}}</td></tr>
-                </table>
+                <table><tr ng-repeat="x in new_output" ng-if="$index < 4"><td>{{new_output[$index*4 + 3]}}</td></tr></table>
                 <div>` w_3 `</div>
             </div>
-            <div class="\-4u">
-                ` \oplus `
-            </div>
+            <div class="\-4u">` \oplus `</div>
 
             <!--Output from Section 1-->
             <div class="\-4u">
-                <table>
-                    <tr><td>{{addthree(new_output[2],addthree(new_output[1],addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"]),0),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0)}}</td></tr>
-                    <tr><td>{{addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0)}}</td></tr>
+                <table><tr><td>{{addthree(new_output[2],addthree(new_output[1],addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"]),0),0)}}</td></tr>
+                    <tr ng-repeat="x in new_output" ng-if="$index < 3"><td>{{addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0)}}</td></tr>
                 </table>
                 <div>` w_6 `</div>
             </div>
-            <div class="\-4u">
-                ` = `
-            </div>
+            <div class="\-4u">` = `</div>
 
             <!-- Sum -->
             <div class="\-4u">
                 <table>
                     <tr><td>{{addthree(new_output[3],0,addthree(new_output[2],addthree(new_output[1],addthree(new_output[0],findsbox(new_output[7]),rcon[0]["c0"]),0),0))}}</td></tr>
-                    <tr><td>{{addthree(new_output[7],0,addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0))}}</td></tr>
-                    <tr><td>{{addthree(new_output[11],0,addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0))}}</td></tr>
-                    <tr><td>{{addthree(new_output[15],0,addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0))}}</td></tr>
+                    <tr ng-repeat="x in new_output" ng-if="$index<3"><td>
+                        {{addthree(0,new_output[$index*4 + 7], addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0))}}
+                    </td></tr>
                 </table>
                 <div>` w_7 `</div>
             </div>
@@ -671,66 +530,25 @@
                     </div>
                 </div>
             </div>
-            <!--2nd-->
-            <div>
-                {{new_output[7]}}` \oplus `{{addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0)}}
-                ` = `{{addthree(new_output[7],0,addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0))}}
+
+            <!--2nd to 4th-->
+            <div ng-repeat="x in new_output" ng-if="$index <3">
+                {{new_output[$index*4 + 7]}}` \oplus `{{addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0)}}
+                ` = ` {{addthree(0,new_output[$index*4 + 7], addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0))}}
                 <div layout="row" layout-align="space-around center">
                     <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[7]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0)}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[7],0,addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0))}}_{16}`</div>
+                        <div>` {{new_output[$index*4 + 7]}}_{16} ` </div>
+                        <div>` {{addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0)}}_{16}`<hr style="margin: 0 !important;"></div>
+                        <div>` {{addthree(0,new_output[$index*4 + 7], addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0))}}_{16}`</div>
                     </div>
                     <div layout="column" layout-align="space-around center">
                         <div>`=` </div><div>`=` </div><div>`=` </div>
                     </div>
                     <div>
                         `{{toBin(new_output[7])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0))}}_{2}`
+                        `{{toBin(addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0))}}_{2}`
                         <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[7],0,addthree(new_output[6],addthree(new_output[5],addthree(new_output[0],findsbox(new_output[11]),rcon[0]["c1"]),0),0)))}}_{2} `
-                    </div>
-                </div>
-            </div>
-            <!--3rd-->
-            <div>
-                {{new_output[11]}}` \oplus `{{addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0)}}
-                ` = `{{addthree(new_output[11],0,addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0))}}
-                <div layout="row" layout-align="space-around center">
-                    <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[11]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0)}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[11],0,addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0))}}_{16}`</div>
-                    </div>
-                    <div layout="column" layout-align="space-around center">
-                        <div>`=` </div><div>`=` </div><div>`=` </div>
-                    </div>
-                    <div>
-                        `{{toBin(new_output[11])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0))}}_{2}`
-                        <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[11],0,addthree(new_output[10],addthree(new_output[9],addthree(new_output[0],findsbox(new_output[15]),rcon[0]["c1"]),0),0)))}}_{2} `
-                    </div>
-                </div>
-            </div>
-            <!--4th-->
-            <div>
-                {{new_output[15]}}` \oplus `{{addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0)}}
-                ` = `{{addthree(new_output[15],0,addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0))}}
-                <div layout="row" layout-align="space-around center">
-                    <div layout="column" layout-align="space-around center">
-                        <div>` {{new_output[15]}}_{16} ` </div>
-                        <div>` {{addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0)}}_{16}`<hr style="margin: 0 !important;"></div>
-                        <div>` {{addthree(new_output[15],0,addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0))}}_{16}`</div>
-                    </div>
-                    <div layout="column" layout-align="space-around center">
-                        <div>`=` </div><div>`=` </div><div>`=` </div>
-                    </div>
-                    <div>
-                        `{{toBin(new_output[15])}}_{2}`<br>
-                        `{{toBin(addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0))}}_{2}`
-                        <hr style="margin: 0 !important;">
-                        ` {{toBin(addthree(new_output[15],0,addthree(new_output[14],addthree(new_output[13],addthree(new_output[0],findsbox(new_output[3]),rcon[0]["c1"]),0),0)))}}_{2} `
+                        ` {{toBin(addthree(0,new_output[$index*4 + 7], addthree(new_output[$index*4+6],addthree(new_output[$index*4 + 5],addthree(new_output[($index+1)*4], findsbox(new_output[($index*4 + 11)%16]), rcon[0]["c1"]),0),0)))}}_{2} `
                     </div>
                 </div>
             </div>
