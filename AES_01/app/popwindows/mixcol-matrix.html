@@ -2,13 +2,16 @@
     <form ng-cloak ng-controller="numCtrl">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <p style="margin:0;">Matrix Calculation for ` s'_{0,{{test01.default}}}` : {{mixcolumnsresult[0][test01.default]}}</p>
+                <p style="margin:0;">Matrix Calculation for
+                    <span mathjax-autobind=" 's\'_{' + (test01.default/4).toFixed(0) + ',' + test01.default%4 + '}' "></span>
+                    : {{mixcolumnsresult[0][test01.default]}}</p>
                 <span flex></span>
             </div>
         </md-toolbar>
 
         <md-dialog-content>
             <div class="md-dialog-content" ng-controller="matrixCtrl"></div>
+            {{test01.default/4| number:0}}
             <div layout="row" layout-align="space-between center">
                 <div><span mathjax-autobind="'\\begin{bmatrix}02 & 03 & 01 & 01 \\\\
                         01 & 02 & 03 & 01 \\\\
@@ -29,16 +32,28 @@
             </div>
 
             <div layout="row" layout-align="space-between center">
-                {{con}}
-                {{con[1]}}
-                <div>\begin{bmatrix}{{con[test01.default]}}\end{bmatrix}</div>
+                <div ng-hide="test01.default%4 != 0">\begin{bmatrix}02 & 03 & 01 & 01 \end{bmatrix}</div>
+                <div ng-hide="test01.default%4 != 1">\begin{bmatrix}01 & 02 & 03 & 01 \end{bmatrix}</div>
+                <div ng-hide="test01.default%4 != 2">\begin{bmatrix}01 & 01 & 02 & 03 \end{bmatrix}</div>
+                <div ng-hide="test01.default%4 != 3">\begin{bmatrix}03 & 01 & 01 & 02 \end{bmatrix}</div>
                  ` \oplus `
+                <div>\begin{bmatrix}{{two(shiftrowsresult[0][test01.default])}}\\
+                    {{two(shiftrowsresult[0][(test01.default+4)%16])}}\\
+                    {{two(shiftrowsresult[0][(test01.default+8)%16])}}\\
+                    {{two(shiftrowsresult[0][(test01.default+12)%16])}}\end{bmatrix}</div>
                 ` = `
-                \begin{bmatrix}{{mixcolumnsresult[0][test01.default]}}\end{bmatrix}
+                <div>\begin{bmatrix}{{mixcolumnsresult[0][test01.default]}}\end{bmatrix}</div>
             </div>
             <!--
                 Pass in value: $index of the cell
             -->
+
+            <!--Detail-->
+            <div layout="row" layout-align="space-between center">
+                <div ng-hide="test01.default%4 != 0">` {02} `</div>
+                <div ng-hide="test01.default%4 != 1 && test01.default%4 != 2">` {01} `</div>
+                <div ng-hide="test01.default%4 != 3">` {03} `</div>
+            </div>
 
         </md-dialog-content>
 

@@ -40,7 +40,6 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
 
     $scope.two = toTwoDigit.two;
 
-
     input_amend = [input01[0],input01[4],input01[8],input01[12],
         input01[1],input01[5],input01[9],input01[13],
         input01[2],input01[6],input01[10],input01[14],

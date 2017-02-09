@@ -12,6 +12,9 @@ myApp.controller('matrixCtrl', function($scope,$location,consts) {
         "01 & 01 & 02 & 03",
         "03 & 01 & 01 & 02"
     ];
+
+
+
     /*
     var temp = val % 4;
     var temp2 = parseInt(val/4);

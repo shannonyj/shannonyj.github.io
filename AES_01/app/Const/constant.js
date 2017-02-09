@@ -3,7 +3,7 @@
  */
 
 myApp.constant("consts",{
-    default: 40,
+    //default: 40,
 
     // Preset input values
     output: [['48', '69', '20', '74','68', '61', '75', '27','73','21','62','23','64','65','6d','6f'],
