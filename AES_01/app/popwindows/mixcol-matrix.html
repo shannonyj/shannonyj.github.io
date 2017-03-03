@@ -11,8 +11,7 @@
 
         <md-dialog-content>
             <div class="md-dialog-content" ng-controller="matrixCtrl"></div>
-            {{test01.default/4| number:0}}
-            <div layout="row" layout-align="space-between center">
+            <div layout="row" layout-align="space-between center" style="margin-left: 5em;margin-right: 5em;">
                 <div><span mathjax-autobind="'\\begin{bmatrix}02 & 03 & 01 & 01 \\\\
                         01 & 02 & 03 & 01 \\\\
                         01 & 01 & 02 & 03 \\\\
@@ -31,7 +30,9 @@
                     {{two(mixcolumnsresult[0][(test01.default+12)%16])}}\end{bmatrix}</div>
             </div>
 
-            <div layout="row" layout-align="space-between center">
+            <hr style="margin:1em;">
+            <div layout="row" layout-align="center"><b>Detail</b></div>
+            <div layout="row" layout-align="space-between center" style="margin: 0 2.5em 0 2.5em;">
                 <div ng-hide="test01.default%4 != 0">\begin{bmatrix}02 & 03 & 01 & 01 \end{bmatrix}</div>
                 <div ng-hide="test01.default%4 != 1">\begin{bmatrix}01 & 02 & 03 & 01 \end{bmatrix}</div>
                 <div ng-hide="test01.default%4 != 2">\begin{bmatrix}01 & 01 & 02 & 03 \end{bmatrix}</div>
@@ -49,10 +50,40 @@
             -->
 
             <!--Detail-->
-            <div layout="row" layout-align="space-between center">
-                <div ng-hide="test01.default%4 != 0">` {02} `</div>
-                <div ng-hide="test01.default%4 != 1 && test01.default%4 != 2">` {01} `</div>
-                <div ng-hide="test01.default%4 != 3">` {03} `</div>
+            <div layout="row" layout-align="space-between center" style="margin: 0 2em 0 2em;">
+                <!-- 1st Section-->
+                <div ng-hide="test01.default%4 != 0">` 02_{16} `</div>
+                <div ng-hide="test01.default%4 != 1 && test01.default%4 != 2">` 01_{16} `</div>
+                <div ng-hide="test01.default%4 != 3">` 03_{16} `</div>
+                `* {{two(shiftrowsresult[0][test01.default])}}_{16}  \oplus `
+
+                <!-- 2nd Section-->
+                <div ng-hide="test01.default%4 != 1">` 02_{16} `</div>
+                <div ng-hide="test01.default%4 != 2 && test01.default%4 != 3">` 01_{16} `</div>
+                <div ng-hide="test01.default%4 != 0">` 03_{16} `</div>
+                `* {{two(shiftrowsresult[0][(test01.default+4)%16])}}_{16}  \oplus `
+
+                <!-- 3rd Section-->
+                <div ng-hide="test01.default%4 != 2">` 02_{16} `</div>
+                <div ng-hide="test01.default%4 != 0 && test01.default%4 != 3">` 01_{16} `</div>
+                <div ng-hide="test01.default%4 != 1">` 03_{16} `</div>
+                `* {{two(shiftrowsresult[0][(test01.default+8)%16])}}_{16}  \oplus `
+
+                <!-- 4th Section-->
+                <div ng-hide="test01.default%4 != 3">` 02_{16} `</div>
+                <div ng-hide="test01.default%4 != 0 && test01.default%4 != 1">` 01_{16} `</div>
+                <div ng-hide="test01.default%4 != 2">` 03_{16} `</div>
+                `* {{two(shiftrowsresult[0][(test01.default+4)%16])}}_{16}  =
+                {{mixcolumnsresult[0][test01.default]}}_{16} `
+
+            </div>
+
+            <!-- Binary -->
+            <div>
+                <div>`{{mixc[test01.default%4]["0"]}} * {{two(shiftrowsresult[0][(test01.default)%16])}}`</div>
+                <div>`{{mixc[test01.default%4]["1"]}} * {{two(shiftrowsresult[0][(test01.default+4)%16])}}`</div>
+                <div>`{{mixc[test01.default%4]["2"]}} * {{two(shiftrowsresult[0][(test01.default+8)%16])}}`</div>
+                <div>`{{mixc[test01.default%4]["3"]}} * {{two(shiftrowsresult[0][(test01.default+12)%16])}}`</div>
             </div>
 
         </md-dialog-content>

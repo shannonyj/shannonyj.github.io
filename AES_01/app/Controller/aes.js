@@ -74,8 +74,6 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
     $scope.after_key = key01;
     */
 
-
-
     aseencrypt.aes_encrypt(inputStr, keyStr);
     //aseencrypt.aes_encrypt(input01, key01);
 
@@ -114,6 +112,21 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
         }
     }
     $scope.roundkey = consts.finalkey;
+
+    //Test con
+    $scope.conw = [
+        "02",
+        "02 & 03 & 01 & 01",
+        "01 & 02 & 03 & 01",
+        "01 & 01 & 02 & 03",
+        "03 & 01 & 01 & 02"
+    ];
+
+    $scope.mixc = consts.mixcolcon;
+    $scope.parsethenmul = function(){
+
+    };
+
     PolynomialField.updateAllMath();
 });
 
