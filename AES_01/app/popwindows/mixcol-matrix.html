@@ -50,7 +50,7 @@
             -->
 
             <!--Detail-->
-            <div layout="row" layout-align="space-between center" style="margin: 0 2em 0 2em;">
+            <div layout="row" layout-align="space-between center" style="margin: 1em 2em 0 2em;">
                 <!-- 1st Section-->
                 <div ng-hide="test01.default%4 != 0">` 02_{16} `</div>
                 <div ng-hide="test01.default%4 != 1 && test01.default%4 != 2">` 01_{16} `</div>
@@ -79,11 +79,43 @@
             </div>
 
             <!-- Binary -->
-            <div>
-                <div>`{{mixc[test01.default%4]["0"]}} * {{two(shiftrowsresult[0][(test01.default)%16])}}`</div>
-                <div>`{{mixc[test01.default%4]["1"]}} * {{two(shiftrowsresult[0][(test01.default+4)%16])}}`</div>
-                <div>`{{mixc[test01.default%4]["2"]}} * {{two(shiftrowsresult[0][(test01.default+8)%16])}}`</div>
-                <div>`{{mixc[test01.default%4]["3"]}} * {{two(shiftrowsresult[0][(test01.default+12)%16])}}`</div>
+
+
+            <div layout="row" layout-align="space-around-center" style="margin: 0 2em 0 2em;">
+                <div>
+                    <div ng-repeat="$index in [0,1,2,3]">
+                        `{{mixc[test01.default%4][$index.toString()]}} * {{two(shiftrowsresult[0][(test01.default+$index*4)%16])}}`
+                    </div>
+                </div>
+                <div>
+                    <div ng-repeat="$index in [0,1,2,3]">=</div>
+                </div>
+                <div>
+                    <div ng-repeat="$index in [0,1,2,3]">
+                        `{{toBin(mixc[test01.default%4][$index.toString()])}}_{2} * {{toBin(shiftrowsresult[0][(test01.default+$index*4)%16])}}_{2}`
+                    </div>
+                </div>
+                <div><div ng-repeat="$index in [0,1,2,3]">=</div></div>
+                <div style="margin-top: 7em;"><div>`\oplus`</div><div>`=`</div></div>
+
+                <div style="margin-top: 1.75em;">
+                    <div ng-repeat="$index in [0,1,2]">
+                        `{{toBin(parse_mul(mixc[test01.default%4][$index.toString()], two(shiftrowsresult[0][(test01.default+$index*4)%16])))}}_{2}`
+                    </div>
+                    <div>
+                        `{{toBin(parse_mul(mixc[test01.default%4]["3"], two(shiftrowsresult[0][(test01.default+12)%16])))}}_{2}`
+                    </div>
+                    <hr style="margin: 0 !important;">
+                    <div>`{{toBin(mixcolumnsresult[0][test01.default])}}_{2}`</div>
+                </div>
+
+                <div style="margin-top: 8.75em;">
+                    <div>=</div>
+                </div>
+                <div style="margin-top: 8.8em;">
+                    <div>`{{mixcolumnsresult[0][test01.default]}}_{16}`</div>
+                </div>
+
             </div>
 
         </md-dialog-content>

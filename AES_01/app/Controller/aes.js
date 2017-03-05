@@ -112,19 +112,27 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
         }
     }
     $scope.roundkey = consts.finalkey;
-
-    //Test con
-    $scope.conw = [
-        "02",
-        "02 & 03 & 01 & 01",
-        "01 & 02 & 03 & 01",
-        "01 & 01 & 02 & 03",
-        "03 & 01 & 01 & 02"
-    ];
-
     $scope.mixc = consts.mixcolcon;
-    $scope.parsethenmul = function(){
 
+    $scope.toBin = toTwoDigit.toBin;
+
+    $scope.parse_mul = function(val1, val2){
+        var a = (2*parseInt(val2,16)).toString(2);
+        var b = parseInt(val2,16).toString(2);
+        var a1 = ("00000000" + a).substring(("00000000" + a).length - 8);
+        var b1 = ("00000000" + b).substring(("00000000" + b).length - 8);
+        var xor = [];
+        var results = 0;
+
+        for (i=0; i < 8; i++){
+            xor[i] = ( parseInt(a1[i]) || parseInt(b1[i]) ) && !( parseInt(a1[i]) && parseInt(b1[i]) )? 1 : 0;
+        }
+
+        if(parseInt(val1,16)<3){
+            return (parseInt(val1, 16) * parseInt(val2, 16)).toString(16);
+        }else{
+            return parseInt(xor.join(""),2).toString(16);
+        }
     };
 
     PolynomialField.updateAllMath();

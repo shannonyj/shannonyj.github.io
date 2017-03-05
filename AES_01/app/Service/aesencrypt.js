@@ -440,6 +440,10 @@ myApp.service("aseencrypt",function () {
 
         return state;
     }
+
+    this.aes_mul = function aes_mul(a,b){
+    };
+
     this.aes_encrypt = function aes_encrypt(input,key)
     {
         var w = new Array( 44 );			// subkey information

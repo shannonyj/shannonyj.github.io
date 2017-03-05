@@ -14,6 +14,10 @@ myApp.controller('matrixCtrl', function($scope,$location,consts) {
         "03 & 01 & 01 & 02"
     ];
 
+    $scope.toBin = function(val){
+        return ("00000000" + parseInt(val,16).toString(2)).substring(("00000000" + parseInt(val,16).toString(2)).length - 8);
+    };
+
 
 
     /*

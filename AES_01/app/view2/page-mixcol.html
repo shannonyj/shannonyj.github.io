@@ -56,23 +56,23 @@
                 <table ng-controller="numCtrl">
                     <tr class="light">
                         <td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index < 4">
-                            <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                            <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="color:white;">
                             {{two(x)}}</a>
                         </td>
                     </tr>
                     <tr class="light">
                         <td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 3 && $index <8">
-                            <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                            <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="color:white;">
                                 {{two(x)}}
                             </a>
                         </td>
                     </tr>
                     <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 7 && $index <12">
-                        <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                        <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="color:white;">
                         {{two(x)}}
                     </a></td></tr>
                     <tr class="light"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 11 && $index <16">
-                        <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="text-decoration:none;color:white;">
+                        <a ng-controller="View1Ctrl" ng-click="showSteps($event, $index)" style="color:white;">
                             {{two(x)}}
                         </a>
                     </td></tr>
