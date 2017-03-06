@@ -43,19 +43,17 @@ myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, 
         consts.output[1] = tempoutput[1];
     }
 
-    $scope.test01 = consts;
+    $scope.constant1 = consts;
+    //$scope.test01 = consts;
     $scope.rcon = consts.rcon;
     $scope.sbox = consts.s_enc;
 
-    $scope.toBin = function(val){
-        return ("00000000" + parseInt(val,16).toString(2)).substring(("00000000" + parseInt(val,16).toString(2)).length - 8);
-    };
-
+    $scope.toBin = toTwoDigit.toBin;
     $scope.eight = toTwoDigit.eight;
 
     /*Change to vertical*/
-    $scope.input = $scope.test01.output[0];
-    $scope.output = $scope.test01.output[1];
+    $scope.input = $scope.constant1.output[0];
+    $scope.output = $scope.constant1.output[1];
 
     $scope.new_input = [$scope.input[0],$scope.input[4],$scope.input[8],$scope.input[12],
         $scope.input[1],$scope.input[5],$scope.input[9],$scope.input[13],
@@ -97,7 +95,7 @@ myApp.controller('keyCtrl', function($scope, consts, sub, toTwoDigit){
                           [consts.output[1][12],consts.output[1][13],consts.output[1][14],consts.output[1][15]]];
 
 
-    $scope.test01 = consts;
+    $scope.constant1 = consts;
     $scope.two = toTwoDigit.two;
 
     for (var j = 1; j < 11; j++){

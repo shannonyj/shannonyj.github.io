@@ -5,12 +5,12 @@
             <form name="userForm">
                 <md-input-container class="md-block" flex-gt-xs>
                     <label style="font-size: large; color: white;">Text Input</label>
-                    <input style="color: white;" ng-model="test01.output[0]" disabled>
+                    <input style="color: white;" ng-model="constant1.output[0]" disabled>
                 </md-input-container>
             </form>
         </div>
         <div flex="5">
-            <table ng-controller="insuredCtrl" style="font-size: small;">
+            <table style="font-size: small;">
                 <tr ng-repeat="i in [0,1,2,3]">
                     <td class="smallspecial" ng-repeat="j in [1,2,3,4]">{{new_input[i*4+j-1]}}</td></tr>
                 <tr>
@@ -22,12 +22,12 @@
             <form name="userForm">
                 <md-input-container class="md-block" flex-gt-xs>
                     <label style="font-size: large; color: white;">Cipher Key</label>
-                    <input style="color: white;" ng-model="test01.output[1]" disabled>
+                    <input style="color: white;" ng-model="constant1.output[1]" disabled>
                 </md-input-container>
             </form>
         </div>
         <div flex="5" style="padding-left: 1em">
-            <table ng-controller="insuredCtrl" style="font-size: small;">
+            <table style="font-size: small;">
                 <tr ng-repeat="i in [0,1,2,3]">
                     <td class="smallspecial" ng-repeat="j in [1,2,3,4]">{{new_output[i*4+j-1]}}</td></tr>
                 <tr>

@@ -30,34 +30,26 @@
 //
 //
 
+
+/*AES Controller*/
 myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
-
-    $scope.test01 = consts;
-    input01 = $scope.test01.output[0];
-    key01 = $scope.test01.output[1];
+    $scope.constant1 = consts;
     consts.roundresult[0] = [];
-
 
     $scope.two = toTwoDigit.two;
 
+    input01 = $scope.constant1.output[0];
+    key01 = $scope.constant1.output[1];
     input_amend = [input01[0],input01[4],input01[8],input01[12],
         input01[1],input01[5],input01[9],input01[13],
         input01[2],input01[6],input01[10],input01[14],
         input01[3],input01[7],input01[11],input01[15]
     ];
-
-    //inputStr = input_amend.join('');
-    inputStr = input01.join('');
-
     key_amend = [key01[0],key01[4],key01[8],key01[12],
         key01[1],key01[5],key01[9],key01[13],
         key01[2],key01[6],key01[10],key01[14],
         key01[3],key01[7],key01[11],key01[15]
     ];
-
-    //keyStr = key_amend.join('');
-    keyStr = key01.join('');
-
 
     $scope.new_input = input_amend;
     $scope.new_key = key_amend;
@@ -67,15 +59,7 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
         consts.roundresult[0].push(temp);
     }
 
-    /*
-    $scope.before_input = inputStr;
-    $scope.before_key = keyStr;
-    $scope.after_input = input01;
-    $scope.after_key = key01;
-    */
-
-    aseencrypt.aes_encrypt(inputStr, keyStr);
-    //aseencrypt.aes_encrypt(input01, key01);
+    aseencrypt.aes_encrypt(input01.join(''), key01.join(''));
 
     testResult = aseencrypt.result;
     testSub = aseencrypt.subbytes;
@@ -138,6 +122,8 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
     PolynomialField.updateAllMath();
 });
 
+
+/*S-Box Controller*/
 myApp.controller('sBoxCtrl', function($scope, $http, $cookies, $cookieStore, $window, consts) {
     if(angular.isDefined($cookieStore.get('AES'))){
         var tempoutput = $cookieStore["get"]('AES');
@@ -146,19 +132,17 @@ myApp.controller('sBoxCtrl', function($scope, $http, $cookies, $cookieStore, $wi
     }
 
     $scope.s_enc = consts.s_enc;
-
-    $scope.test01 = consts;
+    $scope.constant1 = consts;
 
     $window.onbeforeunload = function(){
         $cookieStore.put('AES',consts.output);
     };
-
     PolynomialField.updateAllMath();
-    //MathJax.Hub.Queue(["Typeset",MathJax.Hub])();
 });
 
-myApp.controller('mixColCtrl', function($scope, $http, consts) {
-    $scope.test01 = consts;
+/*Mix Col Controller*/
+myApp.controller('mixColCtrl', function($scope, consts) {
+    $scope.constant1 = consts;
     PolynomialField.updateAllMath();
     //MathJax.Hub.Queue(["Typeset",MathJax.Hub])();
 });

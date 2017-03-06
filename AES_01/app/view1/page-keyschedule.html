@@ -37,21 +37,6 @@
                         <td class="special" ng-repeat="j in [1,2,3,4]">{{new_output[i*4+j-1]}}</td>
                     </tr>
 
-                    <!--
-                    <tr class="keyspecial"><td class="special">{{test01.output[1][0]}}</td><td class="special">{{test01.output[1][1]}}</td>
-                        <td class="special">{{test01.output[1][2]}}</td><td class="special">{{test01.output[1][3]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td class="special">{{test01.output[1][4]}}</td><td class="special">{{test01.output[1][5]}}</td>
-                        <td class="special">{{test01.output[1][6]}}</td><td class="special">{{test01.output[1][7]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td class="special">{{test01.output[1][8]}}</td><td class="special">{{test01.output[1][9]}}</td>
-                        <td class="special">{{test01.output[1][10]}}</td><td class="special">{{test01.output[1][11]}}</td>
-                    </tr>
-                    <tr class="keyspecial"><td class="special">{{test01.output[1][12]}}</td><td class="special">{{test01.output[1][13]}}</td>
-                        <td class="special">{{test01.output[1][14]}}</td><td class="special">{{test01.output[1][15]}}</td>
-                    </tr>
-                    -->
-
                 </table><br>
                 <p style="padding-left: 45%"> Cipher Key</p>
             </div>
@@ -168,8 +153,8 @@
                                 </div>
 
                                 <!--Arrow 1st step-->
-                                <div class="1u" style="padding-left: 6em;">
-                                    <p style="font-size: small">Rotation</p>
+                                <div class="1u" style="padding-left: 6em; padding-top: 3em !important;">
+                                    <p style="font-size: small; margin-bottom: 0.5em !important;">Rotation</p>
                                     <img src="images/arrow1.png" height="24" width="64">
                                 </div>
 
@@ -196,8 +181,8 @@
                                 </table>
                                 <div>` w'_3 `</div>
                             </div>
-                            <div class="1u" style="padding-left: 6em;">
-                                <p style="font-size: small">SubBytes</p>
+                            <div class="1u" style="padding-left: 6em; padding-top: 3em !important;">
+                                <p style="font-size: small; margin-bottom: 0.5em !important;">SubBytes</p>
                                 <img src="images/arrow1.png" height="24" width="64">
                             </div>
                             <div class="1u" style="padding-left: 6em;">
@@ -378,7 +363,6 @@
         </div>
 
         <div ng-controller="toastCtrl" ng-if="show5" ng-init="showActionToast3()"></div>
-
     </div>
 
     <!--i=6-->

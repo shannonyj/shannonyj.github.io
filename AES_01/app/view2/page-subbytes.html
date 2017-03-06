@@ -18,35 +18,28 @@
             </div>
             <div class="dialogwhite">
                 <div layout="row" layout-align="space-around center" ng-controller="numCtrl">
-                    <!--
-                    <p>This is key before{{before_key}}</p>
-                    <p>This is key after{{after_key}}</p>
-                    -->
-            <!-- Initial State Input-->
-            <div class="\-6u">
-                <table>
-                    <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{new_input[i*4+j]}}</td></tr>
-                </table>
-            </div>
-            <div class="\-4u">
-                ` \oplus `
-            </div>
-            <!-- Initial State Cipher Key-->
-            <div class="\-6u">
-                <table>
-                    <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{new_key[i*4+j]}}</td></tr>
-                </table>
-            </div>
-            <div class="\-4u">
-                =
-            </div>
-            <!-- Result -->
-            <div class="\-6u">
-                <table>
-                    <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{test01.roundresult[0][i*4+j]}}</td></tr>
-                </table>
-            </div>
-        </div>
+
+                    <!-- Initial State Input-->
+                    <div class="\-6u">
+                        <table>
+                            <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{new_input[i*4+j]}}</td></tr>
+                        </table>
+                    </div>
+                    <div class="\-4u">` \oplus `</div>
+                    <!-- Initial State Cipher Key-->
+                    <div class="\-6u">
+                        <table>
+                            <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{new_key[i*4+j]}}</td></tr>
+                        </table>
+                    </div>
+                    <div class="\-4u">=</div>
+                    <!-- Result -->
+                    <div class="\-6u">
+                        <table>
+                            <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{constant1.roundresult[0][i*4+j]}}</td></tr>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -58,7 +51,7 @@
                 <div layout="row" layout-align="space-around center">
                     <div align="center">
                         <table ng-controller="numCtrl">
-                            <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{test01.roundresult[0][i*4+j]}}</td></tr>
+                            <tr ng-repeat="i in [0,1,2,3]"><td ng-repeat="j in [0,1,2,3]">{{constant1.roundresult[0][i*4+j]}}</td></tr>
                         </table>
                         <p>Before S-Box Substituion</p>
                     </div>
@@ -76,7 +69,7 @@
                 <div layout="row" layout-align="space-around center">
                     <div align="center">
                         <table ng-controller="insuredCtrl">
-                            <tr ng-repeat="k in [0,1,2,3]"><td ng-repeat="l in [0,1,2,3]">{{findsbox(test01.roundresult[0][k*4+l])}}</td></tr>
+                            <tr ng-repeat="k in [0,1,2,3]"><td ng-repeat="l in [0,1,2,3]">{{findsbox(constant1.roundresult[0][k*4+l])}}</td></tr>
                         </table>
                         <p>After S-Box Substituion</p>
                     </div>
@@ -92,7 +85,7 @@
                 <table ng-controller="insuredCtrl" style="font-size: x-small;">
                     <tr ng-repeat="data in sbox" class="special">
                         <td ng-repeat="datum in data" style="margin: 0; line-height: 4px" ng-style="resultarr[datum]"
-                            ng-hide="datum == findsbox(test01.roundresult[0][$index])">
+                            ng-hide="datum == findsbox(constant1.roundresult[0][$index])">
                             <a href="https://abdcfaferadfa.github.io/FYP-GF/app/#!/sbox?internal&val={{($parent.$index-1)*16 + ($index-1)}}"
                                style="text-decoration:none;color:black;">
                                 {{datum.substr(2,2)}}

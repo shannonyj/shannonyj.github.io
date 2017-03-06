@@ -81,6 +81,7 @@ myApp.constant("consts",{
                 "c1": "00"
             }
         ],
+    
     s_enc:
         [
             { "title":" ",

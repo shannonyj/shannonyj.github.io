@@ -35,80 +35,26 @@
                     </div>
                 </div>
 
-                <!--2nd-->
-                <div style="padding-left: 3em;">
-                    {{new_output[4]}}` \oplus `{{findsbox(new_output[11])}}` \oplus `{{rcon[0]["c1"]}}
-                    ` = `{{addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c1"])}}
+                <!--2nd to 4th-->
+                <div ng-repeat="i in [0,1,2]" style="padding-left: 3em;">
+                    {{new_output[(i+1)*4]}}` \oplus `{{findsbox(new_output[((i*4)+11)%16])}}` \oplus `{{rcon[0]["c1"]}}
+                    ` = `{{addthree(new_output[(i+1)*4],findsbox(new_output[((i*4)+11)%16]),rcon[0]["c1"])}}
                     <div layout="row" layout-align="space-around center">
                         <div layout="column" layout-align="space-around center">
-                            <div>` {{new_output[4]}}_{16} ` </div>
-                            <div>` {{findsbox(new_output[11])}}_{16}`</div>
+                            <div>` {{new_output[(i+1)*4]}}_{16} ` </div>
+                            <div>` {{findsbox(new_output[((i*4)+11)%16])}}_{16}`</div>
                             <div>` \underline {00_{16}}`</div>
-                            <div>` {{addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c0"])}}_{16}`</div>
+                            <div>` {{addthree(new_output[(i+1)*4],findsbox(new_output[((i*4)+11)%16]),rcon[0]["c1"])}}_{16}`</div>
                         </div>
                         <div layout="column" layout-align="space-around center">
-                            <div>`=` </div><div>`=` </div>
-                            <div>`=` </div><div>`=` </div>
+                            <div ng-repeat="j in [0,1,2,3]">`=`</div>
                         </div>
                         <div>
                             ` \begin{array}{add}
-                            & {{toBin(new_output[4])}}_{2} \\
-                            & {{toBin(findsbox(new_output[11]))}}_{2} \\
+                            & {{toBin(new_output[(i+1)*4])}}_{2} \\
+                            & {{toBin(findsbox(new_output[(i*4+11)%16]))}}_{2} \\
                             & \underline {0000 0000_{2}} \\
-                            & {{toBin(addthree(new_output[4],findsbox(new_output[11]),rcon[0]["c0"]))}}_{2} \\
-                            \end{array} `
-                        </div>
-                    </div>
-                </div>
-
-                <!--3rd-->
-                <div style="padding-left: 3em;">
-                    {{new_output[8]}}` \oplus `{{findsbox(new_output[15])}}` \oplus `{{rcon[0]["c1"]}}
-                    ` = `{{addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c1"])}}
-                    <div layout="row" layout-align="space-around center">
-                        <div layout="column" layout-align="space-around center">
-                            <div>` {{new_output[8]}}_{16} ` </div>
-                            <div>` {{findsbox(new_output[15])}}_{16}`</div>
-                            <div>` \underline {00_{16}}`</div>
-                            <div>` {{addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c0"])}}_{16}`</div>
-                        </div>
-                        <div layout="column" layout-align="space-around center">
-                            <div>`=` </div><div>`=` </div>
-                            <div>`=` </div><div>`=` </div>
-                        </div>
-                        <div>
-                            ` \begin{array}{add}
-                            & {{toBin(new_output[8])}}_{2} \\
-                            & {{toBin(findsbox(new_output[15]))}}_{2} \\
-                            & \underline {0000 0000_{2}} \\
-                            & {{toBin(addthree(new_output[8],findsbox(new_output[15]),rcon[0]["c0"]))}}_{2} \\
-                            \end{array} `
-                        </div>
-                    </div>
-                </div>
-
-
-                <!--4th-->
-                <div style="padding-left: 3em;">
-                    {{new_output[12]}}` \oplus `{{findsbox(new_output[3])}}` \oplus `{{rcon[0]["c1"]}}
-                    ` = `{{addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c1"])}}
-                    <div layout="row" layout-align="space-around center">
-                        <div layout="column" layout-align="space-around center">
-                            <div>` {{new_output[12]}}_{16} ` </div>
-                            <div>` {{findsbox(new_output[3])}}_{16}`</div>
-                            <div>` \underline {00_{16}}`</div>
-                            <div>` {{addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c0"])}}_{16}`</div>
-                        </div>
-                        <div layout="column" layout-align="space-around center">
-                            <div>`=` </div><div>`=` </div>
-                            <div>`=` </div><div>`=` </div>
-                        </div>
-                        <div>
-                            ` \begin{array}{add}
-                            & {{toBin(new_output[12])}}_{2} \\
-                            & {{toBin(findsbox(new_output[3]))}}_{2} \\
-                            & \underline {0000 0000_{2}} \\
-                            & {{toBin(addthree(new_output[12],findsbox(new_output[3]),rcon[0]["c0"]))}}_{2} \\
+                            & {{toBin(addthree(new_output[(i+1)*4],findsbox(new_output[(i*4+11)%16]),rcon[0]["c0"]))}}_{2} \\
                             \end{array} `
                         </div>
                     </div>

@@ -4,8 +4,6 @@
 
 myApp.controller('matrixCtrl', function($scope,$location,consts) {
     $scope.preset = consts.default;
-    $scope.test01 = '40';
-
     $scope.con = [
         "02",
         "02 & 03 & 01 & 01",
