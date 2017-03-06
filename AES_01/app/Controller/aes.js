@@ -35,8 +35,11 @@
 myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
     $scope.constant1 = consts;
     consts.roundresult[0] = [];
+    $scope.roundkey = consts.finalkey;
+    $scope.mixc = consts.mixcolcon;
 
     $scope.two = toTwoDigit.two;
+    $scope.toBin = toTwoDigit.toBin;
 
     input01 = $scope.constant1.output[0];
     key01 = $scope.constant1.output[1];
@@ -95,10 +98,6 @@ myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
             $scope.finalresult[j].push(temp);
         }
     }
-    $scope.roundkey = consts.finalkey;
-    $scope.mixc = consts.mixcolcon;
-
-    $scope.toBin = toTwoDigit.toBin;
 
     $scope.parse_mul = function(val1, val2){
         var a = (2*parseInt(val2,16)).toString(2);
