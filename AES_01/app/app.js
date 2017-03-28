@@ -31,6 +31,7 @@ myApp.config(function($routeProvider) {
       .when('/input', {
         templateUrl: 'view1/page-input.html',
         controller: 'inputController'
+
       })
 
       //display page

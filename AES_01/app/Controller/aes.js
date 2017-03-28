@@ -33,6 +33,7 @@
 
 /*AES Controller*/
 myApp.controller('numCtrl',function($scope, consts, aseencrypt, toTwoDigit) {
+    $scope.Math=Math;
     $scope.constant1 = consts;
     consts.roundresult[0] = [];
     $scope.roundkey = consts.finalkey;

@@ -3,7 +3,7 @@
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <p style="margin:0;">Matrix Calculation for
-                    <span mathjax-autobind=" 's\'_{' + (constant1.default/4).toFixed(0) + ',' + constant1.default%4 + '}' "></span>
+                    <span mathjax-autobind=" 's\'_{' + Math.floor(constant1.default/4) + ',' + constant1.default%4 + '}' "></span>
                     : {{mixcolumnsresult[0][constant1.default]}}</p>
                 <span flex></span>
             </div>
@@ -71,7 +71,7 @@
                 <div ng-hide="constant1.default%4 != 3">` 02_{16} `</div>
                 <div ng-hide="constant1.default%4 != 0 && constant1.default%4 != 1">` 01_{16} `</div>
                 <div ng-hide="constant1.default%4 != 2">` 03_{16} `</div>
-                `* {{two(shiftrowsresult[0][(constant1.default+4)%16])}}_{16}  =
+                `* {{two(shiftrowsresult[0][(constant1.default+12)%16])}}_{16}  =
                 {{mixcolumnsresult[0][constant1.default]}}_{16} `
 
             </div>
