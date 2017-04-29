@@ -13,7 +13,7 @@
         <div layout="row" layout-align="space-around center">
 
             <!--Previous Step-->
-            <div align="center">
+            <div align="center" style="padding-left: 3em;">
                 <table ng-controller="numCtrl">
                     <tr class="keyspecial"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index < 4">{{two(x)}}</td></tr>
                     <tr class="keyspecial"><td ng-repeat="x in mixcolumnsresult[0] track by $index" ng-if="$index > 3 && $index <8">{{two(x)}}</td></tr>
@@ -22,12 +22,9 @@
                 </table>
             </div>
 
-            <div align="center" flex="5">
-                ` \oplus `
-            </div>
+            <div align="center" flex="5">` \oplus `</div>
 
             <!--Round 1 Key -->
-
             <div align="center">
                 <table ng-controller="keyCtrl">
                     <tr><td ng-repeat="y in keyresult[1]" ng-if="$index < 4">{{two(y[0])}}</td></tr>
@@ -35,17 +32,12 @@
                     <tr><td ng-repeat="y in keyresult[1]" ng-if="$index < 4">{{two(y[2])}}</td></tr>
                     <tr><td ng-repeat="y in keyresult[1]" ng-if="$index < 4">{{two(y[3])}}</td></tr>
                 </table>
-
             </div>
 
-            <div align="center" flex="5">
-                =
-            </div>
-
+            <div align="center" flex="5">` = `</div>
 
             <!--Result-->
-
-            <div align="center">
+            <div align="center" style="padding-right: 3em;">
                 <table ng-controller="numCtrl">
                     <tr class="keyspecial"><td ng-repeat="x in finalresult[1] track by $index" ng-if="$index < 4">{{two(x)}}</td></tr>
                     <tr class="keyspecial"><td ng-repeat="x in finalresult[1] track by $index" ng-if="$index > 3 && $index <8">{{two(x)}}</td></tr>
@@ -54,17 +46,14 @@
                 </table>
             </div>
         </div>
+
         <div layout="row" layout-align="space-around center">
-            <div align="center" style="padding-right: 6em !important;">
-                <p>Before AddRoundKey</p>
-            </div>
+            <div align="center" style="padding-right: 6em !important;padding-left: 3.2em;"><p>Before AddRoundKey</p></div>
             <div align="center" ng-controller="jumpCtrl">
                 <h3 style="margin-bottom: 0 !important;">Round Key 1</h3>
                 <p>Produced previously during <a ng-click="scrollTo('scheduleresult')">key schedule</a></p>
             </div>
-            <div align="center" style="padding-left: 6em !important;">
-                <p>After AddRoundKey</p>
-            </div>
+            <div align="center" style="padding-left: 6em !important;padding-right: 3.2em;"><p>After AddRoundKey</p></div>
         </div>
     </div>
 
