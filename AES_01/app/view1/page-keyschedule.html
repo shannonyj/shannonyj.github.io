@@ -45,14 +45,28 @@
             <div class="2u">
                 <table>
                     <tr class="special">
-                        <th class="thspecial" ng-click="show = 1;">` \color{blue}{w_4}`</th>
+                        <th class="thspecial" ng-click="show = 1;">
+                            ` \color{blue}{w_4}`
+                            <md-tooltip md-direction="{{demo.tipDirection}}">
+                                Click to expand w4 calculation
+                            </md-tooltip>
+                        </th>
                         <th class="thspecial" ng-click="show2 = 1; show = 0; show5 = 1; show6 = 0; show7 = 0;">
+                            <md-tooltip md-direction="{{demo.tipDirection}}">
+                                Click to expand w5 calculation
+                            </md-tooltip>
                             `\color{blue} {w_5} `
                         </th>
                         <th class="thspecial" ng-click="show3 = 1; show = 0; show5 =0; show6 = 1; show7 = 0;">
+                            <md-tooltip md-direction="{{demo.tipDirection}}">
+                                Click to expand w6 calculation
+                            </md-tooltip>
                             ` \color{blue}{w_6} `
                         </th>
                         <th class="thspecial" ng-click="show4 = 1;  show5 = 0; show = 0;show6 =0; show7 = 1;">
+                            <md-tooltip md-direction="{{demo.tipDirection}}">
+                                Click to expand w7 calculation
+                            </md-tooltip>
                             `\color{blue} {w_7} `
                         </th>
                     </tr>

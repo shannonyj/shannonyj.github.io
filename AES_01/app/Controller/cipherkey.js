@@ -83,6 +83,12 @@ myApp.controller('insuredCtrl', function($scope, $http, $cookies, $cookieStore, 
         $cookieStore.put('AES',consts.output);
     };
 
+    $scope.demo = {
+        showTooltip: false,
+        tipDirection: 'top'
+    };
+
+
     PolynomialField.updateAllMath();
 });
 
